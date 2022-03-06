@@ -1,0 +1,40 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  &:focus{
+    outline: none;
+  }
+}
+a{
+  text-decoration: none;
+}
+ul{
+  list-style: none;
+}
+body{
+  font-family: Montserrat;
+}
+button{
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("./assets/fonts/Montserratarm-Black.otf") format("truetype");
+}
+@font-face {
+  font-family: Montserrat;
+  src: url("./assets/fonts/Montserratarm-Bold.otf") format("truetype");
+}
+
+@font-face {
+  font-family: Montserrat;
+  src: url("./assets/fonts/Montserratarm-Medium.otf") format("truetype");
+}
+@font-face {
+  font-family: Montserrat;
+  src: url("./assets/fonts/Montserratarm-Regular.otf") format("truetype");
+}

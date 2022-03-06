@@ -1,0 +1,67 @@
+.loan_calculator_input_wrapper {
+  width: 188px;
+  height: 72px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  > span:nth-child(1) {
+    font-size: 12px;
+    line-height: 16px;
+    color: #828282;
+  }
+  > span:nth-child(3) {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+    color: #482003;
+    position: absolute;
+    right: 16px;
+    bottom: 16px;
+  }
+  > input {
+    width: 100%;
+    height: 48px;
+    background: white;
+    border: 1px solid #f2f2f2;
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-size: 16px;
+    line-height: 24px;
+    color: #333333;
+    &:focus {
+      outline: none;
+    }
+  }
+}
+
+.loan_checkbox_input {
+  height: 32px;
+  min-width: 32px;
+  display: flex;
+  align-items: center;
+  > div {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #949494;
+    border-radius: 28px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 200ms;
+    > div {
+      width: 8px;
+      height: 8px;
+      background: #dfb43c;
+      border-radius: 14px;
+      transition: 200ms;
+      opacity: 0;
+    }
+  }
+  > span {
+    font-size: 12px;
+    line-height: 16px;
+    color: #16131e;
+  }
+}
