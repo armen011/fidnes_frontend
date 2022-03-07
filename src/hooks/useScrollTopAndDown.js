@@ -1,28 +1,19 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from 'react'
 
-export const useScrollTopAndDown = (ref) => {
-    const [isOpened, setIsOpened] = useState(true)
-    const [top, setTop] = useState(0)
+export const useScrollTopAndDown = () => {
+  const [isOpened, setIsOpened] = useState(true)
 
-    const handleScroll = useCallback(({ srcElement: { scrollTop } }) => {
-        if (scrollTop < top || scrollTop === 0) {
-            setIsOpened(true)
-        } else {
-            setIsOpened(false)
-        }
-        setTop(scrollTop)
-    }, [top])
+  const handleScroll = useCallback(() => {
+    setIsOpened(!window.pageYOffset)
+  }, [])
 
-    useEffect(() => {
-        const current = ref.current
-        if (current) {
-            current.addEventListener('scroll', handleScroll)
-        }
-        return () => {
-            current.removeEventListener('scroll', handleScroll)
-        }
+  useEffect(() => {
+    window.removeEventListener('scroll', handleScroll)
+    document.addEventListener('scroll', handleScroll, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+    }
+  })
 
-    }, [ref, handleScroll])
-
-    return isOpened
+  return isOpened
 }
