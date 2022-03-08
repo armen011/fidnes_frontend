@@ -14,6 +14,7 @@ const NewsFeed = () => {
           <NewsCard key={index} {...elm} />
         ))}
       </div>
+      <button>Տեսնել բոլորը</button>
     </div>
   )
 }

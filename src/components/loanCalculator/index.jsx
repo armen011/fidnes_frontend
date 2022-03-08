@@ -28,6 +28,20 @@ const LoanCalculator = () => {
               />
             </AnimatePresence>
           </div>
+          <div className="loan_type_selector_container_mobile">
+            {[...LoanTypes.flat()].map(({ title, img }, index) => {
+              return (
+                <div className="mobile_container" key={index}>
+                  <div className="img_wrapper">
+                    <img src={img} alt="" />
+                  </div>
+                  <div className="text_wrapper">
+                    <span>{title}</span>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
           <div className="loadn_type_selector_controller">
             <button onClick={() => paginate(0)}>
               <div style={page === 0 ? { width: '100%', opacity: 1 } : {}} />

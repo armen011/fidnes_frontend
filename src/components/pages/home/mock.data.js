@@ -7,6 +7,7 @@ export const news = [
     date: '12 Դեկտեմբեր 2022',
     status: '',
     img: newsImg,
+    
   },
   {
     title: 'Նորության Անվանում',

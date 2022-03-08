@@ -50,6 +50,12 @@ const infoVariant = {
 }
 
 const images = [first, second, third, fourth]
+const texts = [
+  { title: 'Հիփոթեքային Վարկեր ՀՀ' },
+  { title: 'Հիփոթեքային Վարկեր Արցախում' },
+  { title: 'Սպառողական Վարկեր ` հատկապես ոսկու գրավով վարկեր' },
+  { title: 'Ապահովագրություն' },
+]
 const Carousel = () => {
   const [[page, direction], setPage] = useState([0, 0])
   const swipePower = (offset, velocity) => {
@@ -95,7 +101,14 @@ const Carousel = () => {
                   width: 708,
                 }}
               >
-                hello
+                <div className="texts_wrapper">
+                  <span>{texts[imageIndex].title}</span>
+                  <span>
+                    Շտապ գումա՞ր է անհրաժեշտ ընթացիկ ծախսերը հոգալու համար, և
+                    ցածր տոկոսադրույքով վարկատեսա՞կ եք փնտրում։ Եկե՛ք Fides։
+                  </span>
+                </div>
+                <button>Իմանալ ավելին</button>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -139,7 +152,14 @@ const Carousel = () => {
             animate="center"
             exit="exit"
           >
-            hello
+            <div className="texts_wrapper">
+              <span>{texts[imageIndex].title}</span>
+              <span>
+                Շտապ գումա՞ր է անհրաժեշտ ընթացիկ ծախսերը հոգալու համար, և ցածր
+                տոկոսադրույքով վարկատեսա՞կ եք փնտրում։ Եկե՛ք Fides։
+              </span>
+            </div>
+            <button>Իմանալ ավելին</button>
           </motion.div>
         </div>
       </div>

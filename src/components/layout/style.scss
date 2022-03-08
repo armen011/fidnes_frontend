@@ -148,7 +148,7 @@
     }
     .layout_footer {
       width: 100%;
-      height: 950px;
+      min-height: 950px;
       .footer_first_part {
         width: 100%;
         height: 552px;
@@ -226,7 +226,9 @@
             .collaborators_container {
               width: 784px;
               height: 56px;
-              background: chartreuse;
+              display: flex;
+              align-items: center;
+              justify-content: space-around;
             }
           }
         }
@@ -331,6 +333,28 @@
         padding: 0 150px;
       }
     }
+    .content_wrapper {
+      .layout_footer {
+        .footer_first_part {
+          .hrefs_collaborators {
+            .hrefs_wrapper {
+              padding-left: 150px;
+            }
+          }
+        }
+        .footer_second_part {
+          .main_info_wrapper {
+            padding: 48px 24px 28px 150px;
+          }
+          .page_href_wrapper {
+            padding: 35px 32px;
+            .colum_wrapper {
+              margin-right: 64px;
+            }
+          }
+        }
+      }
+    }
   }
 }
 
@@ -342,6 +366,64 @@
       }
       .extra_menu {
         padding: 0 64px;
+      }
+    }
+    .content_wrapper {
+      .layout_footer {
+        .footer_first_part {
+          min-height: 700px;
+          padding-top: 128px;
+
+          .hrefs_collaborators {
+            height: auto;
+            flex-wrap: wrap;
+            background: #ffffff;
+            .hrefs_wrapper {
+              width: 100%;
+              height: 224px;
+              padding-left: 150px;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+              padding-top: 0;
+              padding-left: 0;
+
+              .hrefs_container {
+                width: 50%;
+              }
+            }
+            .collaborators_wrapper {
+              width: 100%;
+              background-color: #f5f5f5;
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              align-items: center;
+              .collaborators_header {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+              }
+            }
+          }
+        }
+        .footer_second_part {
+          .main_info_wrapper {
+            width: 500px;
+            padding: 48px 24px 28px 64px;
+          }
+          .page_href_wrapper {
+            width: calc(100% - 500px);
+            padding: 24px 0 0 24px;
+            .colum_wrapper {
+              margin-right: 40px;
+            }
+            > .colum_wrapper:nth-child(3) {
+              margin-right: 0;
+            }
+          }
+        }
       }
     }
   }
@@ -373,6 +455,34 @@
     }
     .content_wrapper {
       margin-top: 120px;
+      .layout_footer {
+        height: auto;
+        .footer_first_part {
+          .hrefs_collaborators {
+            .hrefs_wrapper {
+              .hrefs_container {
+                width: 60%;
+              }
+            }
+          }
+        }
+        .footer_second_part {
+          height: auto;
+          flex-direction: column;
+          .main_info_wrapper {
+            width: 100%;
+            padding: 48px 24px 28px 64px;
+          }
+          .page_href_wrapper {
+            width: 100%;
+            border-radius: 0;
+            padding: 24px 24px 28px 64px;
+            .colum_wrapper {
+              margin-right: 80px;
+            }
+          }
+        }
+      }
     }
     .content_margin {
       margin-top: 72px;
@@ -409,6 +519,41 @@
     }
     .content_wrapper {
       margin-top: 112px;
+      .layout_footer {
+        .footer_first_part {
+          .hrefs_collaborators {
+            .hrefs_wrapper {
+              width: 100%;
+              .hrefs_container {
+                width: 80%;
+                flex-wrap: wrap;
+              }
+            }
+            .collaborators_wrapper {
+              height: auto;
+              .collaborators_container {
+                height: auto;
+                flex-wrap: wrap;
+                width: 80%;
+                > img {
+                  margin-bottom: 16px;
+                }
+              }
+            }
+          }
+        }
+        .footer_second_part {
+          .page_href_wrapper {
+            padding: 48px 24px 28px 64px;
+            flex-direction: column;
+            align-items: center;
+            .colum_wrapper {
+              width: 100%;
+              margin-right: 0;
+            }
+          }
+        }
+      }
     }
     .content_margin {
       margin-top: 64px;
@@ -446,6 +591,57 @@
           }
           .addres_job_icon_button {
             display: flex;
+          }
+        }
+      }
+    }
+    .hide {
+      top: -44px;
+    }
+    .content_wrapper {
+      margin-top: 112px;
+      .layout_footer {
+        .footer_first_part {
+          .hrefs_collaborators {
+            height: auto;
+            .hrefs_wrapper {
+              width: 100%;
+              border-radius: 0px 96px 0px 0px;
+              padding: 0;
+              position: relative;
+              > span {
+                position: absolute;
+                top: -46px;
+                left: 16px;
+                font-weight: 600;
+                font-size: 20px;
+                line-height: 30px;
+                color: #16131e;
+              }
+              .hrefs_container {
+                height: auto;
+                width: 80%;
+                flex-wrap: wrap;
+                margin: 0;
+                .href {
+                  margin-bottom: 8px;
+                }
+              }
+            }
+            .collaborators_wrapper {
+              padding: 24px 16px;
+              .collaborators_header {
+                > span {
+                  font-weight: 600;
+                  font-size: 20px;
+                  line-height: 30px;
+                  color: #45424b;
+                }
+              }
+              .collaborators_container {
+                width: 100%;
+              }
+            }
           }
         }
       }
