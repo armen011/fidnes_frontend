@@ -3,7 +3,7 @@
   height: 352px;
   overflow: hidden;
   border-radius: 16px;
-  margin: 8px;
+  margin: 24px;
   .news_img_wrapper {
     width: 100%;
     height: 200px;
@@ -48,5 +48,19 @@
         color: #737178;
       }
     }
+  }
+}
+
+@media (max-width: 1156px) {
+  .news_card_wrapper {
+    width: 400px;
+  }
+}
+
+@media (max-width: 666px) {
+  .news_card_wrapper {
+    width: 358px;
+    height: 364px;
+    margin: 0;
   }
 }

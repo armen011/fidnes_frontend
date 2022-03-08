@@ -1,21 +1,16 @@
 .full_page_wrapper {
   width: 100vw;
-  height: auto;
+  min-height: 600px;
   overflow: hidden;
   position: relative;
-  &::-webkit-scrollbar {
-    display: none;
-  }
-  .hide {
-    top: -56px;
-  }
+
   .headers_wrapper {
     width: 100%;
     height: 152px;
     position: fixed;
     top: 0;
     z-index: 3;
-    transition: 200ms;
+    transition: 100ms ease-in-out;
     .layout_header {
       width: 100%;
       height: 56px;
@@ -137,6 +132,9 @@
         display: none;
       }
     }
+  }
+  .hide {
+    top: -56px;
   }
 
   .content_wrapper {
@@ -422,6 +420,7 @@
   .full_page_wrapper {
     .headers_wrapper {
       .layout_header {
+        height: 44px;
         padding: 0;
         .header_second_container {
           width: 100%;
