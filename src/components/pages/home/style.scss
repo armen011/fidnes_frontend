@@ -182,6 +182,7 @@
       height: 100%;
       border-radius: 16px;
       overflow: hidden;
+      background-color: white;
       .card_header {
         width: 100%;
         height: 72px;
@@ -684,12 +685,20 @@
         width: 358px;
         height: 372px;
         margin: 0;
+        overflow: hidden;
         .card_header {
+          height: 54px;
           background-color: white;
           > span {
             color: #482003;
           }
         }
+        .card_container {
+          padding: 16px 24px;
+
+          height: calc(100% - 54px - 40px);
+        }
+        border-radius: 16px;
       }
       .covert_calculator {
         width: 358px;

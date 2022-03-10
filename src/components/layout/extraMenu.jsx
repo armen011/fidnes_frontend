@@ -1,16 +1,30 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Icon from '../core/Icon'
 import logo from '../../assets/img/logo.png'
-import { ButtonWithIcon } from '../core/Button'
+import { BurgerButton } from '../core/Button'
+import DropDown from '../core/DropDown'
+import pages from './pages.json'
 
-const ExtraMenu = () => {
-  const [isMenuBarOpened, setIsMenuBarOpened] = useState(false)
-
+const ExtraMenu = ({ setIsMenuBarOpened, isMenuBarOpened }) => {
   return (
     <div className={`extra_menu`}>
       <img src={logo} alt="fides logo" />
       <ul>
-        <li>Սեփականատերեր</li>
+        {pages.extra_header.map(({ title, drop_down }, index) => (
+          <li key={index}>
+            {title}
+            {drop_down && (
+              <Icon
+                iconName="arrow_left"
+                width={16}
+                height={16}
+                className="icon_wrapper"
+              />
+            )}
+            {drop_down && <DropDown content={drop_down} />}
+          </li>
+        ))}
+        {/* <li>Սեփականատերեր</li>
         <li>
           Հաշվետվություններ
           <Icon
@@ -30,13 +44,14 @@ const ExtraMenu = () => {
           />
         </li>
         <li>Իրավական ակտեր</li>
-        <li>Կապ</li>
+        <li>Կապ</li> */}
       </ul>
-      <ButtonWithIcon
-        iconName="hanmburger_menu"
-        width={48}
-        height={48}
-        className="burdger_button"
+
+      <BurgerButton
+        {...{
+          onClick: () => setIsMenuBarOpened((prev) => !prev),
+          isOpened: isMenuBarOpened,
+        }}
       />
     </div>
   )

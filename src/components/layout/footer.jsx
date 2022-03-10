@@ -67,7 +67,7 @@ const Footer = () => {
           <div className="colum_wrapper">
             <span>Մեր Մասին</span>
             <ul>
-              {pages.about_us.map(({ title, url }, index) => (
+              {pages.main_header[0].drop_down.map(({ title, url }, index) => (
                 <li key={index}>{title}</li>
               ))}
             </ul>
@@ -75,7 +75,7 @@ const Footer = () => {
           <div className="colum_wrapper">
             <span>Վարկեր</span>
             <ul>
-              {pages.credits.map(({ title, url }, index) => (
+              {pages.main_header[1].drop_down.map(({ title, url }, index) => (
                 <li key={index}>{title}</li>
               ))}
             </ul>

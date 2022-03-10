@@ -1,0 +1,44 @@
+.center {
+  width: 48px;
+  height: 48px;
+}
+
+.center {
+  > div {
+    height: 3px;
+    border-radius: 3px;
+    margin: 4.5px 0;
+    transition: 0.5s;
+    background: #482003;
+    width: 22px;
+  }
+  > div:nth-child(1) {
+    background-color: transparent;
+    position: relative;
+    overflow: hidden;
+    &:after {
+      content: '';
+      width: 16px;
+      height: 3px;
+      border-radius: 3px;
+      position: absolute;
+      right: 0;
+      transition: 0.5s;
+      background-color: #482003;
+    }
+  }
+}
+.active {
+  > div:nth-child(1) {
+    transform: translateY(8px) rotate(-135deg);
+    &:after {
+      width: 22px;
+    }
+  }
+  > div:nth-child(2) {
+    transform: scale(0);
+  }
+  > div:nth-child(3) {
+    transform: translateY(-7px) rotate(135deg);
+  }
+}

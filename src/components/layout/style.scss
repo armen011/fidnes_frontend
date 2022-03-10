@@ -128,7 +128,7 @@
           }
         }
       }
-      .burdger_button {
+      > button {
         display: none;
       }
     }
@@ -136,12 +136,20 @@
   .hide {
     top: -56px;
   }
+  .burger_menu {
+    position: fixed;
+    background-color: #45424b;
+    right: 0;
+    top: 112px;
+    z-index: 5;
+  }
 
   .content_wrapper {
     width: 100%;
     transition: 300ms;
     transition: 200ms;
     margin-top: 152px;
+
     .children_wrapper {
       width: 100%;
       min-height: 500px;
@@ -448,9 +456,6 @@
           width: 42px;
           height: 56px;
         }
-        > button {
-          display: block;
-        }
       }
     }
     .content_wrapper {
@@ -512,7 +517,7 @@
         > ul {
           display: none;
         }
-        .burdger_button {
+        > button {
           display: block;
         }
       }
@@ -593,6 +598,10 @@
             display: flex;
           }
         }
+      }
+      .burger_menu {
+        min-width: 100%;
+        min-height: calc(100vh - 112px);
       }
     }
     .hide {

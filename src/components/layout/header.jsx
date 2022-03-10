@@ -8,27 +8,20 @@ const Header = () => {
   return (
     <div className="layout_header">
       <ul className="header_first_container">
-        <li>
-          Մեր մասին
-          <Icon
-            iconName="arrow_left"
-            width={16}
-            height={16}
-            className="icon_wrapper"
-          />
-          <DropDown content={pages.about_us} />
-        </li>
-        <li>
-          Վարկեր
-          <Icon
-            iconName="arrow_left"
-            width={16}
-            height={16}
-            className="icon_wrapper"
-          />
-          <DropDown content={pages.credits} />
-        </li>
-        <li>Նորություններ</li>
+        {pages.main_header.map(({ title, drop_down }, index) => (
+          <li key={index}>
+            {title}
+            {drop_down && (
+              <Icon
+                iconName="arrow_left"
+                width={16}
+                height={16}
+                className="icon_wrapper"
+              />
+            )}
+            {drop_down && <DropDown content={drop_down} />}
+          </li>
+        ))}
       </ul>
       <div className="header_second_container">
         <ButtonWithIcon
