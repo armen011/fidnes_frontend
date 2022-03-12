@@ -1,9 +1,9 @@
 import React from 'react'
 import './style.scss'
 
-const NewsCard = ({ img, title, content, date }) => {
+export const NewsCard = ({ img, title, content, date, className }) => {
   return (
-    <div className="news_card_wrapper">
+    <div className={`news_card_wrapper ${className ? className : ''}`}>
       <div className="news_img_wrapper">
         <img src={img} alt="" />
       </div>
@@ -17,5 +17,3 @@ const NewsCard = ({ img, title, content, date }) => {
     </div>
   )
 }
-
-export default NewsCard

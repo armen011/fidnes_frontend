@@ -1,5 +1,5 @@
 import React from 'react'
-import NewsCard from '../../core/NewsCard'
+import { NewsCard } from '../../core/Card'
 import { news } from './mock.data'
 
 const NewsFeed = () => {

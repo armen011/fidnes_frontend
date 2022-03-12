@@ -37,6 +37,7 @@
     > li {
       display: flex;
       margin-right: 16px;
+      cursor: pointer;
 
       > span {
         font-weight: 300;
@@ -53,6 +54,8 @@
         line-height: 24px;
         color: #16131e;
       }
+      cursor: default;
+
       svg {
         display: none;
       }

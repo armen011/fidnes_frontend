@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Icon from '../core/Icon'
-import pages from './pages.json'
+import { pages } from '../../constants'
 import { useNavigate } from 'react-router'
 
 const ItemWrapper = ({ title, url, drop_down, setSelectedMenu }) => {

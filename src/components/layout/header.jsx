@@ -2,14 +2,16 @@ import React from 'react'
 import { ButtonWithIcon, ButtonWithTextAndIcon } from '../core/Button'
 import DropDown from '../core/DropDown'
 import Icon from '../core/Icon'
-import pages from './pages.json'
+import { pages } from '../../constants'
+import { useNavigate } from 'react-router'
 
 const Header = () => {
+  const navigate = useNavigate()
   return (
     <div className="layout_header">
       <ul className="header_first_container">
-        {pages.main_header.map(({ title, drop_down }, index) => (
-          <li key={index}>
+        {pages.main_header.map(({ title, drop_down, url }, index) => (
+          <li key={index} onClick={() => navigate(url)}>
             {title}
             {drop_down && (
               <Icon

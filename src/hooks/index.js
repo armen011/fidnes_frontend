@@ -1,1 +1,2 @@
-export { useScrollTopAndDown } from "./useScrollTopAndDown"
+export { useScrollTopAndDown } from './useScrollTopAndDown'
+export { useQuery } from './useQuery'

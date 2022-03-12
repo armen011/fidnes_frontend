@@ -29,9 +29,21 @@
     font-size: 16px;
     line-height: 24px;
     color: #333333;
+    &:hover {
+      border: 1px solid #dfb43c;
+    }
     &:focus {
       outline: none;
+      border: 1px solid #dfb43c;
     }
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    margin: 0;
   }
 }
 
@@ -75,7 +87,14 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 24px;
-  color: #8b8e92;
+  color: #333333;
+  &:hover {
+    border: 1px solid #dfb43c;
+  }
+  &:focus {
+    outline: none;
+    border: 1px solid #dfb43c;
+  }
 }
 .textare {
   height: 136px;
@@ -90,5 +109,12 @@
   color: #333333;
   &::-webkit-scrollbar {
     display: none;
+  }
+  &:hover {
+    border: 1px solid #dfb43c;
+  }
+  &:focus {
+    outline: none;
+    border: 1px solid #dfb43c;
   }
 }

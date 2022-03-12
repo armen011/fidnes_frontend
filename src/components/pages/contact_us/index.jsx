@@ -7,7 +7,13 @@ import './style.scss'
 const ContactUs = () => {
   return (
     <div className="contact_us_wrapper">
-      <BreadCrumb title="Հետադարձ Կապ" path={['Գլխավոր', 'Հետադարձ Կապ']} />
+      <BreadCrumb
+        title="Հետադարձ Կապ"
+        path={[
+          { title: 'Գլխավոր', url: '/' },
+          { title: 'Հետադարձ Կապ', url: '/contact_us' },
+        ]}
+      />
       <div className="contact_info_wrapper">
         <div className="info_conatiner">
           <div className="whole_info_wrapper">

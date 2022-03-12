@@ -477,9 +477,8 @@
         height: 72px;
         z-index: 2;
         padding: 0 64px;
-        > img {
-          width: 42px;
-          height: 56px;
+        svg {
+          transform: scale(0.8);
         }
       }
     }
@@ -534,11 +533,10 @@
       .extra_menu {
         height: 64px;
         padding: 16px;
-        padding-left: 32px;
+        padding-left: 20px;
 
-        > img {
-          width: 40px;
-          height: 48px;
+        svg {
+          transform: scale(0.7);
         }
         > ul {
           display: none;
@@ -629,7 +627,10 @@
         }
       }
       .extra_menu {
-        padding-left: 16px;
+        padding-left: 4px;
+        svg {
+          transform: scale(0.7);
+        }
       }
       .burger_menu {
         top: 108px;

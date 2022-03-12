@@ -1,0 +1,239 @@
+.covert_card {
+  width: 464px;
+  height: 100%;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: white;
+  .card_header {
+    width: 100%;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #482003;
+    > span {
+      font-weight: bold;
+      font-size: 24px;
+      line-height: 32px;
+      color: #ffffff;
+    }
+  }
+  .card_container {
+    width: 100%;
+    height: calc(100% - 72px - 40px);
+    background: white;
+    padding: 32px 24px;
+    table {
+      width: 100%;
+      height: 100%;
+      th {
+        text-align: center;
+        font-size: 16px;
+        line-height: 24px;
+        color: #828282;
+      }
+      .name_td {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        color: #16131e;
+      }
+      .td_wrapper {
+        width: 96px;
+        height: 48px;
+        background: #f5f5f5;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        > span {
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 24px;
+          color: #16131e;
+        }
+      }
+    }
+    .percent_item {
+      width: 100%;
+      height: 48px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      > span {
+        font-size: 16px;
+        line-height: 24px;
+        color: #16131e;
+      }
+      > p {
+        width: 72px;
+        height: 100%;
+        background: #f5f5f5;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  .card_footer {
+    width: 100%;
+    height: 40px;
+    background: #f5f5f5;
+    padding: 10px 38px;
+    > span {
+      font-size: 14px;
+      line-height: 20px;
+      color: #4f4f4f;
+    }
+  }
+}
+
+@media (max-width: 1480px) {
+  .covert_card {
+    width: 397px;
+  }
+}
+
+@media (max-width: 1260px) {
+  .covert_card {
+    width: 464px;
+    height: 416px;
+    margin: 0;
+    .card_header {
+      background-color: white;
+      > span {
+        color: #482003;
+      }
+    }
+  }
+}
+
+@media (max-width: 558px) {
+  .covert_card {
+    width: 358px;
+    height: 372px;
+    margin: 0;
+    overflow: hidden;
+    .card_header {
+      height: 54px;
+      background-color: white;
+      > span {
+        color: #482003;
+      }
+    }
+    .card_container {
+      padding: 16px 24px;
+
+      height: calc(100% - 54px - 40px);
+    }
+    border-radius: 16px;
+  }
+}
+
+.subbar_covert_card {
+  width: 464px;
+  height: 400px;
+  border: 1px solid #e8e7e9;
+  border-radius: 16px;
+  overflow: hidden;
+  background: white;
+
+  .subbar_card_header {
+    width: 100%;
+    height: 72px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    > span {
+      font-weight: 700;
+      font-size: 20px;
+      line-height: 30px;
+    }
+  }
+  .subbar_card_container {
+    width: 100%;
+    height: calc(100% - 72px - 40px);
+    background: white;
+    padding: 32px 24px;
+    table {
+      width: 100%;
+      height: 100%;
+      th {
+        text-align: center;
+        font-size: 16px;
+        line-height: 24px;
+        color: #828282;
+      }
+      .name_td {
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        padding: 8px;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        color: #16131e;
+      }
+      .td_wrapper {
+        width: 96px;
+        height: 48px;
+        background: #f5f5f5;
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        > span {
+          font-weight: bold;
+          font-size: 16px;
+          line-height: 24px;
+          color: #16131e;
+        }
+      }
+    }
+    .percent_item {
+      width: 100%;
+      height: 48px;
+      margin-bottom: 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      > span {
+        font-size: 16px;
+        line-height: 24px;
+        color: #16131e;
+      }
+      > p {
+        width: 72px;
+        height: 100%;
+        background: #f5f5f5;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 24px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+  .subbar_card_footer {
+    width: 100%;
+    height: 40px;
+    background: #f5f5f5;
+    padding: 10px 38px;
+    > span {
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+}
