@@ -534,7 +534,8 @@
       .extra_menu {
         height: 64px;
         padding: 16px;
-        padding-left: 64px;
+        padding-left: 32px;
+
         > img {
           width: 40px;
           height: 48px;
@@ -574,13 +575,16 @@
         }
         .footer_second_part {
           .page_href_wrapper {
-            padding: 48px 24px 28px 64px;
+            padding: 48px 24px 28px 32px;
             flex-direction: column;
             align-items: center;
             .colum_wrapper {
               width: 100%;
               margin-right: 0;
             }
+          }
+          .main_info_wrapper {
+            padding: 48px 24px 28px 32px;
           }
         }
       }
@@ -623,6 +627,9 @@
             display: flex;
           }
         }
+      }
+      .extra_menu {
+        padding-left: 16px;
       }
       .burger_menu {
         top: 108px;
@@ -692,6 +699,14 @@
                 width: 100%;
               }
             }
+          }
+        }
+        .footer_second_part {
+          .page_href_wrapper {
+            padding: 32px 24px 28px 16px;
+          }
+          .main_info_wrapper {
+            padding: 32px 24px 28px 16px;
           }
         }
       }

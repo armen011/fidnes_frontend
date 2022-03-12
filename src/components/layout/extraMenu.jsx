@@ -33,7 +33,6 @@ const ExtraMenu = ({ setIsMenuBarOpened, isMenuBarOpened }) => {
           isOpened: isMenuBarOpened,
         }}
       />
-      <BurgerMenu {...{ isMenuBarOpened }} />
     </div>
   )
 }
