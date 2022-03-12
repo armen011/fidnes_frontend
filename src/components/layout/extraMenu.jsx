@@ -4,6 +4,7 @@ import logo from '../../assets/img/logo.png'
 import { BurgerButton } from '../core/Button'
 import DropDown from '../core/DropDown'
 import pages from './pages.json'
+import BurgerMenu from './burgerMenu'
 
 const ExtraMenu = ({ setIsMenuBarOpened, isMenuBarOpened }) => {
   return (
@@ -24,27 +25,6 @@ const ExtraMenu = ({ setIsMenuBarOpened, isMenuBarOpened }) => {
             {drop_down && <DropDown content={drop_down} />}
           </li>
         ))}
-        {/* <li>Սեփականատերեր</li>
-        <li>
-          Հաշվետվություններ
-          <Icon
-            iconName="arrow_left"
-            width={16}
-            height={16}
-            className="icon_wrapper"
-          />
-        </li>
-        <li>
-          Սպառողի իրավունքներ
-          <Icon
-            iconName="arrow_left"
-            width={16}
-            height={16}
-            className="icon_wrapper"
-          />
-        </li>
-        <li>Իրավական ակտեր</li>
-        <li>Կապ</li> */}
       </ul>
 
       <BurgerButton
@@ -53,6 +33,7 @@ const ExtraMenu = ({ setIsMenuBarOpened, isMenuBarOpened }) => {
           isOpened: isMenuBarOpened,
         }}
       />
+      <BurgerMenu {...{ isMenuBarOpened }} />
     </div>
   )
 }

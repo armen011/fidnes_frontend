@@ -3,7 +3,10 @@ import './style.scss'
 
 export const BurgerButton = ({ isOpened, onClick }) => {
   return (
-    <button className={`center ${isOpened && 'active'}`} onClick={onClick}>
+    <button
+      className={`burger_button ${isOpened && 'active'}`}
+      onClick={onClick}
+    >
       <div />
       <div />
       <div />

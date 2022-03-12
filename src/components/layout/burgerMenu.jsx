@@ -1,8 +1,40 @@
-import React, { useMemo } from 'react'
+import React, { useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import Icon from '../core/Icon'
 import pages from './pages.json'
+import { useNavigate } from 'react-router'
+
+const ItemWrapper = ({ title, url, drop_down, setSelectedMenu }) => {
+  const navigate = useNavigate()
+  const variantItem = useMemo(
+    () => ({
+      hidden: { y: -40, opacity: 0 },
+      show: {
+        y: 0,
+        opacity: 1,
+      },
+      exit: { opacity: 0 },
+    }),
+    []
+  )
+
+  return (
+    <motion.li
+      variants={variantItem}
+      onClick={() => {
+        drop_down ? setSelectedMenu({ title, url, drop_down }) : navigate(url)
+      }}
+    >
+      {title}
+      {drop_down && (
+        <Icon iconName="burger_menu_arrow_right" width={24} height={24} />
+      )}
+    </motion.li>
+  )
+}
 
 const BurgerMenu = ({ isMenuBarOpened }) => {
+  const [selectedMenu, setSelectedMenu] = useState(undefined)
   const varinatContainer = useMemo(
     () => ({
       initial: {
@@ -13,7 +45,6 @@ const BurgerMenu = ({ isMenuBarOpened }) => {
         width: 'auto',
         height: 'auto',
         opacity: 1,
-        background: 'red',
         transition: {
           duration: 0.2,
           type: 'easeInOut',
@@ -52,12 +83,46 @@ const BurgerMenu = ({ isMenuBarOpened }) => {
             initial="hidden"
             exit="hidden"
           >
-            {pages.extra_header.map(() => (
-              <li>Hello</li>
-            ))}
-            {pages.main_header.map(() => (
-              <li>Hello</li>
-            ))}
+            {!selectedMenu &&
+              pages.extra_header.map((elm, index) => (
+                <ItemWrapper
+                  key={`extra_header_${index}`}
+                  {...{ setSelectedMenu, ...elm }}
+                />
+              ))}
+            {!selectedMenu && <div className="menu_divider" />}
+            {!selectedMenu &&
+              pages.main_header.map((elm, index) => (
+                <ItemWrapper
+                  key={`header_${index}`}
+                  {...{ setSelectedMenu, ...elm }}
+                />
+              ))}
+            {selectedMenu && (
+              <li
+                style={{ justifyContent: 'flex-start' }}
+                onClick={() => setSelectedMenu(undefined)}
+              >
+                <Icon
+                  iconName="burger_menu_arrow_left"
+                  width={24}
+                  height={24}
+                />
+                {selectedMenu.title}
+              </li>
+            )}
+            {selectedMenu && (
+              <ItemWrapper
+                {...{ title: selectedMenu.title, url: selectedMenu.url }}
+              />
+            )}
+            {selectedMenu &&
+              selectedMenu.drop_down.map((elm, index) => (
+                <ItemWrapper
+                  key={`selected_menu_${index}`}
+                  {...{ setSelectedMenu, ...elm }}
+                />
+              ))}
           </motion.ul>
         </motion.div>
       )}
