@@ -108,7 +108,7 @@
       padding-left: 220px;
       background: white;
       transition: 300ms;
-      overflow: hidden;
+      // overflow: hidden;
 
       > ul {
         width: 960px;
@@ -124,8 +124,13 @@
           align-items: center;
           position: relative;
           cursor: pointer;
-          &:hover .icon_wrapper {
-            transform: rotate(-90deg);
+          &:hover {
+            .icon_wrapper {
+              transform: rotate(-90deg);
+            }
+            > ul {
+              max-height: 800px;
+            }
           }
         }
       }
