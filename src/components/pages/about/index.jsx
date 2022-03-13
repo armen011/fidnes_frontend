@@ -3,14 +3,9 @@ import { useQuery } from '../../../hooks'
 import BreadCrumb from '../../core/BreadCrumb'
 import LoanCalculator from '../../loanCalculator'
 import { pages } from '../../../constants'
-import './style.scss'
 import ArticleContainer from './articleContainer'
-import {
-  FirstConvertCardForSideBar,
-  NewsCard,
-  SecondConvertCardForSideBar,
-} from '../../core/Card'
-import newsImg from '../../../assets/img/newsImg.png'
+import SideBar from '../../core/SideBar'
+import './style.scss'
 
 const articles = pages.main_header[0].drop_down
 
@@ -58,27 +53,11 @@ const About = (state) => {
             Գոշ 2/33:
           </span>
         </div>
-        <div className="side_bar_info_wrapper">
-          <FirstConvertCardForSideBar />
-          <div className="news_wrapper">
-            <span>Վերջին Նորությունը</span>
-            <NewsCard
-              className="news_card_custom"
-              {...{
-                img: newsImg,
-                title: 'Բաժնետերերի տարեկան ընդհանուր ժողով․․․',
-                content:
-                  'Հարգելի  հաճախորդներ և գործընկերներ:«Ֆիդես հիփոթեքային ընկերություն» ՈՒՎԿ ՓԲԸ-ն սիրով ... ',
-                date: '12 Դեկտեմբեր 2022',
-              }}
-            />
-          </div>
-          <SecondConvertCardForSideBar />
-        </div>
+        <SideBar />
       </div>
       <LoanCalculator />
     </div>
   )
 }
 
-export default About
+export default React.memo(About)

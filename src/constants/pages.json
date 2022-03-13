@@ -82,21 +82,37 @@
     { "title": "Սեփականատերեր", "url": "" },
     {
       "title": "Հաշվետվություններ",
-      "url": "",
+      "url": "/reports",
       "drop_down": [
-        { "title": "Միջանկյալ", "url": "", "drop_down": [] },
-        { "title": "Տարեկան", "url": "", "drop_down": [] },
         {
+          "id": "1",
+          "title": "Միջանկյալ",
+          "url": "/reports?report_type_id=1",
+          "drop_down": []
+        },
+        {
+          "id": "2",
+          "title": "Տարեկան",
+          "url": "/reports?report_type_id=2",
+          "drop_down": []
+        },
+        {
+          "id": "3",
           "title": "Անկախ աուդիտորական եզրակացություն",
-          "url": "",
+          "url": "/reports?report_type_id=3",
           "drop_down": []
         },
         {
+          "id": "4",
           "title": "Գործունեության տարեկան հաշվետվություն",
-          "url": "",
+          "url": "/reports?report_type_id=4",
           "drop_down": []
         },
-        { "title": "Հիմնական տնտեսական նորմատիվներ", "url": "" }
+        {
+          "id": "5",
+          "title": "Հիմնական տնտեսական նորմատիվներ",
+          "url": "/reports?report_type_id=5"
+        }
       ]
     },
     {

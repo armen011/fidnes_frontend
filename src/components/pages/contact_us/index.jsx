@@ -85,4 +85,4 @@ const ContactUs = () => {
   )
 }
 
-export default ContactUs
+export default React.memo(ContactUs)

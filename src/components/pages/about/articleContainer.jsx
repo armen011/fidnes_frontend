@@ -67,4 +67,4 @@ const ArticleContainer = ({ articles, selected, setSelected }) => {
   )
 }
 
-export default ArticleContainer
+export default React.memo(ArticleContainer)

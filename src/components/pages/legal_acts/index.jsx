@@ -63,4 +63,4 @@ const LegalActs = () => {
   )
 }
 
-export default LegalActs
+export default React.memo(LegalActs)
