@@ -306,6 +306,13 @@
 @media (max-width: 626px) {
   .loan_calculator_container {
     .loan_calculator_wrapper {
+      .loadn_type_selector_wrapper {
+        .loan_type_selector_container_mobile {
+          .mobile_container {
+            margin: 8px;
+          }
+        }
+      }
       .loadn_caluclator_input_wrapper {
         width: 100%;
         min-height: 480px;
@@ -367,7 +374,14 @@
       .loadn_type_selector_wrapper {
         padding-left: 16px;
         .loan_type_selector_container_mobile {
+          width: 105%;
+        }
+      }
+      .loadn_caluclator_input_wrapper {
+        padding: 0;
+        .main_calcuator_wrapper {
           width: 100%;
+          margin-bottom: 32px;
         }
       }
     }
