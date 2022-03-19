@@ -12,6 +12,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  position: relative;
   .carousel_area {
     width: 100%;
     height: 564px;
@@ -96,11 +97,38 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 32px;
+    margin: auto;
     .carousel_button {
       width: 48px;
       height: 48px;
       border-radius: 50%;
       background: white;
+    }
+    .content_selector_controller {
+      width: 200px;
+      height: 10px;
+      display: flex;
+      justify-content: space-between;
+      > button {
+        width: 48px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: 200ms;
+        > div {
+          width: 24px;
+          height: 4px;
+          background: #7b4117;
+          opacity: 0.2;
+          border-radius: 16px;
+          transition: 200ms;
+        }
+      }
     }
   }
 }

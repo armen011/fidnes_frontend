@@ -24,7 +24,7 @@ const typeVariant = {
   },
 }
 
-const Container = ({ typeArray, direction, page }) => {
+const Container = ({ typeArray, direction, page, ...otherProps }) => {
   return (
     <motion.div
       key={page}
@@ -37,6 +37,7 @@ const Container = ({ typeArray, direction, page }) => {
       transition={{
         opacity: { duration: 0.3 },
       }}
+      {...otherProps}
     >
       {typeArray &&
         typeArray.map(({ title, img }, index) => {

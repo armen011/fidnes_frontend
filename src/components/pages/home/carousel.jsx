@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { wrap } from 'popmotion'
 import { ButtonWithIcon } from '../../core/Button'
@@ -62,9 +62,26 @@ const Carousel = () => {
     return Math.abs(offset) * velocity
   }
   const swipeConfidenceThreshold = 10000
-  const paginate = (newDirection) => {
-    setPage([page + newDirection, newDirection])
-  }
+
+  const paginate = useCallback(
+    (newPage) => {
+      if (newPage < 0) newPage = 3
+      if (newPage > 3) newPage = 0
+      const newDirection = newPage > page ? 1 : -1
+      setPage([newPage, newDirection])
+    },
+    [page]
+  )
+
+  useEffect(() => {
+    let timeOut
+    timeOut = setTimeout(() => {
+      paginate(page + 1)
+    }, 3500)
+
+    return () => clearTimeout(timeOut)
+  }, [paginate, page])
+
   const imageIndex = wrap(0, images.length, page)
 
   return (
@@ -79,6 +96,18 @@ const Carousel = () => {
               initial="enter"
               animate="center"
               exit="exit"
+              drag="x"
+              dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={1}
+              onDragEnd={(e, { offset, velocity }) => {
+                const swipe = swipePower(offset.x, velocity.x)
+
+                if (swipe < -swipeConfidenceThreshold) {
+                  paginate(page + 1)
+                } else if (swipe > swipeConfidenceThreshold) {
+                  paginate(page - 1)
+                }
+              }}
             />
           </AnimatePresence>
         </div>
@@ -99,6 +128,18 @@ const Carousel = () => {
                 style={{
                   height: '100%',
                   width: 708,
+                }}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={1}
+                onDragEnd={(e, { offset, velocity }) => {
+                  const swipe = swipePower(offset.x, velocity.x)
+
+                  if (swipe < -swipeConfidenceThreshold) {
+                    paginate(page + 1)
+                  } else if (swipe > swipeConfidenceThreshold) {
+                    paginate(page - 1)
+                  }
                 }}
               >
                 <div className="texts_wrapper">
@@ -133,11 +174,10 @@ const Carousel = () => {
               dragConstraints={{ left: 0, right: 0 }}
               onDragEnd={(e, { offset, velocity }) => {
                 const swipe = swipePower(offset.x, velocity.x)
-
                 if (swipe < -swipeConfidenceThreshold) {
-                  paginate(1)
+                  paginate(page + 1)
                 } else if (swipe > swipeConfidenceThreshold) {
-                  paginate(-1)
+                  paginate(page - 1)
                 }
               }}
             />
@@ -170,14 +210,28 @@ const Carousel = () => {
           width={24}
           height={24}
           className="carousel_button"
-          onClick={() => paginate(-1)}
+          onClick={() => paginate(page - 1)}
         />
+        <div className="content_selector_controller">
+          <button onClick={() => paginate(0)}>
+            <div style={page === 0 ? { width: '100%', opacity: 1 } : {}} />
+          </button>
+          <button onClick={() => paginate(1)}>
+            <div style={page === 1 ? { width: '100%', opacity: 1 } : {}} />
+          </button>
+          <button onClick={() => paginate(2)}>
+            <div style={page === 2 ? { width: '100%', opacity: 1 } : {}} />
+          </button>
+          <button onClick={() => paginate(3)}>
+            <div style={page === 3 ? { width: '100%', opacity: 1 } : {}} />
+          </button>
+        </div>
         <ButtonWithIcon
           iconName="arrow_right_24"
           width={24}
           height={24}
           className="carousel_button"
-          onClick={() => paginate(1)}
+          onClick={() => paginate(page + 1)}
         />
       </div>
     </div>

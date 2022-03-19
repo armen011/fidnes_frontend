@@ -1,6 +1,6 @@
 import { AnimatePresence } from 'framer-motion'
 import { wrap } from 'popmotion'
-import React, { useState } from 'react'
+import React, { useCallback, useEffect, useState } from 'react'
 import { LoanCalculatorInput, LoanCheckBoxinput } from '../core/Input'
 import Container from './Container'
 import LoanTypes from './loanTypes'
@@ -9,11 +9,30 @@ import './style.scss'
 const LoanCalculator = () => {
   const [[page, direction], setPage] = useState([0, 0])
 
-  const paginate = (newPage) => {
-    const newDirection = newPage > page ? 1 : -1
-    setPage([newPage, newDirection])
-  }
+  const paginate = useCallback(
+    (newPage) => {
+      if (newPage < 0) newPage = 3
+      if (newPage > 3) newPage = 0
+      const newDirection = newPage > page ? 1 : -1
+      setPage([newPage, newDirection])
+    },
+    [page]
+  )
+
+  useEffect(() => {
+    let timeOut
+    timeOut = setTimeout(() => {
+      paginate(page + 1)
+    }, 3500)
+
+    return () => clearTimeout(timeOut)
+  }, [paginate, page])
+
   const containerIndex = wrap(0, LoanTypes.length, page)
+  const swipeConfidenceThreshold = 10000
+  const swipePower = (offset, velocity) => {
+    return Math.abs(offset) * velocity
+  }
 
   return (
     <div className="loan_calculator_container">
@@ -24,6 +43,18 @@ const LoanCalculator = () => {
             <AnimatePresence custom={direction} exitBeforeEnter>
               <Container
                 typeArray={LoanTypes[containerIndex]}
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={1}
+                onDragEnd={(e, { offset, velocity }) => {
+                  const swipe = swipePower(offset.x, velocity.x)
+
+                  if (swipe < -swipeConfidenceThreshold) {
+                    paginate(page + 1)
+                  } else if (swipe > swipeConfidenceThreshold) {
+                    paginate(page - 1)
+                  }
+                }}
                 {...{ direction, page }}
               />
             </AnimatePresence>
