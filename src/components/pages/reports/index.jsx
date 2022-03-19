@@ -12,6 +12,7 @@ const reports = pages.extra_header[1].drop_down
 
 const Reports = () => {
   const selectedReportTypeId = useQuery('report_type_id')
+  const branches = pages.extra_header[1].drop_down
 
   const selectedReportType = useMemo(
     () => reports.filter(({ id }) => id === selectedReportTypeId)[0],
@@ -34,12 +35,12 @@ const Reports = () => {
           selectedReportType
             ? [
                 { title: 'Գլխավոր', url: '/' },
-                { title: 'Հաշվետվություններ', url: '/about' },
+                { title: 'Հաշվետվություններ', url: '/reports' },
                 { title: selectedReportType.title },
               ]
             : [
                 { title: 'Գլխավոր', url: '/' },
-                { title: 'Հաշվետվություններ', url: '/about' },
+                { title: 'Հաշվետվություններ', url: '/reports' },
               ]
         }
       />
@@ -50,8 +51,8 @@ const Reports = () => {
               <img src={reportImg} alt="" />
             </div>
             <div className="report_content_wrapper">
-              <span>Բաժիններ</span>
-              <ReportsContainer />
+              <span>{selected ? selected.title : 'Բաժիններ'}</span>
+              <ReportsContainer {...{ branches, selected, setSelected }} />
             </div>
           </div>
           <span>

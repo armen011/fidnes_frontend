@@ -4,7 +4,13 @@ import Icon from '../core/Icon'
 import { pages } from '../../constants'
 import { useNavigate } from 'react-router'
 
-const ItemWrapper = ({ title, url, drop_down, setSelectedMenu }) => {
+const ItemWrapper = ({
+  title,
+  url,
+  drop_down,
+  setSelectedMenu,
+  setIsMenuBarOpened,
+}) => {
   const navigate = useNavigate()
   const variantItem = useMemo(
     () => ({
@@ -22,7 +28,13 @@ const ItemWrapper = ({ title, url, drop_down, setSelectedMenu }) => {
     <motion.li
       variants={variantItem}
       onClick={() => {
-        drop_down ? setSelectedMenu({ title, url, drop_down }) : navigate(url)
+        if (drop_down) {
+          setSelectedMenu({ title, url, drop_down })
+        } else {
+          navigate(url)
+          setSelectedMenu(undefined)
+          setIsMenuBarOpened(false)
+        }
       }}
     >
       {title}
@@ -33,7 +45,7 @@ const ItemWrapper = ({ title, url, drop_down, setSelectedMenu }) => {
   )
 }
 
-const BurgerMenu = ({ isMenuBarOpened }) => {
+const BurgerMenu = ({ isMenuBarOpened, setIsMenuBarOpened }) => {
   const [selectedMenu, setSelectedMenu] = useState(undefined)
   const varinatContainer = useMemo(
     () => ({
@@ -87,7 +99,7 @@ const BurgerMenu = ({ isMenuBarOpened }) => {
               pages.extra_header.map((elm, index) => (
                 <ItemWrapper
                   key={`extra_header_${index}`}
-                  {...{ setSelectedMenu, ...elm }}
+                  {...{ setSelectedMenu, setIsMenuBarOpened, ...elm }}
                 />
               ))}
             {!selectedMenu && <div className="menu_divider" />}
@@ -95,7 +107,7 @@ const BurgerMenu = ({ isMenuBarOpened }) => {
               pages.main_header.map((elm, index) => (
                 <ItemWrapper
                   key={`header_${index}`}
-                  {...{ setSelectedMenu, ...elm }}
+                  {...{ setSelectedMenu, ...elm, setIsMenuBarOpened }}
                 />
               ))}
             {selectedMenu && (
@@ -113,14 +125,19 @@ const BurgerMenu = ({ isMenuBarOpened }) => {
             )}
             {selectedMenu && (
               <ItemWrapper
-                {...{ title: selectedMenu.title, url: selectedMenu.url }}
+                {...{
+                  title: selectedMenu.title,
+                  url: selectedMenu.url,
+                  setSelectedMenu,
+                  setIsMenuBarOpened,
+                }}
               />
             )}
             {selectedMenu &&
               selectedMenu.drop_down.map((elm, index) => (
                 <ItemWrapper
                   key={`selected_menu_${index}`}
-                  {...{ setSelectedMenu, ...elm }}
+                  {...{ setSelectedMenu, ...elm, setIsMenuBarOpened }}
                 />
               ))}
           </motion.ul>

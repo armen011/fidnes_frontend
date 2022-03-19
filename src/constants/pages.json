@@ -104,14 +104,14 @@
         },
         {
           "id": "4",
-          "title": "Գործունեության տարեկան հաշվետվություն",
-          "url": "/reports?report_type_id=4",
-          "drop_down": []
+          "title": "Հիմնական տնտեսական նորմատիվներ",
+          "url": "/reports?report_type_id=5"
         },
         {
           "id": "5",
-          "title": "Հիմնական տնտեսական նորմատիվներ",
-          "url": "/reports?report_type_id=5"
+          "title": "Գործունեության տարեկան հաշվետվություն",
+          "url": "/reports?report_type_id=4",
+          "drop_down": []
         }
       ]
     },

@@ -27,7 +27,12 @@ const ExtraMenu = ({ setIsMenuBarOpened, isMenuBarOpened }) => {
                 className="icon_wrapper"
               />
             )}
-            {drop_down && <DropDown content={drop_down} />}
+            {drop_down && (
+              <DropDown
+                content={drop_down}
+                setIsMenuBarOpened={setIsMenuBarOpened}
+              />
+            )}
           </li>
         ))}
       </ul>

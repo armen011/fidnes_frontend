@@ -1,6 +1,5 @@
 .bredcrumb_wrapper {
   width: 100%;
-  height: 144px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -31,13 +30,16 @@
   }
   > ul {
     min-width: 200px;
-    height: 24px;
     display: flex;
+    align-items: center;
     padding-left: 240px;
+    margin-top: 24px;
+
     > li {
       display: flex;
       margin-right: 16px;
       cursor: pointer;
+      margin-bottom: 4px;
 
       > span {
         font-weight: 300;
@@ -79,7 +81,6 @@
 }
 @media (max-width: 1440px) {
   .bredcrumb_wrapper {
-    height: 114px;
     .bredcrumb_header {
       height: 64px;
       > span {
@@ -95,7 +96,10 @@
 }
 @media (max-width: 1156px) {
   .bredcrumb_wrapper {
+    min-height: 40px;
     > ul {
+      flex-wrap: wrap;
+      min-height: 40px;
       padding-left: 32px;
     }
   }
@@ -103,7 +107,6 @@
 
 @media (max-width: 666px) {
   .bredcrumb_wrapper {
-    height: 96px;
     .bredcrumb_header {
       height: 56px;
       &::after {

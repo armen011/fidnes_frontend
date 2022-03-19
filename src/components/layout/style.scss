@@ -32,7 +32,7 @@
           font-weight: 500;
           font-size: 14px;
           line-height: 20px;
-          color: #4f4f4f;
+          color: #828282;
           cursor: pointer;
           display: flex;
           align-items: center;
@@ -41,6 +41,7 @@
             transform: rotate(-90deg);
           }
           &:hover {
+            color: #482003;
             > ul {
               max-height: 800px;
             }
@@ -119,12 +120,13 @@
         > li {
           font-size: 16px;
           line-height: 24px;
-          color: #000000;
+          color: #828282;
           display: flex;
           align-items: center;
           position: relative;
           cursor: pointer;
           &:hover {
+            color: #482003;
             .icon_wrapper {
               transform: rotate(-90deg);
             }
@@ -149,7 +151,7 @@
         padding: 32px 16px;
         > li {
           width: 100%;
-          height: 48px;
+          min-height: 48px;
           font-weight: 500;
           font-size: 16px;
           line-height: 24px;
@@ -646,7 +648,7 @@
           padding: 32px 16px;
           > li {
             width: 100%;
-            height: 48px;
+            min-height: 48px;
             font-weight: 500;
             font-size: 16px;
             line-height: 24px;

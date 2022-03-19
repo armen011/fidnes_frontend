@@ -15,7 +15,7 @@ const Layout = ({ children }) => {
       <div className={`headers_wrapper ${!isHeaderOpened && 'hide'}`}>
         <Header {...{ isMenuBarOpened }} />
         <ExtraMenu {...{ isMenuBarOpened, setIsMenuBarOpened }} />
-        <BurgerMenu {...{ isMenuBarOpened }} />
+        <BurgerMenu {...{ isMenuBarOpened, setIsMenuBarOpened }} />
       </div>
       <div className={`content_wrapper ${!isHeaderOpened && 'content_margin'}`}>
         <div className="children_wrapper">{children}</div>
