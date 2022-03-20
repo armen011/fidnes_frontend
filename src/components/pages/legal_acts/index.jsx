@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { pages } from '../../../constants'
+import { LocaleContext } from '../../../context/localeContext'
 import BreadCrumb from '../../core/BreadCrumb'
 import Icon from '../../core/Icon'
 import LoanCalculator from '../../loanCalculator'
@@ -6,13 +8,15 @@ import pdfs from './pdf.json'
 import './style.scss'
 
 const LegalActs = () => {
+  const { locale } = useContext(LocaleContext)
+
   return (
     <div className="legal_acts_wrapper">
       <BreadCrumb
-        title="Իրաավական Ակտեր"
+        title={pages.titles[`legal_acts_${locale}`]}
         path={[
-          { title: 'Գլխավոր', url: '/' },
-          { title: 'Իրաավական Ակտեր', url: '/legal_acts' },
+          { title: pages.titles[`home_${locale}`], url: '/' },
+          { title: pages.titles[`legal_acts_${locale}`], url: '/legal_acts' },
         ]}
       />
       <div className="legal_acts_container">

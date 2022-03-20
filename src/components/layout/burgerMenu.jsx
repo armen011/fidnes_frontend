@@ -1,17 +1,19 @@
-import React, { useMemo, useState } from 'react'
+import React, { useContext, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Icon from '../core/Icon'
 import { pages } from '../../constants'
 import { useNavigate } from 'react-router'
+import { LocaleContext } from '../../context/localeContext'
 
 const ItemWrapper = ({
-  title,
   url,
   drop_down,
   setSelectedMenu,
   setIsMenuBarOpened,
+  ...titles
 }) => {
   const navigate = useNavigate()
+  const { locale } = useContext(LocaleContext)
   const variantItem = useMemo(
     () => ({
       hidden: { y: -40, opacity: 0 },
@@ -29,7 +31,7 @@ const ItemWrapper = ({
       variants={variantItem}
       onClick={() => {
         if (drop_down) {
-          setSelectedMenu({ title, url, drop_down })
+          setSelectedMenu({ url, drop_down, ...titles })
         } else {
           navigate(url)
           setSelectedMenu(undefined)
@@ -37,7 +39,7 @@ const ItemWrapper = ({
         }
       }}
     >
-      {title}
+      {titles[`title_${locale}`]}
       {drop_down && (
         <Icon iconName="burger_menu_arrow_right" width={24} height={24} />
       )}
@@ -47,6 +49,8 @@ const ItemWrapper = ({
 
 const BurgerMenu = ({ isMenuBarOpened, setIsMenuBarOpened }) => {
   const [selectedMenu, setSelectedMenu] = useState(undefined)
+  const { locale } = useContext(LocaleContext)
+
   const varinatContainer = useMemo(
     () => ({
       initial: {
@@ -120,13 +124,15 @@ const BurgerMenu = ({ isMenuBarOpened, setIsMenuBarOpened }) => {
                   width={24}
                   height={24}
                 />
-                {selectedMenu.title}
+                {selectedMenu[`title_${locale}`]}
               </li>
             )}
             {selectedMenu && (
               <ItemWrapper
                 {...{
-                  title: selectedMenu.title,
+                  title_am: selectedMenu.title_am,
+                  title_ru: selectedMenu.title_ru,
+                  title_en: selectedMenu.title_en,
                   url: selectedMenu.url,
                   setSelectedMenu,
                   setIsMenuBarOpened,

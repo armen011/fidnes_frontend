@@ -1,21 +1,24 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Icon from '../../Icon'
 import euro from '../../../../assets/img/euro.png'
 import './style.scss'
+import { pages } from '../../../../constants'
+import { LocaleContext } from '../../../../context/localeContext'
 
 export const FirstConvertCard = () => {
+  const { locale } = useContext(LocaleContext)
   return (
     <div className="covert_card">
       <div className="card_header">
-        <span>Փոխարժեքներն այսօր</span>
+        <span>{pages.small_texts[`exchange_rates_today_${locale}`]}</span>
       </div>
       <div className="card_container">
         <table>
           <thead>
             <tr>
-              <th>Արժույթ</th>
-              <th>Առք</th>
-              <th>Վաճառք</th>
+              <th>{pages.small_texts[`currency_${locale}`]}</th>
+              <th>{pages.small_texts[`purchase_${locale}`]}</th>
+              <th>{pages.small_texts[`sale_${locale}`]}</th>
             </tr>
           </thead>
           <tbody>
@@ -45,56 +48,59 @@ export const FirstConvertCard = () => {
         </table>
       </div>
       <div className="card_footer">
-        <span>Թարմացվել է ՝ 18/05/2022</span>
+        <span>{pages.small_texts[`updated_at_${locale}`]} 18/05/2022</span>
       </div>
     </div>
   )
 }
 
 export const SecondConvertCard = () => {
+  const { locale } = useContext(LocaleContext)
   return (
     <div className="covert_card">
       <div className="card_header">
-        <span>Տոկոսադրույքներ</span>
+        <span>{pages.small_texts[`interest_rates_${locale}`]}</span>
       </div>
       <div className="card_container">
         <div className="percent_item">
-          <span>Դրամական միջ. ներգրավման</span>
+          <span>{pages.small_texts[`money_involvement_${locale}`]}</span>
           <p>6.25 %</p>
         </div>
         <div className="percent_item">
-          <span>Լոմբարդային ռեպո</span>
+          <span>{pages.small_texts[`lombard_repo_${locale}`]}</span>
           <p>9.25 %</p>
         </div>
         <div className="percent_item">
-          <span>Վերաֆինանսավորման</span>
+          <span>{pages.small_texts[`refinancing_${locale}`]}</span>
           <p>7.75 %</p>
         </div>
         <div className="percent_item">
-          <span>Բանկային տոկոսի հաշվարկային դրույք</span>
+          <span>{pages.small_texts[`bank_interest_rate_${locale}`]}</span>
           <p>12 %</p>
         </div>
       </div>
       <div className="card_footer">
-        <span>Թարմացվել է ՝ 18/05/2022</span>
+        <span>{pages.small_texts[`updated_at_${locale}`]} 18/05/2022</span>
       </div>
     </div>
   )
 }
 
 export const FirstConvertCardForSideBar = () => {
+  const { locale } = useContext(LocaleContext)
+
   return (
     <div className="subbar_covert_card">
       <div className="subbar_card_header">
-        <span>Փոխարժեքներն այսօր</span>
+        <span>{pages.small_texts[`exchange_rates_today_${locale}`]}</span>
       </div>
       <div className="subbar_card_container">
         <table>
           <thead>
             <tr>
-              <th>Արժույթ</th>
-              <th>Առք</th>
-              <th>Վաճառք</th>
+              <th>{pages.small_texts[`currency_${locale}`]}</th>
+              <th>{pages.small_texts[`purchase_${locale}`]}</th>
+              <th>{pages.small_texts[`sale_${locale}`]}</th>
             </tr>
           </thead>
           <tbody>
@@ -124,38 +130,39 @@ export const FirstConvertCardForSideBar = () => {
         </table>
       </div>
       <div className="subbar_card_footer">
-        <span>Թարմացվել է ՝ 18/05/2022</span>
+        <span>{pages.small_texts[`updated_at_${locale}`]} 18/05/2022</span>
       </div>
     </div>
   )
 }
 
 export const SecondConvertCardForSideBar = () => {
+  const { locale } = useContext(LocaleContext)
   return (
     <div className="subbar_covert_card">
       <div className="subbar_card_header">
-        <span>Տոկոսադրույքներ</span>
+        <span>{pages.small_texts[`interest_rates_${locale}`]}</span>
       </div>
       <div className="subbar_card_container">
         <div className="percent_item">
-          <span>Դրամական միջ. ներգրավման</span>
+          <span>{pages.small_texts[`money_involvement_${locale}`]}</span>
           <p>6.25 %</p>
         </div>
         <div className="percent_item">
-          <span>Լոմբարդային ռեպո</span>
+          <span>{pages.small_texts[`lombard_repo_${locale}`]}</span>
           <p>9.25 %</p>
         </div>
         <div className="percent_item">
-          <span>Վերաֆինանսավորման</span>
+          <span>{pages.small_texts[`refinancing_${locale}`]}</span>
           <p>7.75 %</p>
         </div>
         <div className="percent_item">
-          <span>Բանկային տոկոսի հաշվարկային դրույք</span>
+          <span>{pages.small_texts[`bank_interest_rate_${locale}`]}</span>
           <p>12 %</p>
         </div>
       </div>
       <div className="subbar_card_footer">
-        <span>Թարմացվել է ՝ 18/05/2022</span>
+        <span>{pages.small_texts[`updated_at_${locale}`]} 18/05/2022</span>
       </div>
     </div>
   )

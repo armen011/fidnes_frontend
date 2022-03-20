@@ -13,7 +13,7 @@ ul {
   list-style: none;
 }
 body {
-  font-family: Montserrat;
+  font-family: Montserrat, MontserratRus, MontserratEng;
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
@@ -44,18 +44,54 @@ button {
 
 @font-face {
   font-family: Montserrat;
-  src: url('./assets/fonts/Montserratarm-Black.otf') format('truetype');
+  src: url('./assets/fonts/arm/Montserratarm-Black.otf') format('truetype');
 }
 @font-face {
   font-family: Montserrat;
-  src: url('./assets/fonts/Montserratarm-Bold.otf') format('truetype');
+  src: url('./assets/fonts/arm/Montserratarm-Bold.otf') format('truetype');
 }
 
 @font-face {
   font-family: Montserrat;
-  src: url('./assets/fonts/Montserratarm-Medium.otf') format('truetype');
+  src: url('./assets/fonts/arm/Montserratarm-Medium.otf') format('truetype');
 }
 @font-face {
   font-family: Montserrat;
-  src: url('./assets/fonts/Montserratarm-Regular.otf') format('truetype');
+  src: url('./assets/fonts/arm/Montserratarm-Regular.otf') format('truetype');
+}
+
+@font-face {
+  font-family: MontserratRus;
+  src: url('./assets/fonts/rus/Montserrat-Black.ttf') format('truetype');
+}
+@font-face {
+  font-family: MontserratRus;
+  src: url('./assets/fonts/rus/Montserrat-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: MontserratRus;
+  src: url('./assets/fonts/rus/Montserrat-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: MontserratRus;
+  src: url('./assets/fonts/rus/Montserrat-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: MontserratEng;
+  src: url('./assets/fonts/eng/Montserrat-Black.ttf') format('truetype');
+}
+@font-face {
+  font-family: MontserratEng;
+  src: url('./assets/fonts/eng/Montserrat-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: MontserratEng;
+  src: url('./assets/fonts/eng/Montserrat-Medium.ttf') format('truetype');
+}
+@font-face {
+  font-family: MontserratEng;
+  src: url('./assets/fonts/eng/Montserrat-Regular.ttf') format('truetype');
 }

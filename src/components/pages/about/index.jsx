@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useMemo } from 'react'
+import React, { useEffect, useState, useMemo, useContext } from 'react'
 import { useQuery } from '../../../hooks'
 import BreadCrumb from '../../core/BreadCrumb'
 import LoanCalculator from '../../loanCalculator'
@@ -6,11 +6,13 @@ import { pages } from '../../../constants'
 import ArticleContainer from './articleContainer'
 import SideBar from '../../core/SideBar'
 import './style.scss'
+import { LocaleContext } from '../../../context/localeContext'
 
 const articles = pages.main_header[0].drop_down
 
-const About = (state) => {
+const About = () => {
   const selectedArticleId = useQuery('article')
+  const { locale } = useContext(LocaleContext)
 
   const selectedArticle = useMemo(
     () => articles.filter(({ id }) => id === selectedArticleId)[0],
@@ -24,17 +26,17 @@ const About = (state) => {
   return (
     <div className="about_page_wrapper">
       <BreadCrumb
-        title="Մեր Մասին"
+        title={pages.titles[`about_${locale}`]}
         path={
           selectedArticle
             ? [
-                { title: 'Գլխավոր', url: '/' },
-                { title: 'Մեր Մասին', url: '/about' },
-                { title: selectedArticle.title },
+                { title: pages.titles[`home_${locale}`], url: '/' },
+                { title: pages.titles[`about_${locale}`], url: '/about' },
+                { title: selectedArticle[`title_${locale}`] },
               ]
             : [
-                { title: 'Գլխավոր', url: '/' },
-                { title: 'Մեր Մասին', url: '/about' },
+                { title: pages.titles[`home_${locale}`], url: '/' },
+                { title: pages.titles[`about_${locale}`], url: '/about' },
               ]
         }
         callBack={() => setSelected(undefined)}

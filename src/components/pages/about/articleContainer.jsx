@@ -1,10 +1,12 @@
-import React, { useMemo } from 'react'
+import React, { useContext, useMemo } from 'react'
 import { useNavigate } from 'react-router'
 import Icon from '../../core/Icon'
 import { AnimatePresence, motion } from 'framer-motion'
+import { LocaleContext } from '../../../context/localeContext'
 
-const ArticleItem = ({ title, id, setSelected, ...otherProps }) => {
+const ArticleItem = ({ id, setSelected, ...otherProps }) => {
   const navigate = useNavigate()
+  const { locale } = useContext(LocaleContext)
   const variantItem = useMemo(
     () => ({
       hidden: { y: -40, opacity: 0 },
@@ -21,16 +23,17 @@ const ArticleItem = ({ title, id, setSelected, ...otherProps }) => {
       className="article_item_wrapper"
       variants={variantItem}
       onClick={() => {
-        setSelected({ id, title, ...otherProps })
+        setSelected({ id, ...otherProps })
         navigate('?article=' + id)
       }}
     >
-      <span>{title}</span>
+      <span>{otherProps[`title_${locale}`]}</span>
       <Icon iconName="about_item_arrow_right" width={24} height={24} />
     </motion.li>
   )
 }
 const ArticleContainer = ({ articles, selected, setSelected }) => {
+  const { locale } = useContext(LocaleContext)
   const variantList = useMemo(
     () => ({
       show: {
@@ -48,7 +51,7 @@ const ArticleContainer = ({ articles, selected, setSelected }) => {
       <AnimatePresence exitBeforeEnter>
         {selected ? (
           <div className="selected_wrapper">
-            <span>{selected.title}</span>
+            <span>{selected[`title_${locale}`]}</span>
           </div>
         ) : (
           <motion.ul

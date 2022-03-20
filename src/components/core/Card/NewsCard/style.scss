@@ -64,3 +64,10 @@
     margin: 16px;
   }
 }
+
+@media (max-width: 390px) {
+  .news_card_wrapper {
+    transform: scale(0.8);
+    margin-bottom: 0;
+  }
+}

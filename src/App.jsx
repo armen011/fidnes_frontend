@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Router from './components/router'
-import "./App.scss"
+import { LocaleContext } from './context/localeContext'
+import './App.scss'
 
 const App = () => {
-  return <div>
-    <Router />
-  </div>
+  const [locale, setLocale] = useState('am')
+  return (
+    <div>
+      <LocaleContext.Provider value={{ locale, setLocale }}>
+        <Router />
+      </LocaleContext.Provider>
+    </div>
+  )
 }
 
 export default App

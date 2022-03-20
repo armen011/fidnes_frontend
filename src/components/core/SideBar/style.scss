@@ -89,3 +89,11 @@
     }
   }
 }
+
+@media (max-width: 390px) {
+  .side_bar_info_wrapper {
+    .news_wrapper {
+      transform: scale(0.8);
+    }
+  }
+}

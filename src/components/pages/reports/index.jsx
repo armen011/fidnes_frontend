@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useContext, useEffect, useMemo, useState } from 'react'
 import BreadCrumb from '../../core/BreadCrumb'
 import ReportsContainer from './reportsContainer'
 import SideBar from '../../core/SideBar'
@@ -6,6 +6,7 @@ import LoanCalculator from '../../loanCalculator'
 import reportImg from '../../../assets/img/report_img.png'
 import { pages } from '../../../constants'
 import { useQuery } from '../../../hooks'
+import { LocaleContext } from '../../../context/localeContext'
 import './style.scss'
 
 const reports = pages.extra_header[1].drop_down
@@ -13,7 +14,7 @@ const reports = pages.extra_header[1].drop_down
 const Reports = () => {
   const selectedReportTypeId = useQuery('report_type_id')
   const branches = pages.extra_header[1].drop_down
-
+  const { locale } = useContext(LocaleContext)
   const selectedReportType = useMemo(
     () => reports.filter(({ id }) => id === selectedReportTypeId)[0],
     [selectedReportTypeId]
@@ -30,17 +31,17 @@ const Reports = () => {
   return (
     <div className="reports_wrapper">
       <BreadCrumb
-        title="Հաշվետվություններ"
+        title={pages.titles[`reports_${locale}`]}
         path={
           selectedReportType
             ? [
-                { title: 'Գլխավոր', url: '/' },
-                { title: 'Հաշվետվություններ', url: '/reports' },
-                { title: selectedReportType.title },
+                { title: pages.titles[`home_${locale}`], url: '/' },
+                { title: pages.titles[`reports_${locale}`], url: '/reports' },
+                { title: selectedReportType[`title_${locale}`] },
               ]
             : [
-                { title: 'Գլխավոր', url: '/' },
-                { title: 'Հաշվետվություններ', url: '/reports' },
+                { title: pages.titles[`home_${locale}`], url: '/' },
+                { title: pages.titles[`reports_${locale}`], url: '/reports' },
               ]
         }
       />
@@ -51,7 +52,11 @@ const Reports = () => {
               <img src={reportImg} alt="" />
             </div>
             <div className="report_content_wrapper">
-              <span>{selected ? selected.title : 'Բաժիններ'}</span>
+              <span>
+                {selected
+                  ? selected[`title_${locale}`]
+                  : pages.small_texts[`category_${locale}`]}
+              </span>
               <ReportsContainer {...{ branches, selected, setSelected }} />
             </div>
           </div>

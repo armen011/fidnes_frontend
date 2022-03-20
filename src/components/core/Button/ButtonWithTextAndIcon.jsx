@@ -2,16 +2,7 @@ import React from 'react'
 import Icon from '../Icon'
 
 export const ButtonWithTextAndIcon = React.memo(
-  ({
-    text,
-    iconName,
-    width,
-    height,
-    onClick,
-    iconProps,
-    textProps,
-    ...otherProps
-  }) => {
+  ({ text, iconName, width, height, iconProps, textProps, ...otherProps }) => {
     return (
       <button {...otherProps}>
         <Icon

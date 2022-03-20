@@ -1,23 +1,26 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import BreadCrumb from '../../core/BreadCrumb'
 import Icon from '../../core/Icon'
 import { TextArea, TextInput } from '../../core/Input'
+import { pages } from '../../../constants'
+import { LocaleContext } from '../../../context/localeContext'
 import './style.scss'
 
 const ContactUs = () => {
+  const { locale } = useContext(LocaleContext)
   return (
     <div className="contact_us_wrapper">
       <BreadCrumb
-        title="Հետադարձ Կապ"
+        title={pages.titles[`contact_${locale}`]}
         path={[
-          { title: 'Գլխավոր', url: '/' },
-          { title: 'Հետադարձ Կապ', url: '/contact_us' },
+          { title: pages.titles[`home_${locale}`], url: '/' },
+          { title: pages.titles[`contact_${locale}`], url: '/contact_us' },
         ]}
       />
       <div className="contact_info_wrapper">
         <div className="info_conatiner">
           <div className="whole_info_wrapper">
-            <span>Կապ միջոցներ</span>
+            <span>{pages.small_texts[`connect_methodes_${locale}`]}</span>
             <div className="icon_text_wrapper">
               <Icon
                 iconName="contact_location"
@@ -45,7 +48,7 @@ const ContactUs = () => {
               />
               <span>Հեռ․՝ (+374) 47 970797, (+374) 47 960197</span>
             </div>
-            <span>Այլ միջոցներ</span>
+            <span>{pages.small_texts[`other_methodes_${locale}`]}</span>
             <div className="icon_text_wrapper">
               <Icon
                 iconName="contact_watsapp"
@@ -64,20 +67,38 @@ const ContactUs = () => {
           </div>
         </div>
         <div className="sugestion_form_container">
-          <span>Հարգելի Հաճախորդ</span>
+          <span>{pages.small_texts[`dear_client_${locale}`]}</span>
           <span>
             Մենք կցանկանայինք լսել ձեր մտքերը, առաջարկությունները,
             մտահոգությունները կամ ցանկացած խնդրի հետ կապված խնդիրները, որպեսզի
             կարողանանք բարելավել մեր ծառայությունները:
           </span>
           <div className="form_wrapper">
-            <TextInput className="small_input" placeholder="Անուն" />
-            <TextInput className="small_input" placeholder="Ազգանուն" />
-            <TextInput className="small_input" placeholder="Էլ․ հասցե" />
-            <TextInput className="small_input" placeholder="Հեռախոսահամար" />
-            <TextInput className="big_input" placeholder="Հասցե" />
-            <TextArea className="big_input" placeholder="Նշումներ" />
-            <button>Ուղարկել</button>
+            <TextInput
+              className="small_input"
+              placeholder={pages.placeholders[`name_${locale}`]}
+            />
+            <TextInput
+              className="small_input"
+              placeholder={pages.placeholders[`surname_${locale}`]}
+            />
+            <TextInput
+              className="small_input"
+              placeholder={pages.placeholders[`email_${locale}`]}
+            />
+            <TextInput
+              className="small_input"
+              placeholder={pages.placeholders[`phone_number_${locale}`]}
+            />
+            <TextInput
+              className="big_input"
+              placeholder={pages.placeholders[`address_${locale}`]}
+            />
+            <TextArea
+              className="big_input"
+              placeholder={pages.placeholders[`notes_${locale}`]}
+            />
+            <button>{pages.button_texts[`send_${locale}`]}</button>
           </div>
         </div>
       </div>

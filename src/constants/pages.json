@@ -1,131 +1,315 @@
 {
   "main_header": [
     {
-      "title": "Մեր մասին",
+      "title_am": "Մեր մասին",
+      "title_ru": "О нас",
+      "title_en": "About Us",
       "url": "/about",
       "drop_down": [
         {
           "id": "1",
-          "title": "Առաքելությունը և նպատակը",
+          "title_am": "Առաքելությունը և նպատակը",
+          "title_ru": "Առաքելությունը և նպատակը",
+          "title_en": "Առաքելությունը և նպատակը",
           "url": "/about?article=1"
         },
         {
           "id": "2",
-          "title": "Ընդհանուր տեղեկատվություններ",
+          "title_am": "Ընդհանուր տեղեկատվություններ",
+          "title_ru": "Ընդհանուր տեղեկատվություններ",
+          "title_en": "Ընդհանուր տեղեկատվություններ",
           "url": "/about?article=2"
         },
         {
           "id": "3",
-          "title": "Ներքին վարչակազմակերպական կառուցվածք",
+          "title_am": "Ներքին վարչակազմակերպական կառուցվածք",
+          "title_ru": "Ներքին վարչակազմակերպական կառուցվածք",
+          "title_en": "Ներքին վարչակազմակերպական կառուցվածք",
           "url": "/about?article=3"
         },
         {
           "id": "4",
-          "title": "Պետական գրանցման վկայականի և գորխող լիցենզիայի պատճաառները",
+          "title_am": "Պետական գրանցման վկայականի և գորխող լիցենզիայի պատճաառները",
+          "title_ru": "Պետական գրանցման վկայականի և գորխող լիցենզիայի պատճաառները",
+          "title_en": "Պետական գրանցման վկայականի և գորխող լիցենզիայի պատճաառները",
           "url": "/about?article=4"
         },
         {
           "id": "5",
-          "title": "Գործարար էթիկայի և կորպորատիվ վարվելակերպի կանոններ",
+          "title_am": "Գործարար էթիկայի և կորպորատիվ վարվելակերպի կանոններ",
+          "title_ru": "Գործարար էթիկայի և կորպորատիվ վարվելակերպի կանոններ",
+          "title_en": "Գործարար էթիկայի և կորպորատիվ վարվելակերպի կանոններ",
           "url": "/about?article=5"
         },
-        { "id": "6", "title": "Ղեկավարություն", "url": "/about?article=6" },
+        {
+          "id": "6",
+          "title_am": "Ղեկավարություն",
+          "title_ru": "Управление",
+          "title_en": "Management",
+          "url": "/about?article=6"
+        },
         {
           "id": "7",
-          "title": "Նշանակալից մասնակիցներ",
+          "title_am": "Նշանակալից մասնակիցներ",
+          "title_ru": "Նշանակալից մասնակիցներ",
+          "title_en": "Նշանակալից մասնակիցներ",
           "url": "/about?article=7"
         },
         {
           "id": "8",
-          "title": "Գործարար վարվելակերպի կանոններ",
+          "title_am": "Գործարար վարվելակերպի կանոններ",
+          "title_ru": "Գործարար վարվելակերպի կանոններ",
+          "title_en": "Գործարար վարվելակերպի կանոններ",
           "url": "/about?article=8"
         }
       ]
     },
     {
-      "title": "Վարկեր",
+      "title_am": "Վարկեր",
+      "title_en": "Loans",
+      "title_ru": "Кредиты",
       "url": "",
       "drop_down": [
         {
-          "title": "Հիփոթեքային վարկեր",
+          "title_am": "Հիփոթեքային վարկեր",
+          "title_ru": "Հիփոթեքային վարկեր",
+          "title_en": "Հիփոթեքային վարկեր",
           "url": ""
         },
         {
-          "title": "Ազգային հիփոթեքային ընկերության ծրագիր",
+          "title_am": "Ազգային հիփոթեքային ընկերության ծրագիր",
+          "title_ru": "Ազգային հիփոթեքային ընկերության ծրագիր",
+          "title_en": "Ազգային հիփոթեքային ընկերության ծրագիր",
           "url": ""
         },
         {
-          "title": "Երիտասարդ ընտանիքին մանչելի բնակարան",
+          "title_am": "Երիտասարդ ընտանիքին մանչելի բնակարան",
+          "title_ru": "Երիտասարդ ընտանիքին մանչելի բնակարան",
+          "title_en": "Երիտասարդ ընտանիքին մանչելի բնակարան",
           "url": ""
         },
         {
-          "title": "Բիզնես վարկեր",
+          "title_am": "Բիզնես վարկեր",
+          "title_ru": "Բիզնես վարկեր",
+          "title_en": "Բիզնես վարկեր",
           "url": ""
         },
         {
-          "title": "Սպառողական վարկեր",
+          "title_am": "Սպառողական վարկեր",
+          "title_ru": "Սպառողական վարկեր",
+          "title_en": "Սպառողական վարկեր",
           "url": ""
         },
         {
-          "title": "Սակագներ",
+          "title_am": "Սակագներ",
+          "title_ru": "Սակագներ",
+          "title_en": "Սակագներ",
           "url": ""
         },
         {
-          "title": "Ապահովագրություն",
+          "title_am": "Ապահովագրություն",
+          "title_ru": "Ապահովագրություն",
+          "title_en": "Ապահովագրություն",
           "url": ""
         }
       ]
     },
-    { "title": "Նորություններ", "url": "/news" }
+    {
+      "title_am": "Նորություններ",
+      "title_ru": "Новости",
+      "title_en": "News",
+      "url": "/news"
+    }
   ],
   "extra_header": [
-    { "title": "Սեփականատերեր", "url": "" },
     {
-      "title": "Հաշվետվություններ",
+      "title_am": "Սեփականատերեր",
+      "title_ru": "Владельцы",
+      "title_en": "Owners",
+      "url": "/owners"
+    },
+    {
+      "title_am": "Հաշվետվություններ",
+      "title_ru": "Отчеты",
+      "title_en": "Reports",
       "url": "/reports",
       "drop_down": [
         {
           "id": "1",
-          "title": "Միջանկյալ",
+          "title_am": "Միջանկյալ",
+          "title_ru": "Միջանկյալ",
+          "title_en": "Միջանկյալ",
           "url": "/reports?report_type_id=1",
           "drop_down": []
         },
         {
           "id": "2",
-          "title": "Տարեկան",
+          "title_am": "Տարեկան",
+          "title_ru": "Տարեկան",
+          "title_en": "Տարեկան",
           "url": "/reports?report_type_id=2",
           "drop_down": []
         },
         {
           "id": "3",
-          "title": "Անկախ աուդիտորական եզրակացություն",
+          "title_am": "Անկախ աուդիտորական եզրակացություն",
+          "title_ru": "Անկախ աուդիտորական եզրակացություն",
+          "title_en": "Անկախ աուդիտորական եզրակացություն",
           "url": "/reports?report_type_id=3",
           "drop_down": []
         },
         {
           "id": "4",
-          "title": "Հիմնական տնտեսական նորմատիվներ",
+          "title_am": "Հիմնական տնտեսական նորմատիվներ",
+          "title_ru": "Հիմնական տնտեսական նորմատիվներ",
+          "title_en": "Հիմնական տնտեսական նորմատիվներ",
           "url": "/reports?report_type_id=5"
         },
         {
           "id": "5",
-          "title": "Գործունեության տարեկան հաշվետվություն",
+          "title_am": "Գործունեության տարեկան հաշվետվություն",
+          "title_ru": "Գործունեության տարեկան հաշվետվություն",
+          "title_en": "Գործունեության տարեկան հաշվետվություն",
           "url": "/reports?report_type_id=4",
           "drop_down": []
         }
       ]
     },
     {
-      "title": "Սպառողի իրավունքներ",
+      "title_am": "Սպառողի իրավունքներ",
+      "title_ru": "Права потребителей",
+      "title_en": "Consumer rights",
       "url": "",
       "drop_down": [
-        { "title": "Կապի միջոցներ", "url": "" },
-        { "title": "Հայտարարություններ", "url": "" },
-        { "title": "Հաճախորդի բողոքների քննության կանոններ", "url": "" },
-        { "title": "Ֆինանսական համակարգի հաշտարար", "url": "" }
+        {
+          "title_am": "Կապի միջոցներ",
+          "title_ru": "Կապի միջոցներ",
+          "title_en": "Կապի միջոցներ",
+          "url": ""
+        },
+        {
+          "title_am": "Հայտարարություններ",
+          "title_ru": "Հայտարարություններ",
+          "title_en": "Հայտարարություններ",
+          "url": ""
+        },
+        {
+          "title_am": "Հաճախորդի բողոքների քննության կանոններ",
+          "title_ru": "Հաճախորդի բողոքների քննության կանոններ",
+          "title_en": "Հաճախորդի բողոքների քննության կանոններ",
+          "url": ""
+        },
+        {
+          "title_am": "Ֆինանսական համակարգի հաշտարար",
+          "title_ru": "Ֆինանսական համակարգի հաշտարար",
+          "title_en": "Ֆինանսական համակարգի հաշտարար",
+          "url": ""
+        }
       ]
     },
-    { "title": "Իրավական ակտեր", "url": "/legal_acts" },
-    { "title": "Կապ", "url": "/contact_us" }
-  ]
+    {
+      "title_am": "Իրավական ակտեր",
+      "title_ru": "Правовые акты",
+      "title_en": "Legal acts",
+      "url": "/legal_acts"
+    },
+    {
+      "title_am": "Կապ",
+      "title_ru": "Контакт",
+      "title_en": "Contact",
+      "url": "/contact_us"
+    }
+  ],
+  "titles": {
+    "home_am": "Գլխավոր",
+    "home_ru": "Главный",
+    "home_en": "Home",
+    "about_am": "Մեր մասին",
+    "about_ru": "О нас",
+    "about_en": "About Us",
+    "contact_am": "Հետադարձ Կապ",
+    "contact_ru": "Контакт",
+    "contact_en": "Contact",
+    "legal_acts_am": "Իրավական ակտեր",
+    "legal_acts_ru": "Правовые акты",
+    "legal_acts_en": "Legal acts",
+    "owners_am": "Սեփականատերեր",
+    "owners_ru": "Владельцы",
+    "owners_en": "Owners",
+    "reports_am": "Հաշվետվություններ",
+    "reports_ru": "Отчеты",
+    "reports_en": "Reports"
+  },
+  "placeholders": {
+    "name_am": "Անուն",
+    "name_ru": "Имя",
+    "name_en": "Name",
+    "surname_am": "Ազգանուն",
+    "surname_ru": "Фамилия",
+    "surname_en": "Surname",
+    "email_am": "Էլ․ հասցե",
+    "email_ru": "Эл. почта Адрес",
+    "email_en": "E-mail Address",
+    "phone_number_am": "Հեռախոսահամար",
+    "phone_number_ru": "Phone number",
+    "phone_number_en": "Телефонный номер",
+    "address_am": "Հասցե",
+    "address_ru": "Адрес",
+    "address_en": "Address",
+    "notes_am": "Նշումներ",
+    "notes_ru": "Примечания",
+    "notes_en": "Notes"
+  },
+  "button_texts": {
+    "send_am": "Ուղարկել",
+    "send_ru": "Отправлять",
+    "send_en": "Send"
+  },
+  "small_texts": {
+    "connect_methodes_am": "Կապ միջոցներ",
+    "connect_methodes_ru": "Контактные ресурсы",
+    "connect_methodes_en": "Contact resources",
+    "other_methodes_am": "Այլ միջոցներ",
+    "other_methodes_ru": "Другие средства",
+    "other_methodes_en": "Other means",
+    "dear_client_am": "Հարգելի Հաճախորդ",
+    "dear_client_ru": "Уважаемый клиент",
+    "dear_client_en": "Dear Customer",
+    "category_am": "Բաժիններ",
+    "category_ru": "Категории",
+    "category_en": "Categories",
+    "latest_news_am": "Վերջին Նորությունը",
+    "latest_news_ru": "Последние новости",
+    "latest_news_en": "Latest News",
+    "exchange_rates_today_am": "Փոխարժեքներն այսօր",
+    "exchange_rates_today_ru": "Курсы валют сегодня",
+    "exchange_rates_today_en": "Exchange rates today",
+    "currency_am": "Արժույթ",
+    "currency_ru": "Валюта",
+    "currency_en": "Currency",
+    "purchase_am": "Առք",
+    "purchase_ru": "Покупка",
+    "purchase_en": "Purchase",
+    "sale_am": "Վաճառք",
+    "sale_ru": "Распродажа",
+    "sale_en": "Sale",
+    "interest_rates_am": "Տոկոսադրույքներ",
+    "interest_rates_ru": "Процентные ставки",
+    "interest_rates_en": "Interest rates",
+    "money_involvement_am": "Դրամական միջ. ներգրավման",
+    "money_involvement_ru": "Деньги Участие",
+    "money_involvement_en": "Money Involvement",
+    "lombard_repo_am": "Լոմբարդային ռեպո",
+    "lombard_repo_ru": "Ломбардный репо",
+    "lombard_repo_en": "Lombard repo",
+    "refinancing_am": "Վերաֆինանսավորման",
+    "refinancing_ru": "Рефинансирование",
+    "refinancing_en": "Refinancing",
+    "bank_interest_rate_am": "Բանկային տոկոսի հաշվարկային դրույք",
+    "bank_interest_rate_ru": "Банковская процентная ставка",
+    "bank_interest_rate_en": "Bank interest rate",
+    "updated_at_am": "Թարմացվել է ՝",
+    "updated_at_ru": "Обновлено",
+    "updated_at_en": "Updated"
+  }
 }
