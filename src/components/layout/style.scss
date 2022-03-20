@@ -183,6 +183,7 @@
       z-index: 5;
       > ul {
         width: 456px;
+        min-height: calc(100vh);
         padding: 32px 16px;
         > li {
           width: 100%;

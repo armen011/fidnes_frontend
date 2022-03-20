@@ -7,6 +7,7 @@ import ContactUs from '../pages/contact_us'
 import LegalActs from '../pages/legal_acts'
 import Reports from '../pages/reports'
 import Owners from '../pages/owners'
+import News from '../pages/news'
 
 const Router = () => {
   return (
@@ -19,6 +20,7 @@ const Router = () => {
           <Route path="/legal_acts" element={<LegalActs />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/owners" element={<Owners />} />
+          <Route path="/news" element={<News />} />
         </Routes>
       </Layout>
     </BrowserRouter>

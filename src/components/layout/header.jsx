@@ -49,7 +49,7 @@ const Header = () => {
             iconName="earth_20"
             width={20}
             height={20}
-            text={locale === 'am' ? 'ARM' : locale === 'ru' ? 'RUS' : 'ENG'}
+            text={locale === 'am' ? 'ՀԱՅ' : locale === 'ru' ? 'РУС' : 'ENG'}
             className="language_button"
             onClick={() => setIsLocalesDropDownOpened((prev) => !prev)}
           />
@@ -60,9 +60,9 @@ const Header = () => {
                 : {}
             }
           >
-            <li onClick={handleLocaleSelect('am')}>ARM</li>
+            <li onClick={handleLocaleSelect('am')}>ՀԱՅ</li>
             <li onClick={handleLocaleSelect('en')}>ENG</li>
-            <li onClick={handleLocaleSelect('ru')}>RUS</li>
+            <li onClick={handleLocaleSelect('ru')}>РУС</li>
           </ul>
         </div>
         <button className="addres_job_button">Հասցեներ և աշխատաժամեր</button>
