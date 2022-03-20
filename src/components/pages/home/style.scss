@@ -424,9 +424,7 @@
   .carousel_wrapper {
     padding: 0;
     min-height: 800px;
-    .carousel_controller {
-      display: none;
-    }
+
     .carousel_area {
       display: none;
     }
@@ -501,6 +499,16 @@
     padding: 0;
     min-height: 800px;
     border-radius: 0px 0px 48px 48px;
+    .carousel_controller {
+      width: 90%;
+      justify-content: center;
+      align-items: center;
+      display: flex;
+      bottom: 8px;
+      > button {
+        display: none;
+      }
+    }
 
     .carousel_area_mobile {
       width: 100%;
@@ -569,6 +577,7 @@
     }
     > button {
       display: block;
+      width: 100%;
     }
   }
 }
@@ -589,7 +598,7 @@
       }
       .info_wrapper_mobile {
         width: 100%;
-        max-height: 300px;
+        max-height: 500px;
         background: #fef4d6;
       }
     }

@@ -40,7 +40,7 @@ const Header = () => {
           height={24}
           className="search_button"
         />
-        <a href="tel:+123456789" className="phone_number_wrapper">
+        <a href="tel:+37410592323" className="phone_number_wrapper">
           <Icon iconName="phone_24" width={24} height={24} />
           <span>+ 374 10 59 23 23</span>
         </a>

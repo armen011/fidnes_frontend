@@ -1,8 +1,12 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import { pages } from '../../../constants'
+import { LocaleContext } from '../../../context/localeContext'
 import { FirstConvertCard, SecondConvertCard } from '../../core/Card'
 import Icon from '../../core/Icon'
 
 const Converter = () => {
+  const { locale } = useContext(LocaleContext)
+
   return (
     <div className="coverter_container">
       <div className="converter_wrapper">
@@ -19,7 +23,7 @@ const Converter = () => {
             </div>
             <span>0</span>
             <div className="input_footer">
-              <span>Տալիս եմ</span>
+              <span>{pages.small_texts[`i_give_${locale}`]}</span>
             </div>
           </div>
           <Icon
@@ -38,7 +42,7 @@ const Converter = () => {
             </div>
             <span>0</span>
             <div className="input_footer">
-              <span>Ստանում եմ</span>
+              <span>{pages.small_texts[`i_get_${locale}`]}</span>
             </div>
           </div>
         </div>
