@@ -70,8 +70,8 @@ const LoanModal = ({ closeModal, formValues }) => {
                 <td>
                   <div>{month}</div>
                 </td>
-                <td>{capitalSum}</td>
                 <td>{percentSum}</td>
+                <td>{capitalSum}</td>
                 <td>{totalSum}</td>
               </tr>
             ))}

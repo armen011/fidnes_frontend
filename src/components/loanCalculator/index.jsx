@@ -21,7 +21,7 @@ const LoanCalculator = () => {
     []
   )
   const [formValues, setFormValues] = useState(initialValue)
-  const [isModalOpened, setIsModalOpend] = useState(false)
+  const [isModalOpened, setIsModalOpened] = useState(false)
 
   const [[page, direction], setPage] = useState([0, 0])
   const { locale } = useContext(LocaleContext)
@@ -161,8 +161,13 @@ const LoanCalculator = () => {
               </div>
               <button
                 onClick={() => {
-                  console.log('FORMVALUES', formValues)
-                  setIsModalOpend(true)
+                  if (
+                    formValues.sum > 0 &&
+                    formValues.period > 0 &&
+                    formValues.percentage > 0
+                  ) {
+                    setIsModalOpened(true)
+                  }
                 }}
               >
                 {pages.button_texts[`count_${locale}`]}
@@ -174,7 +179,7 @@ const LoanCalculator = () => {
       {isModalOpened && (
         <LoanModal
           closeModal={() => {
-            setIsModalOpend(false)
+            setIsModalOpened(false)
             setFormValues(initialValue)
           }}
           formValues={formValues}

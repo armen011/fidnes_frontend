@@ -58,7 +58,7 @@ const calcWithEqualRepayments = (
     (Math.pow(1 + manthPerc, period) - 1)
   const avrgSum = (avrg * sum).toFixed(2)
   const percentSum = parseFloat(((sum - givenSum) * manthPerc).toFixed(2))
-  const capitalSum = avrgSum - percentSum
+  const capitalSum = parseFloat((avrgSum - percentSum).toFixed(2))
   return {
     month: monthIndex,
     capitalSum,

@@ -3,8 +3,6 @@ import './style.scss'
 
 export const LoanCheckBoxinput = React.memo(
   ({ label, value, name, onClick }) => {
-    console.log('value', value)
-    console.log('name', name)
     return (
       <div className="loan_checkbox_input" onClick={onClick}>
         <div
