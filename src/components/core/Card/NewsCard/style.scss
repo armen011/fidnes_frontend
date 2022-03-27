@@ -71,3 +71,108 @@
     margin-bottom: 0;
   }
 }
+
+.desktop_news_card_wrapper {
+  width: 100%;
+  height: 192px;
+  display: flex;
+  margin-bottom: 24px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #ffffff;
+  .news_card_img_wrapper {
+    width: 296px;
+    height: 100%;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .news_card_content_wrapper {
+    width: calc(100% - 296px);
+    height: 100%;
+    padding: 16px 24px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    > h5 {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 24px;
+      color: #16131e;
+    }
+    > p {
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 20px;
+      color: #5c5a62;
+    }
+
+    .content_footer {
+      width: 100%;
+      height: 24px;
+      display: flex;
+      justify-content: space-between;
+      .date_wrapper {
+        width: 160px;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: #e8e7e9;
+        border-radius: 24px;
+        > span {
+          font-weight: 400;
+          font-size: 12px;
+          line-height: 16px;
+          color: #737178;
+        }
+      }
+      .status_wrapper {
+        height: 100%;
+        min-width: 48px;
+        background: rgba(83, 216, 106, 0.15);
+        border-radius: 16px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        > span {
+          font-weight: 500;
+          font-size: 12px;
+          line-height: 16px;
+          color: #53d86a;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 1024px) {
+  .desktop_news_card_wrapper {
+    width: 358px;
+    height: auto;
+    flex-direction: column;
+    margin: 8px;
+    .news_card_img_wrapper {
+      width: 100%;
+      height: 200px;
+    }
+    .news_card_content_wrapper {
+      width: 100%;
+      height: auto;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      > h5 {
+        margin-bottom: 8px;
+      }
+      .content_footer {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 16px;
+      }
+    }
+  }
+}

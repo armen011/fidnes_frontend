@@ -1,6 +1,8 @@
 import React from 'react'
 import './style.scss'
 
+export { default as DesktopNewsCard } from './DesktopNewsCard'
+
 export const NewsCard = ({ img, title, content, date, className }) => {
   return (
     <div className={`news_card_wrapper ${className ? className : ''}`}>
