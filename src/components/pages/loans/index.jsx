@@ -62,12 +62,12 @@ const Loans = () => {
           selected
             ? [
                 { title: pages.titles[`home_${locale}`], url: '/' },
-                { title: pages.titles[`loan_${locale}`], url: '/about' },
-                { title: pages.titles[`loan_${locale}`], url: '/about' },
+                { title: pages.titles[`loan_${locale}`], url: '/loans' },
+                { title: pages.titles[`loan_${locale}`], url: '/loans' },
               ]
             : [
                 { title: pages.titles[`home_${locale}`], url: '/' },
-                { title: pages.titles[`loan_${locale}`], url: '/about' },
+                { title: pages.titles[`loan_${locale}`], url: '/loans' },
               ]
         }
         callBack={() => setSelected(undefined)}
