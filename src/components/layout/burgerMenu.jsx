@@ -153,4 +153,4 @@ const BurgerMenu = ({ isMenuBarOpened, setIsMenuBarOpened }) => {
   )
 }
 
-export default BurgerMenu
+export default React.memo(BurgerMenu)

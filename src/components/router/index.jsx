@@ -8,6 +8,7 @@ import LegalActs from '../pages/legal_acts'
 import Reports from '../pages/reports'
 import Owners from '../pages/owners'
 import News from '../pages/news'
+import Loans from '../pages/loans'
 
 const Router = () => {
   return (
@@ -21,6 +22,7 @@ const Router = () => {
           <Route path="/reports" element={<Reports />} />
           <Route path="/owners" element={<Owners />} />
           <Route path="/news" element={<News />} />
+          <Route path="/loans" element={<Loans />} />
         </Routes>
       </Layout>
     </BrowserRouter>
