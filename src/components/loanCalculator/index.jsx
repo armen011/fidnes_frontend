@@ -1,14 +1,28 @@
 import { AnimatePresence } from 'framer-motion'
 import { wrap } from 'popmotion'
-import React, { useCallback, useContext, useEffect, useState } from 'react'
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 import { LoanCalculatorInput, LoanCheckBoxinput } from '../core/Input'
 import Container from './Container'
 import LoanTypes from './loanTypes'
 import { pages } from '../../constants'
 import { LocaleContext } from '../../context/localeContext'
 import './style.scss'
+import LoanModal from '../core/Modal'
 
 const LoanCalculator = () => {
+  const initialValue = useMemo(
+    () => ({ sum: '', period: '', percentage: '', method: 0 }),
+    []
+  )
+  const [formValues, setFormValues] = useState(initialValue)
+  const [isModalOpened, setIsModalOpend] = useState(false)
+
   const [[page, direction], setPage] = useState([0, 0])
   const { locale } = useContext(LocaleContext)
   const paginate = useCallback(
@@ -97,14 +111,26 @@ const LoanCalculator = () => {
               <LoanCalculatorInput
                 label={pages.labels[`loan_amount_${locale}`]}
                 typeName={pages.labels[`type_name_amd_${locale}`]}
+                value={formValues.sum}
+                onChange={(value) =>
+                  setFormValues((prev) => ({ ...prev, sum: value }))
+                }
               />
               <LoanCalculatorInput
                 label={pages.labels[`annual_interest_rate_${locale}`]}
                 typeName="%"
+                value={formValues.percentage}
+                onChange={(value) =>
+                  setFormValues((prev) => ({ ...prev, percentage: value }))
+                }
               />
               <LoanCalculatorInput
                 label={pages.labels[`repayment_period_${locale}`]}
                 typeName={pages.labels[`type_name_month_${locale}`]}
+                value={formValues.period}
+                onChange={(value) =>
+                  setFormValues((prev) => ({ ...prev, period: value }))
+                }
               />
             </div>
             <div className="main_calculator_select_button_wrapper">
@@ -118,16 +144,42 @@ const LoanCalculator = () => {
                       `with_equal_repayments_of_the_principal_amount_${locale}`
                     ]
                   }
+                  value={formValues.method}
+                  name={0}
+                  onClick={() =>
+                    setFormValues((prev) => ({ ...prev, method: 0 }))
+                  }
                 />
                 <LoanCheckBoxinput
                   label={pages.labels[`with_equal_repayments_${locale}`]}
+                  value={formValues.method}
+                  name={1}
+                  onClick={() =>
+                    setFormValues((prev) => ({ ...prev, method: 1 }))
+                  }
                 />
               </div>
-              <button>{pages.button_texts[`count_${locale}`]}</button>
+              <button
+                onClick={() => {
+                  console.log('FORMVALUES', formValues)
+                  setIsModalOpend(true)
+                }}
+              >
+                {pages.button_texts[`count_${locale}`]}
+              </button>
             </div>
           </div>
         </div>
       </div>
+      {isModalOpened && (
+        <LoanModal
+          closeModal={() => {
+            setIsModalOpend(false)
+            setFormValues(initialValue)
+          }}
+          formValues={formValues}
+        />
+      )}
     </div>
   )
 }

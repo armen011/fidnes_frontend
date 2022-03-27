@@ -290,7 +290,22 @@
     "with_equal_repayments_of_the_principal_amount_en": "with equal repayments of the principal amount",
     "with_equal_repayments_am": "հավասարաչափ մարումներով",
     "with_equal_repayments_ru": "с равными выплатами",
-    "with_equal_repayments_en": "with equal repayments"
+    "with_equal_repayments_en": "with equal repayments",
+    "credit_calculator_results_am": "Վարկային հաշվիչի արդյունքներ",
+    "credit_calculator_results_ru": "Результаты кредитного калькулятора",
+    "credit_calculator_results_en": "Credit calculator results",
+    "table_month_am": "Ամիսներ",
+    "table_month_ru": "Месяцы",
+    "table_month_en": "Months",
+    "table_interest_amount_am": "Տոկոսագումար",
+    "table_interest_amount_ru": "Сумма процентов",
+    "table_interest_amount_en": "Interest amount",
+    "table_pepayment_of_principal_am": "Մայր գումարի մարում",
+    "table_pepayment_of_principal_ru": "Погашение основного долга",
+    "table_pepayment_of_principal_en": "Repayment of principal",
+    "table_total_am": "Ընդհամենը",
+    "table_total_ru": "Всего",
+    "table_total_en": "Total"
   },
   "button_texts": {
     "send_am": "Ուղարկել",

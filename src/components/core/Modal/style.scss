@@ -1,0 +1,194 @@
+.loan_modal_wrapper {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  background: rgba(35, 35, 35, 0.5);
+  z-index: 999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .modal_container {
+    width: 1000px;
+    max-width: 90%;
+    max-height: 90%;
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 24px;
+    overflow: hidden;
+    .modal_header {
+      width: 100%;
+      height: 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      span {
+        font-weight: 600;
+        font-size: 24px;
+        line-height: 32px;
+        color: #16131e;
+      }
+      div {
+        cursor: pointer;
+      }
+      margin-bottom: 32px;
+    }
+    .main_content_wrapper {
+      width: 100%;
+      height: 600px;
+      overflow: hidden;
+      overflow-y: auto;
+      overflow-x: auto;
+
+      &::-webkit-scrollbar {
+        width: 3px;
+        height: 3px;
+      }
+
+      &::-webkit-scrollbar-track {
+        background: #d0d0d2;
+        width: 1px;
+        border-radius: 8px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: #dfb43c;
+        border-radius: 16px;
+      }
+
+      .info_container {
+        width: 920px;
+        height: 102px;
+        background: #f5f5f5;
+        border-radius: 8px;
+        padding: 16px 24px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 42px;
+        .loan_general_info {
+          height: 100%;
+          padding: 8px 0;
+          display: flex;
+
+          > li {
+            width: 217px;
+            height: 100%;
+            border-right: 2px solid #d0d0d2;
+            padding-left: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            > span:nth-child(1) {
+              font-weight: 400;
+              font-size: 12px;
+              line-height: 16px;
+              color: #828282;
+            }
+            > span:nth-child(2) {
+              font-weight: 400;
+              font-size: 20px;
+              line-height: 30px;
+              color: #333333;
+            }
+          }
+          > li:nth-child(1) {
+            padding: 0;
+          }
+          > li:nth-child(3) {
+            border: none;
+          }
+        }
+        .seprate_infor {
+          width: 224px;
+          height: 100%;
+          background: #dfb43c;
+          border-radius: 8px;
+          padding: 12px 0 12px 20px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          > span:nth-child(1) {
+            font-weight: 400;
+            font-size: 12px;
+            line-height: 16px;
+            color: #ffffff;
+          }
+          > span:nth-child(2) {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 30px;
+            color: #ffffff;
+          }
+        }
+      }
+
+      .table_container {
+        width: 920px;
+        tr:nth-child(1) {
+          width: 100%;
+          height: 40px;
+          background: #ffffff;
+          box-shadow: 0px 2px 0px rgba(0, 0, 0, 0.15);
+          th {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
+            color: #737178;
+            padding: 0;
+            text-align: start;
+          }
+          th:nth-child(1) {
+            width: 190px;
+          }
+          th:nth-child(2) {
+            width: 289px;
+          }
+          th:nth-child(3) {
+            width: 246px;
+          }
+        }
+        tr {
+          width: 100%;
+          height: 64px;
+          td:first-child {
+            > div {
+              width: 32px;
+              height: 32px;
+              background: #e0e0e0;
+              border-radius: 16px;
+              font-weight: 700;
+              font-size: 16px;
+              line-height: 24px;
+              color: #45424b;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+          }
+          td {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            color: #16131e;
+          }
+        }
+        tr:last-child {
+          box-shadow: 0px -2px 0px rgba(0, 0, 0, 0.15);
+          height: 48px;
+          td {
+            font-weight: 600;
+            font-size: 20px;
+            line-height: 30px;
+            color: #16131e;
+          }
+          td:nth-child(1) {
+            font-weight: 600;
+            font-size: 16px;
+            line-height: 24px;
+            color: #737178;
+          }
+        }
+      }
+    }
+  }
+}

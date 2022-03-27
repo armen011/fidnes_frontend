@@ -101,6 +101,7 @@
   min-width: 32px;
   display: flex;
   align-items: center;
+  cursor: pointer;
   > div {
     width: 16px;
     height: 16px;
@@ -117,7 +118,6 @@
       background: #dfb43c;
       border-radius: 14px;
       transition: 200ms;
-      opacity: 0;
     }
   }
   > span {
