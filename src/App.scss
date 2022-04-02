@@ -12,6 +12,9 @@ a {
 ul {
   list-style: none;
 }
+li {
+  cursor: pointer;
+}
 body {
   font-family: Montserrat, MontserratRus, MontserratEng;
   width: 100vw;

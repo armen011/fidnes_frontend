@@ -46,7 +46,7 @@ const ContactUs = () => {
                 height={24}
                 className="icon_wrapper"
               />
-              <span>Հեռ․՝ (+374) 47 970797, (+374) 47 960197</span>
+              <span>Հեռ․՝ (+374) 47 970197, (+374) 47 960197</span>
             </div>
             <span>{pages.small_texts[`other_methodes_${locale}`]}</span>
             <div className="icon_text_wrapper">

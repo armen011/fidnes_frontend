@@ -4,17 +4,19 @@ import { BurgerButton } from '../core/Button'
 import DropDown from '../core/DropDown'
 import { pages } from '../../constants'
 import { useNavigate } from 'react-router'
+import { useLocation } from 'react-router-dom'
 import { LocaleContext } from '../../context/localeContext'
 
 const ExtraMenu = ({ setIsMenuBarOpened, isMenuBarOpened }) => {
   const { locale } = useContext(LocaleContext)
   const navigate = useNavigate()
+  const location = useLocation()
   return (
     <div className={`extra_menu`}>
       <Icon
         iconName="logo"
-        width={58}
-        height={72}
+        width={64}
+        height={80}
         onClick={() => navigate('/')}
       />
       <ul>
@@ -25,7 +27,9 @@ const ExtraMenu = ({ setIsMenuBarOpened, isMenuBarOpened }) => {
               navigate(url)
             }}
           >
-            {titles[`title_${locale}`]}
+            <span style={{ color: location.pathname === url && '#482003' }}>
+              {titles[`title_${locale}`]}
+            </span>
             {drop_down && (
               <Icon
                 iconName="arrow_left"
@@ -34,7 +38,12 @@ const ExtraMenu = ({ setIsMenuBarOpened, isMenuBarOpened }) => {
                 className="icon_wrapper"
               />
             )}
-            {drop_down && <DropDown content={drop_down} />}
+            {drop_down && (
+              <DropDown
+                content={drop_down}
+                isSelected={location.pathname === url}
+              />
+            )}
           </li>
         ))}
       </ul>

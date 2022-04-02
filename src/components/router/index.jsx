@@ -10,6 +10,7 @@ import Owners from '../pages/owners'
 import News from '../pages/news'
 import Loans from '../pages/loans'
 import SiteMap from '../pages/site_map'
+import Address from '../pages/address'
 
 const Router = () => {
   return (
@@ -25,6 +26,7 @@ const Router = () => {
           <Route path="/news" element={<News />} />
           <Route path="/loans" element={<Loans />} />
           <Route path="/site_map" element={<SiteMap />} />
+          <Route path="/address" element={<Address />} />
         </Routes>
       </Layout>
     </BrowserRouter>

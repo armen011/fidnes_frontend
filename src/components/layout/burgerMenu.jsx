@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import Icon from '../core/Icon'
 import { pages } from '../../constants'
 import { useNavigate } from 'react-router'
+import { useLocation } from 'react-router-dom'
 import { LocaleContext } from '../../context/localeContext'
 
 const ItemWrapper = ({
@@ -10,6 +11,8 @@ const ItemWrapper = ({
   drop_down,
   setSelectedMenu,
   setIsMenuBarOpened,
+  isSabMenu,
+  isSelected,
   ...titles
 }) => {
   const navigate = useNavigate()
@@ -30,18 +33,37 @@ const ItemWrapper = ({
     <motion.li
       variants={variantItem}
       onClick={() => {
-        if (drop_down) {
-          setSelectedMenu({ url, drop_down, ...titles })
-        } else {
+        if (!drop_down) {
           navigate(url)
           setSelectedMenu(undefined)
           setIsMenuBarOpened(false)
         }
       }}
+      style={{
+        paddingLeft: isSabMenu ? '32px' : '',
+        color: isSelected ? '#482003' : '',
+        fontWeight: isSelected ? '600' : '',
+        marginBottom: isSelected ? '16px' : '',
+      }}
     >
-      {titles[`title_${locale}`]}
+      <span
+        onClick={() => {
+          navigate(url)
+          setSelectedMenu(undefined)
+          setIsMenuBarOpened(false)
+        }}
+      >
+        {titles[`title_${locale}`]}
+      </span>
       {drop_down && (
-        <Icon iconName="burger_menu_arrow_right" width={24} height={24} />
+        <Icon
+          iconName="burger_menu_arrow_right"
+          width={24}
+          height={24}
+          onClick={() => {
+            setSelectedMenu({ url, drop_down, ...titles })
+          }}
+        />
       )}
     </motion.li>
   )
@@ -50,6 +72,8 @@ const ItemWrapper = ({
 const BurgerMenu = ({ isMenuBarOpened, setIsMenuBarOpened }) => {
   const [selectedMenu, setSelectedMenu] = useState(undefined)
   const { locale } = useContext(LocaleContext)
+  const navigate = useNavigate()
+  const location = useLocation()
 
   const varinatContainer = useMemo(
     () => ({
@@ -103,6 +127,7 @@ const BurgerMenu = ({ isMenuBarOpened, setIsMenuBarOpened }) => {
               pages.extra_header.map((elm, index) => (
                 <ItemWrapper
                   key={`extra_header_${index}`}
+                  isSelected={location.pathname === elm.url}
                   {...{ setSelectedMenu, setIsMenuBarOpened, ...elm }}
                 />
               ))}
@@ -111,38 +136,40 @@ const BurgerMenu = ({ isMenuBarOpened, setIsMenuBarOpened }) => {
               pages.main_header.map((elm, index) => (
                 <ItemWrapper
                   key={`header_${index}`}
+                  isSelected={location.pathname === elm.url}
                   {...{ setSelectedMenu, ...elm, setIsMenuBarOpened }}
                 />
               ))}
             {selectedMenu && (
-              <li
-                style={{ justifyContent: 'flex-start' }}
-                onClick={() => setSelectedMenu(undefined)}
-              >
+              <li style={{ justifyContent: 'flex-start' }}>
                 <Icon
                   iconName="burger_menu_arrow_left"
                   width={24}
                   height={24}
+                  onClick={() => setSelectedMenu(undefined)}
                 />
-                {selectedMenu[`title_${locale}`]}
+                <span
+                  onClick={() => {
+                    navigate(selectedMenu.url)
+                    setIsMenuBarOpened(false)
+                    setSelectedMenu(undefined)
+                  }}
+                  style={{ marginLeft: '8px' }}
+                >
+                  {selectedMenu[`title_${locale}`]}
+                </span>
               </li>
             )}
-            {selectedMenu && (
-              <ItemWrapper
-                {...{
-                  title_am: selectedMenu.title_am,
-                  title_ru: selectedMenu.title_ru,
-                  title_en: selectedMenu.title_en,
-                  url: selectedMenu.url,
-                  setSelectedMenu,
-                  setIsMenuBarOpened,
-                }}
-              />
-            )}
+
             {selectedMenu &&
               selectedMenu.drop_down.map((elm, index) => (
                 <ItemWrapper
                   key={`selected_menu_${index}`}
+                  isSabMenu={true}
+                  isSelected={
+                    location.pathname === selectedMenu.url &&
+                    location.search.split('=')[1] === elm.id
+                  }
                   {...{ setSelectedMenu, ...elm, setIsMenuBarOpened }}
                 />
               ))}

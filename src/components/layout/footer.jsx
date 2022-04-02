@@ -54,8 +54,8 @@ const Footer = () => {
         <div className="main_info_wrapper">
           <Icon
             iconName="logo"
-            width={58}
-            height={72}
+            width={64}
+            height={80}
             onClick={() => navigate('/')}
           />
           <span>Ունիվերսալ վարկային կազմակերպություն ՓԲԸ</span>
@@ -66,7 +66,7 @@ const Footer = () => {
           <button onClick={() => navigate('/contact_us')}>
             {pages.button_texts[`contact_${locale}`]}
           </button>
-          <span>© 2022 Fides . All rights reserved </span>
+          <span>© 2022 Հեղինակային իրավունքները պաշտպանված են։</span>
           <span>
             Կազմակերպությունը պատասխանատվություն չի կրում իր <br />
             կայքում հղում պարունակող այլ ընկերությունների կայքերի բովանդակության

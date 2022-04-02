@@ -4,10 +4,12 @@ import DropDown from '../core/DropDown'
 import Icon from '../core/Icon'
 import { pages } from '../../constants'
 import { useNavigate } from 'react-router'
+import { useLocation } from 'react-router-dom'
 import { LocaleContext } from '../../context/localeContext'
 
 const Header = () => {
   const navigate = useNavigate()
+  const location = useLocation()
   const [isLocalesDropDownOpened, setIsLocalesDropDownOpened] = useState(false)
   const { locale, setLocale } = useContext(LocaleContext)
   const handleLocaleSelect = (locale) => () => {
@@ -19,7 +21,11 @@ const Header = () => {
     <div className="layout_header">
       <ul className="header_first_container">
         {pages.main_header.map((elm, index) => (
-          <li key={index} onClick={() => navigate(elm.url)}>
+          <li
+            key={index}
+            onClick={() => navigate(elm.url)}
+            style={{ color: location.pathname === elm.url && '#482003' }}
+          >
             {elm[`title_${locale}`]}
             {elm.drop_down && (
               <Icon
@@ -29,7 +35,12 @@ const Header = () => {
                 className="icon_wrapper"
               />
             )}
-            {elm.drop_down && <DropDown content={elm.drop_down} />}
+            {elm.drop_down && (
+              <DropDown
+                content={elm.drop_down}
+                isSelected={location.pathname === elm.url}
+              />
+            )}
           </li>
         ))}
       </ul>
@@ -65,7 +76,12 @@ const Header = () => {
             <li onClick={handleLocaleSelect('ru')}>РУС</li>
           </ul>
         </div>
-        <button className="addres_job_button">Հասցեներ և աշխատաժամեր</button>
+        <button
+          className="addres_job_button"
+          onClick={() => navigate('/address')}
+        >
+          {pages.titles[`addresses_&_working_hours_${locale}`]}
+        </button>
         <ButtonWithIcon
           iconName="geo_location_24"
           width={24}
