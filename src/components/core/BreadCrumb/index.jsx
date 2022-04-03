@@ -10,20 +10,22 @@ const BreadCrumb = ({ title, path, callBack }) => {
       <div className="bredcrumb_header">
         <span>{title}</span>
       </div>
-      <ul>
-        {path.map(({ title, url }, index) => (
-          <li
-            key={index}
-            onClick={() => {
-              navigate(url)
-              callBack && callBack()
-            }}
-          >
-            <span>{title}</span>
-            <Icon iconName="bredcrumb_arrow_right" width={12} height={16} />
-          </li>
-        ))}
-      </ul>
+      {path && (
+        <ul>
+          {path.map(({ title, url }, index) => (
+            <li
+              key={index}
+              onClick={() => {
+                navigate(url)
+                callBack && callBack()
+              }}
+            >
+              <span>{title}</span>
+              <Icon iconName="bredcrumb_arrow_right" width={12} height={16} />
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   )
 }

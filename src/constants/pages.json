@@ -264,7 +264,10 @@
     "addresses_&_working_hours_en": "Addresses and  working hours:",
     "consumer_rights_am": "Սպառողի իրավունքներ",
     "consumer_rights_ru": "Права потребителей",
-    "consumer_rights_en": "Consumer rights"
+    "consumer_rights_en": "Consumer rights",
+    "search_results_am": "Որոնման արդյունքներ",
+    "search_results_ru": "Результаты поиска",
+    "search_results_en": "Search results"
   },
   "placeholders": {
     "name_am": "Անուն",
@@ -322,7 +325,10 @@
     "table_pepayment_of_principal_en": "Repayment of principal",
     "table_total_am": "Ընդհամենը",
     "table_total_ru": "Всего",
-    "table_total_en": "Total"
+    "table_total_en": "Total",
+    "search_am": "Որոնել",
+    "search_ru": "Поиск",
+    "search_en": "Search"
   },
   "button_texts": {
     "send_am": "Ուղարկել",
@@ -336,7 +342,10 @@
     "contact_en": "Contact",
     "see_all_am": "Տեսնել բոլորը",
     "see_all_ru": "Увидеть все",
-    "see_all_en": "See all"
+    "see_all_en": "See all",
+    "search_am": "Որոնել",
+    "search_ru": "Поиск",
+    "search_en": "Search"
   },
   "small_texts": {
     "connect_methodes_am": "Կապ միջոցներ",
@@ -404,6 +413,12 @@
     "i_give_en": "I give",
     "i_get_am": "Ստանում եմ",
     "i_get_ru": "Получаю",
-    "i_get_en": "I receive"
+    "i_get_en": "I receive",
+    "search_am": "Որոնում",
+    "search_ru": "Поиск",
+    "search_en": "Search",
+    "no_results_am": "Որոնման արդյունք չի հայտնաբերվել",
+    "no_results_ru": "Результаты поиска не найдены",
+    "no_results_en": "No search results were found"
   }
 }

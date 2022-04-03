@@ -167,3 +167,41 @@
     border: 1px solid #dfb43c;
   }
 }
+
+.search_input_wrapper {
+  width: 828px;
+  height: 48px;
+  position: relative;
+  > input {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    border-radius: 8px;
+    border: 1px solid #cdd2d6;
+    padding-left: 40px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 24px;
+    color: #828282;
+    &:hover {
+      border: 1px solid #dfb43c;
+    }
+    &:focus {
+      outline: none;
+      border: 1px solid #dfb43c;
+    }
+  }
+  .icon_wrapper {
+    position: absolute;
+    left: 8px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+  }
+}
+
+@media (max-width: 1024px) {
+  .search_input_wrapper {
+    width: 100%;
+  }
+}

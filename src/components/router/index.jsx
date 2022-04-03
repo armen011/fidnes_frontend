@@ -12,6 +12,7 @@ import Loans from '../pages/loans'
 import SiteMap from '../pages/site_map'
 import Address from '../pages/address'
 import ConsumerRights from '../pages/consumer_rights'
+import Results from '../pages/results'
 
 const Router = () => {
   return (
@@ -29,6 +30,7 @@ const Router = () => {
           <Route path="/site_map" element={<SiteMap />} />
           <Route path="/address" element={<Address />} />
           <Route path="/consumer_rights" element={<ConsumerRights />} />
+          <Route path="/results" element={<Results />} />
         </Routes>
       </Layout>
     </BrowserRouter>

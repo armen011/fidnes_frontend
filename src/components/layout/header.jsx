@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router'
 import { useLocation } from 'react-router-dom'
 import { LocaleContext } from '../../context/localeContext'
 
-const Header = () => {
+const Header = ({ setIsSearchOpened }) => {
   const navigate = useNavigate()
   const location = useLocation()
   const [isLocalesDropDownOpened, setIsLocalesDropDownOpened] = useState(false)
@@ -23,7 +23,11 @@ const Header = () => {
         {pages.main_header.map((elm, index) => (
           <li
             key={index}
-            onClick={() => navigate(elm.url)}
+            onClick={() => {
+              navigate(elm.url)
+              setIsLocalesDropDownOpened(false)
+              setIsSearchOpened(false)
+            }}
             style={{ color: location.pathname === elm.url && '#482003' }}
           >
             {elm[`title_${locale}`]}
@@ -50,6 +54,10 @@ const Header = () => {
           width={24}
           height={24}
           className="search_button"
+          onClick={() => {
+            setIsSearchOpened((prev) => !prev)
+            setIsLocalesDropDownOpened(false)
+          }}
         />
         <a href="tel:+37410592323" className="phone_number_wrapper">
           <Icon iconName="phone_24" width={24} height={24} />
@@ -62,7 +70,10 @@ const Header = () => {
             height={20}
             text={locale === 'am' ? 'ՀԱՅ' : locale === 'ru' ? 'РУС' : 'ENG'}
             className="language_button"
-            onClick={() => setIsLocalesDropDownOpened((prev) => !prev)}
+            onClick={() => {
+              setIsLocalesDropDownOpened((prev) => !prev)
+              setIsSearchOpened(false)
+            }}
           />
           <ul
             style={
@@ -78,7 +89,11 @@ const Header = () => {
         </div>
         <button
           className="addres_job_button"
-          onClick={() => navigate('/address')}
+          onClick={() => {
+            navigate('/address')
+            setIsLocalesDropDownOpened(false)
+            setIsSearchOpened(false)
+          }}
         >
           {pages.titles[`addresses_&_working_hours_${locale}`]}
         </button>
@@ -87,6 +102,10 @@ const Header = () => {
           width={24}
           height={24}
           className="addres_job_icon_button"
+          onClick={() => {
+            setIsLocalesDropDownOpened(false)
+            setIsSearchOpened(false)
+          }}
         />
       </div>
     </div>
