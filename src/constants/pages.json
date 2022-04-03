@@ -186,31 +186,35 @@
       "title_am": "Սպառողի իրավունքներ",
       "title_ru": "Права потребителей",
       "title_en": "Consumer rights",
-      "url": "",
+      "url": "/consumer_rights",
       "drop_down": [
         {
+          "id": "1",
           "title_am": "Կապի միջոցներ",
           "title_ru": "Կապի միջոցներ",
           "title_en": "Կապի միջոցներ",
-          "url": ""
+          "url": "/consumer_rights?consumer_right_id=1"
         },
         {
+          "id": "2",
           "title_am": "Հայտարարություններ",
           "title_ru": "Հայտարարություններ",
           "title_en": "Հայտարարություններ",
-          "url": ""
+          "url": "/consumer_rights?consumer_right_id=2"
         },
         {
+          "id": "3",
           "title_am": "Հաճախորդի բողոքների քննության կանոններ",
           "title_ru": "Հաճախորդի բողոքների քննության կանոններ",
           "title_en": "Հաճախորդի բողոքների քննության կանոններ",
-          "url": ""
+          "url": "/consumer_rights?consumer_right_id=3"
         },
         {
+          "id": "4",
           "title_am": "Ֆինանսական համակարգի հաշտարար",
           "title_ru": "Ֆինանսական համակարգի հաշտարար",
           "title_en": "Ֆինանսական համակարգի հաշտարար",
-          "url": ""
+          "url": "/consumer_rights?consumer_right_id=4"
         }
       ]
     },
@@ -257,7 +261,10 @@
     "sitemap_en": "Sitemap",
     "addresses_&_working_hours_am": "Հասցեներ և աշխատաժամեր",
     "addresses_&_working_hours_ru": "Адреса и время работы",
-    "addresses_&_working_hours_en": "Addresses and  working hours:"
+    "addresses_&_working_hours_en": "Addresses and  working hours:",
+    "consumer_rights_am": "Սպառողի իրավունքներ",
+    "consumer_rights_ru": "Права потребителей",
+    "consumer_rights_en": "Consumer rights"
   },
   "placeholders": {
     "name_am": "Անուն",

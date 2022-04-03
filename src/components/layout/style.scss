@@ -188,16 +188,21 @@
       }
     }
     .burger_menu {
+      min-width: 100vw;
       position: absolute;
-      background: white;
+      background: rgba(35, 35, 35, 0.5);
       right: 0;
       top: 112px;
       z-index: 5;
       display: none;
+      justify-content: flex-end;
+
       > ul {
         width: 456px;
         min-height: calc(100vh);
         padding: 32px 16px;
+        background-color: white;
+
         > li {
           width: 100%;
           min-height: 48px;
@@ -687,7 +692,7 @@
         }
       }
       .burger_menu {
-        display: block;
+        display: flex;
       }
     }
   }
