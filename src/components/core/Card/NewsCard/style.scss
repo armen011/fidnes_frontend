@@ -3,7 +3,6 @@
   height: 352px;
   overflow: hidden;
   border-radius: 16px;
-  margin: 24px;
   cursor: pointer;
 
   &:hover {
@@ -66,13 +65,6 @@
   .news_card_wrapper {
     height: 364px;
     margin: 16px;
-  }
-}
-
-@media (max-width: 390px) {
-  .news_card_wrapper {
-    transform: scale(0.8);
-    margin-bottom: 0;
   }
 }
 
@@ -162,7 +154,6 @@
 
 @media (max-width: 1024px) {
   .desktop_news_card_wrapper {
-    width: 358px;
     height: auto;
     flex-direction: column;
     margin: 8px;

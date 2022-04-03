@@ -19,7 +19,6 @@ const NewsFeed = ({ news, selected, setSelected }) => {
     []
   )
   const navigate = useNavigate()
-  console.log('SELECTED :: ', selected)
 
   return (
     <div className="main_news_container">

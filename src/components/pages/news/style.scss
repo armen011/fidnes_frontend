@@ -69,9 +69,12 @@
       .main_news_wrapper {
         .main_news_container {
           > ul {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-around;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+            grid-gap: 16px;
+            > li {
+              margin: 0;
+            }
           }
         }
       }

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import { pages } from '../../../constants'
 import { LocaleContext } from '../../../context/localeContext'
 import Icon from '../Icon'
