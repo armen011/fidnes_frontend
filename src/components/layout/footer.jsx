@@ -1,20 +1,140 @@
-import React, { useContext } from 'react'
-import abcfin from '../../assets/img/abcfin.png'
-import hashtarar from '../../assets/img/hashtarar.png'
-import reso from '../../assets/img/reso.png'
-import fininfo from '../../assets/img/fininfo.png'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
+
+import { useNavigate } from 'react-router'
+import { AnimatePresence, motion } from 'framer-motion'
+import { wrap } from 'popmotion'
+
+import { LocaleContext } from '../../context/localeContext'
+import { ButtonWithIcon } from '../core/Button'
+import Icon from '../core/Icon'
 import { pages } from '../../constants'
+
 import bnakaran_eritasardnerin from '../../assets/img/banks_img/bnakaran_eritasardnerin.png'
 import ararat_bank from '../../assets/img/banks_img/ararat.png'
 import convers_bank from '../../assets/img/banks_img/convers.png'
 import abb_bank from '../../assets/img/banks_img/abb.png'
-import { LocaleContext } from '../../context/localeContext'
-import { useNavigate } from 'react-router'
-import Icon from '../core/Icon'
+import azgayin_hipotekayin from '../../assets/img/banks_img/azgayin_hipotekayin.png'
+import eritasard_hipotek from '../../assets/img/banks_img/eritasard_hipotek.png'
+import abcfin from '../../assets/img/abcfin.png'
+import hashtarar from '../../assets/img/hashtarar.png'
+import reso from '../../assets/img/reso.png'
+import fininfo from '../../assets/img/fininfo.png'
+
+const typeVariant = {
+  enter: (direction) => {
+    return {
+      x: direction > 0 ? 1000 : -1000,
+      opacity: 0,
+    }
+  },
+  center: {
+    zIndex: 1,
+    x: 0,
+    opacity: 1,
+  },
+  exit: (direction) => {
+    return {
+      zIndex: 0,
+      transition: {
+        duration: 0.5,
+      },
+      x: direction < 0 ? 1000 : -1000,
+    }
+  },
+}
+
+const Container = React.memo(
+  ({ typeArray, direction, page, ...otherProps }) => {
+    return (
+      <motion.div
+        key={page}
+        custom={direction}
+        variants={typeVariant}
+        className="two_containers"
+        initial="enter"
+        animate="center"
+        exit="exit"
+        transition={{
+          opacity: { duration: 0.3 },
+        }}
+        {...otherProps}
+      >
+        {typeArray &&
+          typeArray.map(({ title, img }, index) => {
+            return (
+              <div className="container" key={index}>
+                <div className="img_wraperr">
+                  <img src={img} alt="" />
+                </div>
+              </div>
+            )
+          })}
+      </motion.div>
+    )
+  }
+)
 
 const Footer = () => {
   const { locale } = useContext(LocaleContext)
   const navigate = useNavigate()
+
+  const [[page, direction], setPage] = useState([0, 0])
+
+  const paginate = useCallback(
+    (newPage) => {
+      if (newPage < 0) newPage = 3
+      if (newPage > 3) newPage = 0
+      const newDirection = newPage > page ? 1 : -1
+      setPage([newPage, newDirection])
+    },
+    [page]
+  )
+
+  useEffect(() => {
+    let timeOut
+    timeOut = setTimeout(() => {
+      paginate(page + 1)
+    }, 3500)
+
+    return () => clearTimeout(timeOut)
+  }, [paginate, page])
+
+  const collaborators = [
+    [
+      {
+        img: bnakaran_eritasardnerin,
+        alt: '',
+      },
+      {
+        img: ararat_bank,
+        alt: '',
+      },
+      {
+        img: convers_bank,
+        alt: '',
+      },
+    ],
+    [
+      {
+        img: abb_bank,
+        alt: '',
+      },
+      {
+        img: azgayin_hipotekayin,
+        alt: '',
+      },
+      {
+        img: eritasard_hipotek,
+        alt: '',
+      },
+    ],
+  ]
+
+  const containerIndex = wrap(0, collaborators.length, page)
+  const swipeConfidenceThreshold = 10000
+  const swipePower = (offset, velocity) => {
+    return Math.abs(offset) * velocity
+  }
 
   return (
     <div className="layout_footer">
@@ -40,12 +160,49 @@ const Footer = () => {
           <div className="collaborators_wrapper">
             <div className="collaborators_header">
               <span>{pages.small_texts[`we_collaborate_${locale}`]}</span>
+              <div className="controllers">
+                <ButtonWithIcon
+                  iconName="arrow_left_24"
+                  width={24}
+                  height={24}
+                  className="slider_button"
+                  onClick={() => paginate(page - 1)}
+                />
+                <ButtonWithIcon
+                  iconName="arrow_right_24"
+                  width={24}
+                  height={24}
+                  className="slider_button"
+                  onClick={() => paginate(page + 1)}
+                />
+              </div>
             </div>
             <div className="collaborators_container">
-              <img src={bnakaran_eritasardnerin} alt="" />
-              <img src={ararat_bank} alt="" />
-              <img src={convers_bank} alt="" />
-              <img src={abb_bank} alt="" />
+              <AnimatePresence custom={direction} exitBeforeEnter>
+                <Container
+                  typeArray={collaborators[containerIndex]}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={1}
+                  onDragEnd={(e, { offset, velocity }) => {
+                    const swipe = swipePower(offset.x, velocity.x)
+
+                    if (swipe < -swipeConfidenceThreshold) {
+                      paginate(page + 1)
+                    } else if (swipe > swipeConfidenceThreshold) {
+                      paginate(page - 1)
+                    }
+                  }}
+                  {...{ direction, page }}
+                />
+              </AnimatePresence>
+            </div>
+            <div className="collaborators_container_mobile">
+              {[...collaborators.flat()].map(({ img, alt }, index) => (
+                <div className="mobile_img_wrapper" key={index}>
+                  <img src={img} alt={alt} />
+                </div>
+              ))}
             </div>
           </div>
         </div>
