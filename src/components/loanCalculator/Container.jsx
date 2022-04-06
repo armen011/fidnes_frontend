@@ -1,5 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { motion } from 'framer-motion'
+import { LocaleContext } from '../../context/localeContext'
+import { useNavigate } from 'react-router-dom'
 
 const typeVariant = {
   enter: (direction) => {
@@ -25,6 +27,9 @@ const typeVariant = {
 }
 
 const Container = ({ typeArray, direction, page, ...otherProps }) => {
+  const { locale } = useContext(LocaleContext)
+  const navigate = useNavigate()
+
   return (
     <motion.div
       key={page}
@@ -40,14 +45,20 @@ const Container = ({ typeArray, direction, page, ...otherProps }) => {
       {...otherProps}
     >
       {typeArray &&
-        typeArray.map(({ title, img }, index) => {
+        typeArray.map(({ id, icon, ...titles }, index) => {
           return (
-            <div className="container" key={index}>
+            <div
+              className="container"
+              key={index}
+              onClick={() => {
+                navigate('/loans?atcile=' + id)
+              }}
+            >
               <div className="img_wraperr">
-                <img src={img} alt="" />
+                <img src={icon} alt={titles[`title_${locale}`]} />
               </div>
               <div className="title_wrapper">
-                <span>{title}</span>
+                <span>{titles[`title_${locale}`]}</span>
               </div>
             </div>
           )

@@ -1,8 +1,6 @@
-import React, { useContext } from 'react'
-import { LocaleContext } from '../../../context/localeContext'
+import React from 'react'
 
 const LoansContainer = ({ loans, selected, setSelected }) => {
-  const { locale } = useContext(LocaleContext)
   return (
     <div className="loans_conatiner">
       <div className="loans_type_wrapper">

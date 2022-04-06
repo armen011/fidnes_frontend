@@ -9,16 +9,13 @@ import { ButtonWithIcon } from '../core/Button'
 import Icon from '../core/Icon'
 import { pages } from '../../constants'
 
-import bnakaran_eritasardnerin from '../../assets/img/banks_img/bnakaran_eritasardnerin.png'
-import ararat_bank from '../../assets/img/banks_img/ararat.png'
-import convers_bank from '../../assets/img/banks_img/convers.png'
-import abb_bank from '../../assets/img/banks_img/abb.png'
-import azgayin_hipotekayin from '../../assets/img/banks_img/azgayin_hipotekayin.png'
-import eritasard_hipotek from '../../assets/img/banks_img/eritasard_hipotek.png'
 import abcfin from '../../assets/img/abcfin.png'
 import hashtarar from '../../assets/img/hashtarar.png'
 import reso from '../../assets/img/reso.png'
 import fininfo from '../../assets/img/fininfo.png'
+import { GlobalData } from '../../context/globalData'
+import requests from '../../const/requests'
+import { seprateByCount } from '../../utils'
 
 const typeVariant = {
   enter: (direction) => {
@@ -60,13 +57,13 @@ const Container = React.memo(
         {...otherProps}
       >
         {typeArray &&
-          typeArray.map(({ title, img }, index) => {
+          typeArray.map(({ image, url }, index) => {
             return (
-              <div className="container" key={index}>
+              <a className="container" key={index} href={url}>
                 <div className="img_wraperr">
-                  <img src={img} alt="" />
+                  <img src={requests.getImgUrl(image)} alt="" />
                 </div>
-              </div>
+              </a>
             )
           })}
       </motion.div>
@@ -99,36 +96,11 @@ const Footer = () => {
     return () => clearTimeout(timeOut)
   }, [paginate, page])
 
-  const collaborators = [
-    [
-      {
-        img: bnakaran_eritasardnerin,
-        alt: '',
-      },
-      {
-        img: ararat_bank,
-        alt: '',
-      },
-      {
-        img: convers_bank,
-        alt: '',
-      },
-    ],
-    [
-      {
-        img: abb_bank,
-        alt: '',
-      },
-      {
-        img: azgayin_hipotekayin,
-        alt: '',
-      },
-      {
-        img: eritasard_hipotek,
-        alt: '',
-      },
-    ],
-  ]
+  const { globalData } = useContext(GlobalData)
+  const dinamicPages = globalData ? globalData.Page : {}
+  const partner = globalData ? globalData.Partner : []
+
+  const collaborators = seprateByCount(partner, 3)
 
   const containerIndex = wrap(0, collaborators.length, page)
   const swipeConfidenceThreshold = 10000
@@ -143,18 +115,18 @@ const Footer = () => {
           <div className="hrefs_wrapper">
             <span>{pages.small_texts[`useful_links_${locale}`]}</span>
             <div className="hrefs_container">
-              <div className="href" onClick={() => navigate('')}>
+              <a className="href" href="https://www.abcfinance.am/">
                 <img src={abcfin} alt="abc finance" />
-              </div>
-              <div className="href">
+              </a>
+              <a className="href" href="https://www.fsm.am/">
                 <img src={hashtarar} alt="finansakan hashtarar" />
-              </div>
-              <div className="href">
+              </a>
+              <a className="href" href="http://www.reso.am/">
                 <img src={reso} alt="reso app" />
-              </div>
-              <div className="href">
+              </a>
+              <a className="href" href="https://www.fininfo.am/">
                 <img src={fininfo} alt="fininfo" />
-              </div>
+              </a>
             </div>
           </div>
           <div className="collaborators_wrapper">
@@ -198,9 +170,9 @@ const Footer = () => {
               </AnimatePresence>
             </div>
             <div className="collaborators_container_mobile">
-              {[...collaborators.flat()].map(({ img, alt }, index) => (
+              {partner.map(({ image, title_hy }, index) => (
                 <div className="mobile_img_wrapper" key={index}>
-                  <img src={img} alt={alt} />
+                  <img src={requests.getImgUrl(image)} alt={title_hy} />
                 </div>
               ))}
             </div>
@@ -234,23 +206,37 @@ const Footer = () => {
         </div>
         <div className="page_href_wrapper">
           <div className="colum_wrapper">
-            <span>{pages.titles[`about_${locale}`]}</span>
+            <span onClick={() => navigate('/about')}>
+              {pages.titles[`about_${locale}`]}
+            </span>
             <ul>
-              {pages.main_header[0].drop_down.map((elm, index) => (
-                <li key={index} onClick={() => navigate(elm.url)}>
-                  {elm[`title_${locale}`]}
-                </li>
-              ))}
+              {dinamicPages.about &&
+                dinamicPages.about.map((elm, index) => (
+                  <li
+                    key={index}
+                    onClick={() =>
+                      navigate(pages.main_header[0].query_name + elm.id)
+                    }
+                  >
+                    {elm[`title_${locale}`]}
+                  </li>
+                ))}
             </ul>
           </div>
           <div className="colum_wrapper">
             <span>{pages.titles[`loan_${locale}`]}</span>
             <ul>
-              {pages.main_header[1].drop_down.map((elm, index) => (
-                <li key={index} onClick={() => navigate(elm.url)}>
-                  {elm[`title_${locale}`]}
-                </li>
-              ))}
+              {dinamicPages.loans &&
+                dinamicPages.loans.map((elm, index) => (
+                  <li
+                    key={index}
+                    onClick={() =>
+                      navigate(pages.main_header[1].query_name + elm.id)
+                    }
+                  >
+                    {elm[`title_${locale}`]}
+                  </li>
+                ))}
             </ul>
           </div>
           <div className="colum_wrapper">

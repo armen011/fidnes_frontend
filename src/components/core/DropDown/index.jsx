@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom'
 import { LocaleContext } from '../../../context/localeContext'
 import './style.scss'
 
-const DropDown = ({ content, isSelected }) => {
+const DropDown = ({ content, isSelected, queryName }) => {
   const navigate = useNavigate()
   const { locale } = useContext(LocaleContext)
   const location = useLocation()
@@ -18,14 +18,18 @@ const DropDown = ({ content, isSelected }) => {
             onClick={(e) => {
               e.preventDefault()
               e.stopPropagation()
-              navigate(url)
+              navigate(`${queryName + id}`)
             }}
             key={index}
             style={{
               color:
-                location.search.split('=')[1] === id && isSelected && '#482003',
+                parseInt(location.search.split('=')[1]) === id &&
+                isSelected &&
+                '#482003',
               fontWeight:
-                location.search.split('=')[1] === id && isSelected && '600',
+                parseInt(location.search.split('=')[1]) === id &&
+                isSelected &&
+                '600',
             }}
           >
             {titles[`title_${locale}`]}

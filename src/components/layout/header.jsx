@@ -6,6 +6,7 @@ import { pages } from '../../constants'
 import { useNavigate } from 'react-router'
 import { useLocation } from 'react-router-dom'
 import { LocaleContext } from '../../context/localeContext'
+import { GlobalData } from '../../context/globalData'
 
 const Header = ({ setIsSearchOpened }) => {
   const navigate = useNavigate()
@@ -16,6 +17,9 @@ const Header = ({ setIsSearchOpened }) => {
     setLocale(locale)
     setIsLocalesDropDownOpened(false)
   }
+
+  const { globalData } = useContext(GlobalData)
+  const page = globalData ? globalData.Page : {}
 
   return (
     <div className="layout_header">
@@ -39,10 +43,11 @@ const Header = ({ setIsSearchOpened }) => {
                 className="icon_wrapper"
               />
             )}
-            {elm.drop_down && (
+            {page[elm.drop_down_key] && (
               <DropDown
-                content={elm.drop_down}
+                content={page[elm.drop_down_key]}
                 isSelected={location.pathname === elm.url}
+                queryName={elm.query_name}
               />
             )}
           </li>
@@ -68,7 +73,7 @@ const Header = ({ setIsSearchOpened }) => {
             iconName="earth_20"
             width={20}
             height={20}
-            text={locale === 'am' ? 'ՀԱՅ' : locale === 'ru' ? 'РУС' : 'ENG'}
+            text={locale === 'hy' ? 'ՀԱՅ' : locale === 'ru' ? 'РУС' : 'ENG'}
             className="language_button"
             onClick={() => {
               setIsLocalesDropDownOpened((prev) => !prev)
@@ -82,7 +87,7 @@ const Header = ({ setIsSearchOpened }) => {
                 : {}
             }
           >
-            <li onClick={handleLocaleSelect('am')}>ՀԱՅ</li>
+            <li onClick={handleLocaleSelect('hy')}>ՀԱՅ</li>
             <li onClick={handleLocaleSelect('en')}>ENG</li>
             <li onClick={handleLocaleSelect('ru')}>РУС</li>
           </ul>

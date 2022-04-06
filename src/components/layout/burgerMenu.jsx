@@ -5,14 +5,17 @@ import { pages } from '../../constants'
 import { useNavigate } from 'react-router'
 import { useLocation } from 'react-router-dom'
 import { LocaleContext } from '../../context/localeContext'
+import { GlobalData } from '../../context/globalData'
 
 const ItemWrapper = ({
+  id,
   url,
-  drop_down,
+  drop_down_key,
   setSelectedMenu,
   setIsMenuBarOpened,
   isSabMenu,
   isSelected,
+  query_name,
   ...titles
 }) => {
   const navigate = useNavigate()
@@ -28,15 +31,16 @@ const ItemWrapper = ({
     }),
     []
   )
-
   return (
     <motion.li
       variants={variantItem}
       onClick={() => {
-        if (!drop_down) {
-          navigate(url)
+        if (!drop_down_key) {
+          navigate(query_name ? query_name + id : url)
           setSelectedMenu(undefined)
           setIsMenuBarOpened(false)
+        } else {
+          setSelectedMenu({ url, drop_down_key, query_name, ...titles })
         }
       }}
       style={{
@@ -47,21 +51,22 @@ const ItemWrapper = ({
       }}
     >
       <span
-        onClick={() => {
-          navigate(url)
+        onClick={(event) => {
+          event.stopPropagation()
+          navigate(!drop_down_key ? query_name + id : url)
           setSelectedMenu(undefined)
           setIsMenuBarOpened(false)
         }}
       >
         {titles[`title_${locale}`]}
       </span>
-      {drop_down && (
+      {drop_down_key && (
         <Icon
           iconName="burger_menu_arrow_right"
           width={24}
           height={24}
           onClick={() => {
-            setSelectedMenu({ url, drop_down, ...titles })
+            setSelectedMenu({ url, drop_down_key, ...titles })
           }}
         />
       )}
@@ -106,6 +111,9 @@ const BurgerMenu = ({ isMenuBarOpened, setIsMenuBarOpened }) => {
     }),
     []
   )
+
+  const { globalData } = useContext(GlobalData)
+  const dinamicPages = globalData ? globalData.Page : {}
 
   return (
     <AnimatePresence exitBeforeEnter>
@@ -162,15 +170,20 @@ const BurgerMenu = ({ isMenuBarOpened, setIsMenuBarOpened }) => {
             )}
 
             {selectedMenu &&
-              selectedMenu.drop_down.map((elm, index) => (
+              dinamicPages[selectedMenu.drop_down_key].map((elm, index) => (
                 <ItemWrapper
                   key={`selected_menu_${index}`}
                   isSabMenu={true}
                   isSelected={
                     location.pathname === selectedMenu.url &&
-                    location.search.split('=')[1] === elm.id
+                    parseInt(location.search.split('=')[1]) === elm.id
                   }
-                  {...{ setSelectedMenu, ...elm, setIsMenuBarOpened }}
+                  {...{
+                    setSelectedMenu,
+                    ...elm,
+                    setIsMenuBarOpened,
+                    query_name: selectedMenu.query_name,
+                  }}
                 />
               ))}
           </motion.ul>

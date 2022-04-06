@@ -9,13 +9,19 @@ import React, {
 } from 'react'
 import { LoanCalculatorInput, LoanCheckBoxinput } from '../core/Input'
 import Container from './Container'
-import LoanTypes from './loanTypes'
+// import LoanTypes from './loanTypes'
 import { pages } from '../../constants'
 import { LocaleContext } from '../../context/localeContext'
 import './style.scss'
 import LoanModal from '../core/Modal'
+import { GlobalData } from '../../context/globalData'
+import { seprateByCount } from '../../utils'
 
 const LoanCalculator = () => {
+  const { globalData } = useContext(GlobalData)
+  const dinamicPages = globalData ? globalData.Page : {}
+  const LoanTypes = seprateByCount(dinamicPages.loans || [], 2)
+
   const initialValue = useMemo(
     () => ({ sum: '', period: '', percentage: '', method: 0 }),
     []

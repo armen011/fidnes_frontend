@@ -1,3 +1,5 @@
+export * from './arrayMethods'
+
 export const calcLoan = (sum, period, percentage, method) => {
   const res = []
   let givenSum = 0
