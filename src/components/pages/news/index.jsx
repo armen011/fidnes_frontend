@@ -42,16 +42,8 @@ const News = () => {
       <div className="main_news_page_container">
         <div className="main_news_wrapper">
           <NewsFeed {...{ selected, setSelected, news }} />
-          <span>
-            «Ֆիդես հիփոթեքային ընկերություն» ունիվերսալ վարկային
-            կազմակերպություն փակ բաժնետիրական ընկերությունը (այսուհետ`
-            Կազմակերպություն) ունի մեկ մասնաճյուղ:
-          </span>
-          <span>
-            Կազմակերպության իրավաբանական հասցեն է` ՀՀ, ք. Երևան, Նաիրի Զարյան
-            17ա: Կազմակերպության գործունեության հասցեն է` ԱՀ, ք. Ստեփանակերտ, Մ.
-            Գոշ 2/33:
-          </span>
+          <span>{pages.small_texts[`static_test_first_${locale}`]}</span>
+          <span>{pages.small_texts[`static_test_second_${locale}`]}</span>
         </div>
         <SideBar />
       </div>

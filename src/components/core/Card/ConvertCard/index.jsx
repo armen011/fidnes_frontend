@@ -1,12 +1,31 @@
 import React, { useContext } from 'react'
 import Icon from '../../Icon'
 import euro from '../../../../assets/img/euro.png'
+import rub from '../../../../assets/img/rub.png'
+import usd from '../../../../assets/img/usd.png'
 import './style.scss'
 import { pages } from '../../../../locales'
 import { LocaleContext } from '../../../../context/localeContext'
+import { GlobalData } from '../../../../context/globalData'
+import { getLatestDate } from '../../../../utils'
+
+const neededExchange = ['EUR', 'RUB', 'USD']
+const exchangePhotos = {
+  EUR: euro,
+  RUB: rub,
+  USD: usd,
+}
 
 export const FirstConvertCard = () => {
   const { locale } = useContext(LocaleContext)
+  const { globalData } = useContext(GlobalData)
+
+  const exchange = globalData ? globalData.Exchange : []
+
+  const filteredExchange = exchange.filter(({ abbreviation }) => {
+    return neededExchange.includes(abbreviation)
+  })
+
   return (
     <div className="covert_card">
       <div className="card_header">
@@ -22,33 +41,46 @@ export const FirstConvertCard = () => {
             </tr>
           </thead>
           <tbody>
-            {['EURO', 2, 3].map((elm, index) => (
-              <tr key={index}>
-                <td>
-                  <div className="name_td">
-                    <img src={euro} alt="" />
-                    <p>EURO</p>
-                  </div>
-                </td>
-                <td>
-                  <div className="td_wrapper">
-                    <Icon iconName="coverter_arrow_up" width={24} height={24} />
-                    <span>477.50</span>
-                  </div>
-                </td>
-                <td>
-                  <div className="td_wrapper">
-                    <Icon iconName="coverter_arrow_up" width={24} height={24} />
-                    <span>477.50</span>
-                  </div>
-                </td>
-              </tr>
-            ))}
+            {filteredExchange.map(
+              ({ abbreviation, purchase, sales }, index) => (
+                <tr key={index}>
+                  <td>
+                    <div className="name_td">
+                      <img src={exchangePhotos[`${abbreviation}`]} alt="" />
+                      <p>{abbreviation}</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="td_wrapper">
+                      <Icon
+                        iconName="coverter_arrow_up"
+                        width={24}
+                        height={24}
+                      />
+                      <span>{purchase}</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="td_wrapper">
+                      <Icon
+                        iconName="coverter_arrow_up"
+                        width={24}
+                        height={24}
+                      />
+                      <span>{sales}</span>
+                    </div>
+                  </td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
       </div>
       <div className="card_footer">
-        <span>{pages.small_texts[`updated_at_${locale}`]} 18/05/2022</span>
+        <span>
+          {pages.small_texts[`updated_at_${locale}`]}{' '}
+          {getLatestDate(filteredExchange)}
+        </span>
       </div>
     </div>
   )
@@ -56,31 +88,30 @@ export const FirstConvertCard = () => {
 
 export const SecondConvertCard = () => {
   const { locale } = useContext(LocaleContext)
+  const { globalData } = useContext(GlobalData)
+
+  const interestRate = globalData ? globalData.InterestRate : []
   return (
     <div className="covert_card">
       <div className="card_header">
         <span>{pages.small_texts[`interest_rates_${locale}`]}</span>
       </div>
       <div className="card_container">
-        <div className="percent_item">
-          <span>{pages.small_texts[`money_involvement_${locale}`]}</span>
-          <p>6.25 %</p>
-        </div>
-        <div className="percent_item">
-          <span>{pages.small_texts[`lombard_repo_${locale}`]}</span>
-          <p>9.25 %</p>
-        </div>
-        <div className="percent_item">
-          <span>{pages.small_texts[`refinancing_${locale}`]}</span>
-          <p>7.75 %</p>
-        </div>
-        <div className="percent_item">
-          <span>{pages.small_texts[`bank_interest_rate_${locale}`]}</span>
-          <p>12 %</p>
-        </div>
+        {interestRate.map((elm, index) => {
+          return (
+            <div className="percent_item" key={index}>
+              <span>{elm[`title_${locale}`]}</span>
+              <p>{elm.rate} %</p>
+            </div>
+          )
+        })}
       </div>
       <div className="card_footer">
-        <span>{pages.small_texts[`updated_at_${locale}`]} 18/05/2022</span>
+        <span>
+          {pages.small_texts[`updated_at_${locale}`]}
+          {'  '}
+          {getLatestDate(interestRate)}
+        </span>
       </div>
     </div>
   )
@@ -88,6 +119,13 @@ export const SecondConvertCard = () => {
 
 export const FirstConvertCardForSideBar = () => {
   const { locale } = useContext(LocaleContext)
+  const { globalData } = useContext(GlobalData)
+
+  const exchange = globalData ? globalData.Exchange : []
+
+  const filteredExchange = exchange.filter(({ abbreviation }) => {
+    return neededExchange.includes(abbreviation)
+  })
 
   return (
     <div className="subbar_covert_card">
@@ -104,33 +142,47 @@ export const FirstConvertCardForSideBar = () => {
             </tr>
           </thead>
           <tbody>
-            {['EURO', 2, 3].map((elm, index) => (
-              <tr key={index}>
-                <td>
-                  <div className="name_td">
-                    <img src={euro} alt="" />
-                    <p>EURO</p>
-                  </div>
-                </td>
-                <td>
-                  <div className="td_wrapper">
-                    <Icon iconName="coverter_arrow_up" width={24} height={24} />
-                    <span>477.50</span>
-                  </div>
-                </td>
-                <td>
-                  <div className="td_wrapper">
-                    <Icon iconName="coverter_arrow_up" width={24} height={24} />
-                    <span>477.50</span>
-                  </div>
-                </td>
-              </tr>
-            ))}
+            {filteredExchange.map(
+              ({ abbreviation, purchase, sales }, index) => (
+                <tr key={index}>
+                  <td>
+                    <div className="name_td">
+                      <img src={exchangePhotos[`${abbreviation}`]} alt="" />
+                      <p>{abbreviation}</p>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="td_wrapper">
+                      <Icon
+                        iconName="coverter_arrow_up"
+                        width={24}
+                        height={24}
+                      />
+                      <span>{purchase}</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="td_wrapper">
+                      <Icon
+                        iconName="coverter_arrow_up"
+                        width={24}
+                        height={24}
+                      />
+                      <span>{sales}</span>
+                    </div>
+                  </td>
+                </tr>
+              )
+            )}
           </tbody>
         </table>
       </div>
       <div className="subbar_card_footer">
-        <span>{pages.small_texts[`updated_at_${locale}`]} 18/05/2022</span>
+        <span>
+          {pages.small_texts[`updated_at_${locale}`]}
+          {'    '}
+          {getLatestDate(filteredExchange)}
+        </span>
       </div>
     </div>
   )
@@ -138,31 +190,29 @@ export const FirstConvertCardForSideBar = () => {
 
 export const SecondConvertCardForSideBar = () => {
   const { locale } = useContext(LocaleContext)
+  const { globalData } = useContext(GlobalData)
+
+  const interestRate = globalData ? globalData.InterestRate : []
   return (
     <div className="subbar_covert_card">
       <div className="subbar_card_header">
         <span>{pages.small_texts[`interest_rates_${locale}`]}</span>
       </div>
       <div className="subbar_card_container">
-        <div className="percent_item">
-          <span>{pages.small_texts[`money_involvement_${locale}`]}</span>
-          <p>6.25 %</p>
-        </div>
-        <div className="percent_item">
-          <span>{pages.small_texts[`lombard_repo_${locale}`]}</span>
-          <p>9.25 %</p>
-        </div>
-        <div className="percent_item">
-          <span>{pages.small_texts[`refinancing_${locale}`]}</span>
-          <p>7.75 %</p>
-        </div>
-        <div className="percent_item">
-          <span>{pages.small_texts[`bank_interest_rate_${locale}`]}</span>
-          <p>12 %</p>
-        </div>
+        {interestRate.map((elm, index) => {
+          return (
+            <div className="percent_item" key={index}>
+              <span>{elm[`title_${locale}`]}</span>
+              <p>{elm.rate} %</p>
+            </div>
+          )
+        })}
       </div>
       <div className="subbar_card_footer">
-        <span>{pages.small_texts[`updated_at_${locale}`]} 18/05/2022</span>
+        <span>
+          {pages.small_texts[`updated_at_${locale}`]}{' '}
+          {getLatestDate(interestRate)}
+        </span>
       </div>
     </div>
   )

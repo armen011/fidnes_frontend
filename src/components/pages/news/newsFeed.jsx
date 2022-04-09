@@ -1,7 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import React, { useContext, useMemo } from 'react'
 import { useNavigate } from 'react-router'
-import { pages } from '../../../locales'
 import { LocaleContext } from '../../../context/localeContext'
 import { DesktopNewsCard } from '../../core/Card/NewsCard'
 import Status from '../../core/Status'

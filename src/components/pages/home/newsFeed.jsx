@@ -1,21 +1,14 @@
-import axios from 'axios'
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import { useNavigate } from 'react-router-dom'
-import requests from '../../../const/requests'
 import { pages } from '../../../locales'
 import { LocaleContext } from '../../../context/localeContext'
 import { NewsCard } from '../../core/Card'
+import { GlobalData } from '../../../context/globalData'
 
 const NewsFeed = () => {
   const { locale } = useContext(LocaleContext)
-  const [news, setNews] = useState([])
-  useEffect(() => {
-    axios.get(requests.news()).then(({ data: { results } }) => {
-      if (results) {
-        setNews(results)
-      }
-    })
-  }, [])
+  const { globalData } = useContext(GlobalData)
+  const news = globalData ? globalData.LastNews : []
 
   const navigate = useNavigate()
   return (

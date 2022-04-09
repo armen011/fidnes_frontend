@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext } from 'react'
 import {
   FirstConvertCardForSideBar,
   NewsCard,
@@ -6,20 +6,14 @@ import {
 } from '../Card'
 import { LocaleContext } from '../../../context/localeContext'
 import { pages } from '../../../locales'
+import { GlobalData } from '../../../context/globalData'
 import './style.scss'
-import axios from 'axios'
-import requests from '../../../const/requests'
 
 const SideBar = () => {
   const { locale } = useContext(LocaleContext)
-  const [latestNews, setLatestNews] = useState({})
-  useEffect(() => {
-    axios.get(requests.news()).then(({ data: { results } }) => {
-      if (results) {
-        setLatestNews(results[0])
-      }
-    })
-  }, [])
+  const { globalData } = useContext(GlobalData)
+  const latestNews = globalData ? globalData.LastNews[0] : {}
+
   return (
     <div className="side_bar_info_wrapper">
       <FirstConvertCardForSideBar />

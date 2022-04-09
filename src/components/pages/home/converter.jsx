@@ -2,10 +2,14 @@ import React, { useContext } from 'react'
 import { pages } from '../../../locales'
 import { LocaleContext } from '../../../context/localeContext'
 import { FirstConvertCard, SecondConvertCard } from '../../core/Card'
+import { GlobalData } from '../../../context/globalData'
 import Icon from '../../core/Icon'
 
 const Converter = () => {
   const { locale } = useContext(LocaleContext)
+  const { globalData } = useContext(GlobalData)
+
+  const exchange = globalData ? globalData.Exchange : []
 
   return (
     <div className="coverter_container">

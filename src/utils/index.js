@@ -1,4 +1,5 @@
 export * from './arrayMethods'
+export * from './getLastDate'
 
 export const calcLoan = (sum, period, percentage, method) => {
   const res = []

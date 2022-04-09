@@ -2,11 +2,10 @@ import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { wrap } from 'popmotion'
 import { ButtonWithIcon } from '../../core/Button'
-import axios from 'axios'
-import requests from '../../../const/requests'
 import { LocaleContext } from '../../../context/localeContext'
 import { pages } from '../../../locales'
 import './style.scss'
+import { GlobalData } from '../../../context/globalData'
 
 const variants = {
   enter: {
@@ -50,15 +49,10 @@ const infoVariant = {
 }
 
 const Carousel = () => {
-  const [slider, setSlider] = useState([])
   const { locale } = useContext(LocaleContext)
-  useEffect(() => {
-    axios.get(requests.slides()).then(({ data }) => {
-      if (data) {
-        setSlider(data)
-      }
-    })
-  }, [])
+  const { globalData } = useContext(GlobalData)
+
+  const slider = globalData ? globalData.Slider : []
 
   const [[page, direction], setPage] = useState([0, 0])
   const swipePower = (offset, velocity) => {

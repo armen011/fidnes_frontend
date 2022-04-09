@@ -1,15 +1,15 @@
-import React, { useEffect, useState, useMemo, useContext } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useQuery } from '../../../hooks'
 import BreadCrumb from '../../core/BreadCrumb'
 import LoanCalculator from '../../loanCalculator'
 import { pages } from '../../../locales'
 import ArticleContainer from './articleContainer'
 import SideBar from '../../core/SideBar'
-import './style.scss'
 import { LocaleContext } from '../../../context/localeContext'
 import { GlobalData } from '../../../context/globalData'
 import requests from '../../../const/requests'
 import axios from 'axios'
+import './style.scss'
 
 const About = () => {
   const selectedArticleId = useQuery('article')
@@ -55,16 +55,8 @@ const About = () => {
       <div className="about_page_container">
         <div className="menu_wrapper">
           <ArticleContainer {...{ selected, setSelected, articles }} />
-          <span>
-            «Ֆիդես հիփոթեքային ընկերություն» ունիվերսալ վարկային
-            կազմակերպություն փակ բաժնետիրական ընկերությունը (այսուհետ`
-            Կազմակերպություն) ունի մեկ մասնաճյուղ:
-          </span>
-          <span>
-            Կազմակերպության իրավաբանական հասցեն է` ՀՀ, ք. Երևան, Նաիրի Զարյան
-            17ա: Կազմակերպության գործունեության հասցեն է` ԱՀ, ք. Ստեփանակերտ, Մ.
-            Գոշ 2/33:
-          </span>
+          <span>{pages.small_texts[`static_test_first_${locale}`]}</span>
+          <span>{pages.small_texts[`static_test_second_${locale}`]}</span>
         </div>
         <SideBar />
       </div>
