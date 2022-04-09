@@ -5,9 +5,13 @@ import { TextArea, TextInput } from '../../core/Input'
 import { pages } from '../../../locales'
 import { LocaleContext } from '../../../context/localeContext'
 import './style.scss'
+import { GlobalData } from '../../../context/globalData'
 
 const ContactUs = () => {
   const { locale } = useContext(LocaleContext)
+  const { globalData } = useContext(GlobalData)
+  const contacts = globalData ? globalData.Social : {}
+
   return (
     <div className="contact_us_wrapper">
       <BreadCrumb
@@ -28,7 +32,7 @@ const ContactUs = () => {
                 height={24}
                 className="icon_wrapper"
               />
-              <span>Գործ․ հասցե՝ ԱՀ, ք․ Ստեփանակերտ, Մ․ Գոշ 2/33</span>
+              <span>{pages.small_texts[`contact_page_address_${locale}`]}</span>
             </div>
             <div className="icon_text_wrapper">
               <Icon
@@ -37,7 +41,9 @@ const ContactUs = () => {
                 height={24}
                 className="icon_wrapper"
               />
-              <span>info@fides.am</span>
+              <span>
+                {contacts.Mail && contacts.Mail.map(({ value }) => ` ${value}`)}
+              </span>
             </div>
             <div className="icon_text_wrapper">
               <Icon
@@ -46,7 +52,11 @@ const ContactUs = () => {
                 height={24}
                 className="icon_wrapper"
               />
-              <span>Հեռ․՝ (+374) 47 970197, (+374) 47 960197</span>
+              <span>
+                {pages.small_texts[`constact_page_phone_${locale}`]}{' '}
+                {contacts.Mobile &&
+                  contacts.Mobile.map(({ value }) => ` ${value}`)}
+              </span>
             </div>
             <span>{pages.small_texts[`other_methodes_${locale}`]}</span>
             <div className="icon_text_wrapper">
@@ -62,17 +72,16 @@ const ContactUs = () => {
                 height={24}
                 className="icon_wrapper"
               />
-              <span>(+374) 98 960197</span>
+              <span>
+                {contacts.WhatsApp &&
+                  contacts.WhatsApp.map(({ value }) => ` ${value}`)}
+              </span>
             </div>
           </div>
         </div>
         <div className="sugestion_form_container">
           <span>{pages.small_texts[`dear_client_${locale}`]}</span>
-          <span>
-            Մենք կցանկանայինք լսել ձեր մտքերը, առաջարկությունները,
-            մտահոգությունները կամ ցանկացած խնդրի հետ կապված խնդիրները, որպեսզի
-            կարողանանք բարելավել մեր ծառայությունները:
-          </span>
+          <span>{pages.small_texts[`contact_form_text_${locale}`]}</span>
           <div className="form_wrapper">
             <TextInput
               className="small_input"

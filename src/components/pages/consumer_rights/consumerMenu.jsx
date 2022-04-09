@@ -3,6 +3,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { LocaleContext } from '../../../context/localeContext'
 import Icon from '../../core/Icon'
 import { useNavigate } from 'react-router-dom'
+import CkContant from '../../core/CkContant'
 
 const ConsumerItem = ({ id, setSelected, ...otherProps }) => {
   const navigate = useNavigate()
@@ -53,6 +54,7 @@ const ConsumerMenu = ({ selected, consumers, setSelected }) => {
         {selected ? (
           <div className="selected_wrapper">
             <span>{selected[`title_${locale}`]}</span>
+            <CkContant {...selected} />
           </div>
         ) : (
           <motion.ul

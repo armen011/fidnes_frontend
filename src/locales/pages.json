@@ -85,36 +85,7 @@
       "title_en": "Consumer rights",
       "url": "/consumer_rights",
       "drop_down_key": "consumer_rights",
-      "drop_down": [
-        {
-          "id": "1",
-          "title_hy": "Կապի միջոցներ",
-          "title_ru": "Կապի միջոցներ",
-          "title_en": "Կապի միջոցներ",
-          "url": "/consumer_rights?consumer_right_id=1"
-        },
-        {
-          "id": "2",
-          "title_hy": "Հայտարարություններ",
-          "title_ru": "Հայտարարություններ",
-          "title_en": "Հայտարարություններ",
-          "url": "/consumer_rights?consumer_right_id=2"
-        },
-        {
-          "id": "3",
-          "title_hy": "Հաճախորդի բողոքների քննության կանոններ",
-          "title_ru": "Հաճախորդի բողոքների քննության կանոններ",
-          "title_en": "Հաճախորդի բողոքների քննության կանոններ",
-          "url": "/consumer_rights?consumer_right_id=3"
-        },
-        {
-          "id": "4",
-          "title_hy": "Ֆինանսական համակարգի հաշտարար",
-          "title_ru": "Ֆինանսական համակարգի հաշտարար",
-          "title_en": "Ֆինանսական համակարգի հաշտարար",
-          "url": "/consumer_rights?consumer_right_id=4"
-        }
-      ]
+      "query_name": "/consumer_rights?consumer_right_id="
     },
     {
       "title_hy": "Իրավական ակտեր",
@@ -332,6 +303,15 @@
     "static_test_first_en": "'Fidesz Mortgage Company' universal credit Organization Closed Joint-Stock Company (hereinafter referred to as the Organization) has one branch.",
     "static_test_second_hy": "Կազմակերպության իրավաբանական հասցեն է` ՀՀ, ք. Երևան, Նաիրի Զարյան 17ա: Կազմակերպության գործունեության հասցեն է` ԱՀ, ք. Ստեփանակերտ, Մ. Գոշ 2/33:",
     "static_test_second_ru": "Юридический адрес организации: РА, г. Ерджан, Наири Зарян 17 а. Адрес деятельности организации: Азербайджан, г. Степанакерт, М. Гоша 2/33.",
-    "static_test_second_en": "The legal address of the organization is RA, c. Yerjan, Nairi Zaryan 17 a. The address of the organization's activity is: Azerbaijan, c. Stepanakert, M. Gosh 2/33."
+    "static_test_second_en": "The legal address of the organization is RA, c. Yerjan, Nairi Zaryan 17 a. The address of the organization's activity is: Azerbaijan, c. Stepanakert, M. Gosh 2/33.",
+    "contact_form_text_hy": "Մենք կցանկանայինք լսել ձեր մտքերը, առաջարկությունները, մտահոգությունները կամ ցանկացած խնդրի հետ կապված խնդիրները, որպեսզի կարողանանք բարելավել մեր ծառայությունները:",
+    "contact_form_text_ru": "Мы хотели бы услышать ваши мысли, предложения, опасения или опасения по поводу любых проблем, чтобы мы могли улучшить наши услуги.",
+    "contact_form_text_en": "We'd love to hear your thoughts, suggestions, concerns or concerns about any issues so we can improve our services.",
+    "contact_page_address_hy": "Գործ․ հասցե՝ ԱՀ, ք․ Ստեփանակերտ, Մ․ Գոշ 2/33",
+    "contact_page_address_ru": "Адрес: AH, Q Степанакерт, М ․ Гоша 2/33",
+    "contact_page_address_en": "Address: AH, Q Stepanakert, M ․ Gosh 2/33",
+    "constact_page_phone_hy": "Հեռ․",
+    "constact_page_phone_ru": "Тел.",
+    "constact_page_phone_en": "Tel."
   }
 }
