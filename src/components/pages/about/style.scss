@@ -8,7 +8,6 @@
     justify-content: center;
     .menu_wrapper {
       width: 928px;
-      height: 1294px;
       display: flex;
       flex-direction: column;
       .article_wrapper {
@@ -44,7 +43,7 @@
         }
         .selected_wrapper {
           width: 100%;
-          height: 300px;
+          height: 40px;
           > span {
             font-weight: 700;
             font-size: 20px;

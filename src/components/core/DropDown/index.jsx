@@ -4,6 +4,8 @@ import { useLocation } from 'react-router-dom'
 import { LocaleContext } from '../../../context/localeContext'
 import './style.scss'
 
+export { default as PageDropdown } from './PageDropdown'
+
 const DropDown = ({ content, isSelected, queryName }) => {
   const navigate = useNavigate()
   const { locale } = useContext(LocaleContext)

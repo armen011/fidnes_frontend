@@ -1,11 +1,11 @@
-import React, { useCallback, useEffect, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import { wrap } from 'popmotion'
 import { ButtonWithIcon } from '../../core/Button'
-import first from '../../../assets/img/slider1.png'
-import second from '../../../assets/img/slider2.png'
-import third from '../../../assets/img/slider3.png'
-import fourth from '../../../assets/img/slider4.png'
+import axios from 'axios'
+import requests from '../../../const/requests'
+import { LocaleContext } from '../../../context/localeContext'
+import { pages } from '../../../locales'
 import './style.scss'
 
 const variants = {
@@ -49,14 +49,17 @@ const infoVariant = {
   },
 }
 
-const images = [first, second, third, fourth]
-const texts = [
-  { title: 'Հիփոթեքային Վարկեր ՀՀ' },
-  { title: 'Հիփոթեքային Վարկեր Արցախում' },
-  { title: 'Սպառողական Վարկեր ` հատկապես ոսկու գրավով վարկեր' },
-  { title: 'Ապահովագրություն' },
-]
 const Carousel = () => {
+  const [slider, setSlider] = useState([])
+  const { locale } = useContext(LocaleContext)
+  useEffect(() => {
+    axios.get(requests.slides()).then(({ data }) => {
+      if (data) {
+        setSlider(data)
+      }
+    })
+  }, [])
+
   const [[page, direction], setPage] = useState([0, 0])
   const swipePower = (offset, velocity) => {
     return Math.abs(offset) * velocity
@@ -82,7 +85,7 @@ const Carousel = () => {
     return () => clearTimeout(timeOut)
   }, [paginate, page])
 
-  const imageIndex = wrap(0, images.length, page)
+  const imageIndex = wrap(0, slider.length, page)
 
   return (
     <div className="carousel_wrapper">
@@ -91,7 +94,7 @@ const Carousel = () => {
           <AnimatePresence>
             <motion.img
               key={page}
-              src={images[imageIndex]}
+              src={slider[imageIndex] ? slider[imageIndex].image : ''}
               variants={variants}
               initial="enter"
               animate="center"
@@ -131,13 +134,18 @@ const Carousel = () => {
                 }}
               >
                 <div className="texts_wrapper">
-                  <span>{texts[imageIndex].title}</span>
                   <span>
-                    Շտապ գումա՞ր է անհրաժեշտ ընթացիկ ծախսերը հոգալու համար, և
-                    ցածր տոկոսադրույքով վարկատեսա՞կ եք փնտրում։ Եկե՛ք Fides։
+                    {slider[imageIndex]
+                      ? slider[imageIndex][`title_${locale}`]
+                      : ''}
+                  </span>
+                  <span>
+                    {slider[imageIndex]
+                      ? slider[imageIndex][`description_${locale}`]
+                      : ''}
                   </span>
                 </div>
-                <button>Իմանալ ավելին</button>
+                <button>{pages.button_texts[`learn_more_${locale}`]}</button>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -148,7 +156,7 @@ const Carousel = () => {
           <AnimatePresence custom={direction} exitBeforeEnter>
             <motion.img
               key={page}
-              src={images[imageIndex]}
+              src={slider[imageIndex] ? slider[imageIndex].image : ''}
               custom={direction}
               variants={infoVariant}
               className="info_wrapper"
@@ -174,20 +182,24 @@ const Carousel = () => {
         <div className="info_wrapper_mobile">
           <motion.div
             key={page}
-            src={images[imageIndex]}
             variants={variants}
             initial="enter"
             animate="center"
             exit="exit"
           >
             <div className="texts_wrapper">
-              <span>{texts[imageIndex].title}</span>
               <span>
-                Շտապ գումա՞ր է անհրաժեշտ ընթացիկ ծախսերը հոգալու համար, և ցածր
-                տոկոսադրույքով վարկատեսա՞կ եք փնտրում։ Եկե՛ք Fides։
+                {slider[imageIndex]
+                  ? slider[imageIndex][`title_${locale}`]
+                  : ''}
+              </span>
+              <span>
+                {slider[imageIndex]
+                  ? slider[imageIndex][`description_${locale}`]
+                  : ''}
               </span>
             </div>
-            <button>Իմանալ ավելին</button>
+            <button>{pages.button_texts[`learn_more_${locale}`]}</button>
           </motion.div>
         </div>
       </div>

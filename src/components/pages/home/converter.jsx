@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { pages } from '../../../constants'
+import { pages } from '../../../locales'
 import { LocaleContext } from '../../../context/localeContext'
 import { FirstConvertCard, SecondConvertCard } from '../../core/Card'
 import Icon from '../../core/Icon'

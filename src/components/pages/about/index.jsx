@@ -2,37 +2,48 @@ import React, { useEffect, useState, useMemo, useContext } from 'react'
 import { useQuery } from '../../../hooks'
 import BreadCrumb from '../../core/BreadCrumb'
 import LoanCalculator from '../../loanCalculator'
-import { pages } from '../../../constants'
+import { pages } from '../../../locales'
 import ArticleContainer from './articleContainer'
 import SideBar from '../../core/SideBar'
 import './style.scss'
 import { LocaleContext } from '../../../context/localeContext'
-
-const articles = pages.main_header[0].drop_down
+import { GlobalData } from '../../../context/globalData'
+import requests from '../../../const/requests'
+import axios from 'axios'
 
 const About = () => {
   const selectedArticleId = useQuery('article')
   const { locale } = useContext(LocaleContext)
+  const { globalData } = useContext(GlobalData)
 
-  const selectedArticle = useMemo(
-    () => articles.filter(({ id }) => id === selectedArticleId)[0],
-    [selectedArticleId]
-  )
+  const dinamicPages = globalData ? globalData.Page : {}
+  const articles = dinamicPages.about || []
 
   const [selected, setSelected] = useState(undefined)
   useEffect(() => {
-    selectedArticleId ? setSelected(selectedArticle) : setSelected(undefined)
-  }, [selectedArticleId, selectedArticle])
+    if (selectedArticleId) {
+      axios
+        .get(requests.currentPageData(selectedArticleId))
+        .then(({ data }) => {
+          if (data) {
+            setSelected(data)
+          }
+        })
+    } else {
+      setSelected(undefined)
+    }
+  }, [selectedArticleId])
+
   return (
     <div className="about_page_wrapper">
       <BreadCrumb
         title={pages.titles[`about_${locale}`]}
         path={
-          selectedArticle
+          selected
             ? [
                 { title: pages.titles[`home_${locale}`], url: '/' },
                 { title: pages.titles[`about_${locale}`], url: '/about' },
-                { title: selectedArticle[`title_${locale}`] },
+                { title: selected[`title_${locale}`] },
               ]
             : [
                 { title: pages.titles[`home_${locale}`], url: '/' },

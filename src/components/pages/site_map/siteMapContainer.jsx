@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion'
 import React, { useContext, useState } from 'react'
-import { pages } from '../../../constants'
+import { pages } from '../../../locales'
 import { LocaleContext } from '../../../context/localeContext'
 import Icon from '../../core/Icon'
 

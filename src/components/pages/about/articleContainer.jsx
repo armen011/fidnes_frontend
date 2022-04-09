@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router'
 import Icon from '../../core/Icon'
 import { AnimatePresence, motion } from 'framer-motion'
 import { LocaleContext } from '../../../context/localeContext'
+import CkContant from '../../core/CkContant'
 
 const ArticleItem = ({ id, setSelected, ...otherProps }) => {
   const navigate = useNavigate()
@@ -50,9 +51,11 @@ const ArticleContainer = ({ articles, selected, setSelected }) => {
     <div className="article_wrapper">
       <AnimatePresence exitBeforeEnter>
         {selected ? (
-          <div className="selected_wrapper">
-            <span>{selected[`title_${locale}`]}</span>
-          </div>
+          <CkContant {...selected}>
+            <div className="selected_wrapper">
+              <span>{selected[`title_${locale}`]}</span>
+            </div>
+          </CkContant>
         ) : (
           <motion.ul
             variants={variantList}

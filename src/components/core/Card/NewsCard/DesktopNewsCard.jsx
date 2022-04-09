@@ -1,8 +1,15 @@
 import { motion } from 'framer-motion'
 import React, { useMemo } from 'react'
-import newsImg from '../../../../assets/img/newsImg.png'
+import Status from '../../Status'
 
-const DesktopNewsCard = ({ title, description, date, status, onClick }) => {
+const DesktopNewsCard = ({
+  image,
+  title,
+  description,
+  date,
+  status,
+  onClick,
+}) => {
   const variantItem = useMemo(
     () => ({
       hidden: { y: -40, opacity: 0 },
@@ -22,7 +29,7 @@ const DesktopNewsCard = ({ title, description, date, status, onClick }) => {
       onClick={onClick}
     >
       <div className="news_card_img_wrapper">
-        <img src={newsImg} alt="" />
+        <img src={image} alt="" />
       </div>
       <div className="news_card_content_wrapper">
         <h5>{title}</h5>
@@ -31,9 +38,7 @@ const DesktopNewsCard = ({ title, description, date, status, onClick }) => {
           <div className="date_wrapper">
             <span>{date}</span>
           </div>
-          <div className="status_wrapper">
-            <span>{status}</span>
-          </div>
+          <Status status={status} />
         </div>
       </div>
     </motion.li>

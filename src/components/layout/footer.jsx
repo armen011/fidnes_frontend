@@ -7,14 +7,13 @@ import { wrap } from 'popmotion'
 import { LocaleContext } from '../../context/localeContext'
 import { ButtonWithIcon } from '../core/Button'
 import Icon from '../core/Icon'
-import { pages } from '../../constants'
+import { pages } from '../../locales'
 
 import abcfin from '../../assets/img/abcfin.png'
 import hashtarar from '../../assets/img/hashtarar.png'
 import reso from '../../assets/img/reso.png'
 import fininfo from '../../assets/img/fininfo.png'
 import { GlobalData } from '../../context/globalData'
-import requests from '../../const/requests'
 import { seprateByCount } from '../../utils'
 
 const typeVariant = {
@@ -59,9 +58,9 @@ const Container = React.memo(
         {typeArray &&
           typeArray.map(({ image, url }, index) => {
             return (
-              <a className="container" key={index} href={url}>
+              <a className="container" key={index} href={url} target="_blank">
                 <div className="img_wraperr">
-                  <img src={requests.getImgUrl(image)} alt="" />
+                  <img src={image} alt="" />
                 </div>
               </a>
             )
@@ -115,16 +114,24 @@ const Footer = () => {
           <div className="hrefs_wrapper">
             <span>{pages.small_texts[`useful_links_${locale}`]}</span>
             <div className="hrefs_container">
-              <a className="href" href="https://www.abcfinance.am/">
+              <a
+                className="href"
+                href="https://www.abcfinance.am/"
+                target="_blank"
+              >
                 <img src={abcfin} alt="abc finance" />
               </a>
-              <a className="href" href="https://www.fsm.am/">
+              <a className="href" href="https://www.fsm.am/" target="_blank">
                 <img src={hashtarar} alt="finansakan hashtarar" />
               </a>
-              <a className="href" href="http://www.reso.am/">
+              <a className="href" href="http://www.reso.am/" target="_blank">
                 <img src={reso} alt="reso app" />
               </a>
-              <a className="href" href="https://www.fininfo.am/">
+              <a
+                className="href"
+                href="https://www.fininfo.am/"
+                target="_blank"
+              >
                 <img src={fininfo} alt="fininfo" />
               </a>
             </div>
@@ -172,7 +179,7 @@ const Footer = () => {
             <div className="collaborators_container_mobile">
               {partner.map(({ image, title_hy }, index) => (
                 <div className="mobile_img_wrapper" key={index}>
-                  <img src={requests.getImgUrl(image)} alt={title_hy} />
+                  <img src={image} alt={title_hy} />
                 </div>
               ))}
             </div>

@@ -6,66 +6,7 @@
       "title_en": "About Us",
       "url": "/about",
       "drop_down_key": "about",
-      "query_name": "/about?article=",
-
-      "drop_down": [
-        {
-          "id": "1",
-          "title_hy": "Առաքելությունը և նպատակը",
-          "title_ru": "Առաքելությունը և նպատակը",
-          "title_en": "Առաքելությունը և նպատակը",
-          "url": "/about?article=1"
-        },
-        {
-          "id": "2",
-          "title_hy": "Ընդհանուր տեղեկատվություններ",
-          "title_ru": "Ընդհանուր տեղեկատվություններ",
-          "title_en": "Ընդհանուր տեղեկատվություններ",
-          "url": "/about?article=2"
-        },
-        {
-          "id": "3",
-          "title_hy": "Ներքին վարչակազմակերպական կառուցվածք",
-          "title_ru": "Ներքին վարչակազմակերպական կառուցվածք",
-          "title_en": "Ներքին վարչակազմակերպական կառուցվածք",
-          "url": "/about?article=3"
-        },
-        {
-          "id": "4",
-          "title_hy": "Պետական գրանցման վկայականի և գործող լիցենզիայի պատճենները",
-          "title_ru": "Պետական գրանցման վկայականի և գործող լիցենզիայի պատճենները",
-          "title_en": "Պետական գրանցման վկայականի և գործող լիցենզիայի պատճենները",
-          "url": "/about?article=4"
-        },
-        {
-          "id": "5",
-          "title_hy": "Գործարար էթիկայի և կորպորատիվ վարվելակերպի կանոններ",
-          "title_ru": "Գործարար էթիկայի և կորպորատիվ վարվելակերպի կանոններ",
-          "title_en": "Գործարար էթիկայի և կորպորատիվ վարվելակերպի կանոններ",
-          "url": "/about?article=5"
-        },
-        {
-          "id": "6",
-          "title_hy": "Ղեկավարություն",
-          "title_ru": "Управление",
-          "title_en": "Management",
-          "url": "/about?article=6"
-        },
-        {
-          "id": "7",
-          "title_hy": "Նշանակալից մասնակիցներ",
-          "title_ru": "Նշանակալից մասնակիցներ",
-          "title_en": "Նշանակալից մասնակիցներ",
-          "url": "/about?article=7"
-        },
-        {
-          "id": "8",
-          "title_hy": "Գործարար վարվելակերպի կանոններ",
-          "title_ru": "Գործարար վարվելակերպի կանոններ",
-          "title_en": "Գործարար վարվելակերպի կանոններ",
-          "url": "/about?article=8"
-        }
-      ]
+      "query_name": "/about?article="
     },
     {
       "title_hy": "Վարկեր",
@@ -73,58 +14,7 @@
       "title_ru": "Кредиты",
       "url": "/loans",
       "drop_down_key": "loans",
-      "query_name": "/loans?article=",
-      "drop_down": [
-        {
-          "id": "1",
-          "title_hy": "Հիփոթեքային վարկեր",
-          "title_ru": "Հիփոթեքային վարկեր",
-          "title_en": "Հիփոթեքային վարկեր",
-          "url": "/loans?article=1"
-        },
-        {
-          "id": "2",
-          "title_hy": "Ազգային հիփոթեքային ընկերության ծրագիր",
-          "title_ru": "Ազգային հիփոթեքային ընկերության ծրագիր",
-          "title_en": "Ազգային հիփոթեքային ընկերության ծրագիր",
-          "url": "/loans?article=2"
-        },
-        {
-          "id": "3",
-          "title_hy": "Երիտասարդ ընտանիքին մատչելի բնակարան",
-          "title_ru": "Երիտասարդ ընտանիքին մատչելի բնակարան",
-          "title_en": "Երիտասարդ ընտանիքին մատչելի բնակարան",
-          "url": "/loans?article=3"
-        },
-        {
-          "id": "4",
-          "title_hy": "Բիզնես վարկեր",
-          "title_ru": "Բիզնես վարկեր",
-          "title_en": "Բիզնես վարկեր",
-          "url": "/loans?article=4"
-        },
-        {
-          "id": "5",
-          "title_hy": "Սպառողական վարկեր",
-          "title_ru": "Սպառողական վարկեր",
-          "title_en": "Սպառողական վարկեր",
-          "url": "/loans?article=5"
-        },
-        {
-          "id": "6",
-          "title_hy": "Սակագներ",
-          "title_ru": "Սակագներ",
-          "title_en": "Սակագներ",
-          "url": "/loans?article=6"
-        },
-        {
-          "id": "7",
-          "title_hy": "Ապահովագրություն",
-          "title_ru": "Ապահովագրություն",
-          "title_en": "Ապահովագրություն",
-          "url": "/loans?article=7"
-        }
-      ]
+      "query_name": "/loans?loan_id="
     },
     {
       "title_hy": "Նորություններ",
@@ -353,7 +243,10 @@
     "see_all_en": "See all",
     "search_hy": "Որոնել",
     "search_ru": "Поиск",
-    "search_en": "Search"
+    "search_en": "Search",
+    "learn_more_hy": "Իմանալ ավելին",
+    "learn_more_ru": "Узнать больше",
+    "learn_more_en": "Learn more"
   },
   "small_texts": {
     "connect_methodes_hy": "Կապ միջոցներ",
@@ -427,6 +320,18 @@
     "search_en": "Search",
     "no_results_hy": "Որոնման արդյունք չի հայտնաբերվել",
     "no_results_ru": "Результаты поиска не найдены",
-    "no_results_en": "No search results were found"
+    "no_results_en": "No search results were found",
+    "status_Important_hy": "Կարևոր",
+    "status_Important_ru": "Важный",
+    "status_Important_en": "Important",
+    "status_New_hy": "Նոր",
+    "status_New_ru": "Новый",
+    "status_New_en": "New",
+    "static_test_first_hy": "«Ֆիդես հիփոթեքային ընկերություն» ունիվերսալ վարկային կազմակերպություն փակ բաժնետիրական ընկերությունը (այսուհետ` Կազմակերպություն) ունի մեկ մասնաճյուղ:",
+    "static_test_first_ru": "'Ипотечная компания Фидес' универсальный кредит  Организация Закрытое акционерное общество (далее - Организация) имеет один филиал.",
+    "static_test_first_en": "'Fidesz Mortgage Company' universal credit Organization Closed Joint-Stock Company (hereinafter referred to as the Organization) has one branch.",
+    "static_test_second_hy": "Կազմակերպության իրավաբանական հասցեն է` ՀՀ, ք. Երևան, Նաիրի Զարյան 17ա: Կազմակերպության գործունեության հասցեն է` ԱՀ, ք. Ստեփանակերտ, Մ. Գոշ 2/33:",
+    "static_test_second_ru": "Юридический адрес организации: РА, г. Ерджан, Наири Зарян 17 а. Адрес деятельности организации: Азербайджан, г. Степанакерт, М. Гоша 2/33.",
+    "static_test_second_en": "The legal address of the organization is RA, c. Yerjan, Nairi Zaryan 17 a. The address of the organization's activity is: Azerbaijan, c. Stepanakert, M. Gosh 2/33."
   }
 }

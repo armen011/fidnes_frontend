@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useRef, useState, memo } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { pages } from '../../constants'
+import { pages } from '../../locales'
 import { LocaleContext } from '../../context/localeContext'
 import { SearchInput } from '../core/Input'
 

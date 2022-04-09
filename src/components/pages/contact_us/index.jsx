@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import BreadCrumb from '../../core/BreadCrumb'
 import Icon from '../../core/Icon'
 import { TextArea, TextInput } from '../../core/Input'
-import { pages } from '../../../constants'
+import { pages } from '../../../locales'
 import { LocaleContext } from '../../../context/localeContext'
 import './style.scss'
 

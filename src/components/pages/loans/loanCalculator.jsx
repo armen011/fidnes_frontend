@@ -1,5 +1,5 @@
 import React, { useContext, useMemo, useState } from 'react'
-import { pages } from '../../../constants'
+import { pages } from '../../../locales'
 import { LocaleContext } from '../../../context/localeContext'
 import { LoanCalculatorInput, LoanCheckBoxinput } from '../../core/Input'
 import LoanModal from '../../core/Modal'

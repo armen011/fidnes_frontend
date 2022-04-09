@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 import { LocaleContext } from '../../../context/localeContext'
 import Icon from '../../core/Icon'
 
-const ReportsContainer = ({ branches, selected, setSelected }) => {
+const ReportsContainer = ({ reporTypes, selected, setSelected }) => {
   const navigate = useNavigate()
   const { locale } = useContext(LocaleContext)
   return (
@@ -12,7 +12,7 @@ const ReportsContainer = ({ branches, selected, setSelected }) => {
         <div></div>
       ) : (
         <div className="branch_container">
-          {branches.map(({ id, ...otherProps }, index) => (
+          {reporTypes.map(({ id, ...otherProps }, index) => (
             <button
               key={index}
               onClick={() => {

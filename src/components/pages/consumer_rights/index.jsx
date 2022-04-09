@@ -1,5 +1,5 @@
 import React, { useContext, useMemo, useState } from 'react'
-import { pages } from '../../../constants'
+import { pages } from '../../../locales'
 import { LocaleContext } from '../../../context/localeContext'
 import { useQuery } from '../../../hooks'
 import BreadCrumb from '../../core/BreadCrumb'

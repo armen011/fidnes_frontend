@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react'
 import { ButtonWithIcon, ButtonWithTextAndIcon } from '../core/Button'
 import DropDown from '../core/DropDown'
 import Icon from '../core/Icon'
-import { pages } from '../../constants'
+import { pages } from '../../locales'
 import { useNavigate } from 'react-router'
 import { useLocation } from 'react-router-dom'
 import { LocaleContext } from '../../context/localeContext'
@@ -35,7 +35,7 @@ const Header = ({ setIsSearchOpened }) => {
             style={{ color: location.pathname === elm.url && '#482003' }}
           >
             {elm[`title_${locale}`]}
-            {elm.drop_down && (
+            {elm.drop_down_key && (
               <Icon
                 iconName="arrow_left"
                 width={16}

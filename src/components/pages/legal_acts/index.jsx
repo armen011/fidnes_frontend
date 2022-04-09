@@ -1,14 +1,28 @@
-import React, { useContext } from 'react'
-import { pages } from '../../../constants'
+import axios from 'axios'
+import React, { useContext, useEffect, useState } from 'react'
+import requests from '../../../const/requests'
+import { pages } from '../../../locales'
 import { LocaleContext } from '../../../context/localeContext'
 import BreadCrumb from '../../core/BreadCrumb'
 import Icon from '../../core/Icon'
 import LoanCalculator from '../../loanCalculator'
-import pdfs from './pdf.json'
 import './style.scss'
 
 const LegalActs = () => {
   const { locale } = useContext(LocaleContext)
+  const [[lawFirst, lawSecondFirst, lawSecondSecond], setLegalActs] = useState([
+    undefined,
+    undefined,
+    undefined,
+  ])
+
+  useEffect(() => {
+    axios.get(requests.legalActs()).then(({ data }) => {
+      if (data) {
+        setLegalActs(data)
+      }
+    })
+  }, [])
 
   return (
     <div className="legal_acts_wrapper">
@@ -20,46 +34,58 @@ const LegalActs = () => {
         ]}
       />
       <div className="legal_acts_container">
-        <div className="law_first_container">
-          <div className="header_container">
-            <span>Կանոնակարգեր</span>
+        {lawFirst && (
+          <div className="law_first_container">
+            <div className="header_container">
+              <span>{lawFirst[`title_${locale}`]}</span>
+            </div>
+            <ul className="content_container">
+              {lawFirst.files.map((pdf, index) => (
+                <a href={pdf[`file_${locale}`]} target="_blank" key={index}>
+                  <li>
+                    <Icon iconName="pdf_file" width={24} height={24} />
+                    <span>{pdf[`title_${locale}`]}</span>
+                  </li>
+                </a>
+              ))}
+            </ul>
           </div>
-          <ul className="content_container">
-            {pdfs.laws_first.map(({ title }, index) => (
-              <li key={index}>
-                <Icon iconName="pdf_file" width={24} height={24} />
-                <span>{title}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
+        )}
         <div className="law_second_container">
-          <div className="law_second_first">
-            <div className="header_container">
-              <span>Օրենքներ</span>
+          {lawSecondFirst && (
+            <div className="law_second_first">
+              <div className="header_container">
+                <span>{lawSecondFirst[`title_${locale}`]}</span>
+              </div>
+              <ul className="content_container">
+                {lawSecondFirst.files.map((pdf, index) => (
+                  <a href={pdf[`file_${locale}`]} target="_blank" key={index}>
+                    <li>
+                      <Icon iconName="pdf_file" width={24} height={24} />
+                      <span>{pdf[`title_${locale}`]}</span>
+                    </li>
+                  </a>
+                ))}
+              </ul>
             </div>
-            <ul className="content_container">
-              {pdfs.law_second_first.map(({ title }, index) => (
-                <li key={index}>
-                  <Icon iconName="pdf_file" width={24} height={24} />
-                  <span>{title}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-          <div className="law_second_second">
-            <div className="header_container">
-              <span>Օրենքներ</span>
+          )}
+          {lawSecondSecond && (
+            <div className="law_second_second">
+              <div className="header_container">
+                <span>{lawSecondSecond[`title_${locale}`]}</span>
+              </div>
+              <ul className="content_container">
+                {lawSecondSecond.files.map((pdf, index) => (
+                  <a href={pdf[`file_${locale}`]} target="_blank" key={index}>
+                    <li>
+                      <Icon iconName="pdf_file" width={24} height={24} />
+                      <span>{pdf[`title_${locale}`]}</span>
+                    </li>
+                  </a>
+                ))}
+              </ul>
             </div>
-            <ul className="content_container">
-              {pdfs.law_second_second.map(({ title }, index) => (
-                <li key={index}>
-                  <Icon iconName="pdf_file" width={24} height={24} />
-                  <span>{title}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
+          )}
         </div>
       </div>
       <LoanCalculator />

@@ -1,5 +1,8 @@
+import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
-import { pages } from '../../../constants'
+import requests from '../../../const/requests'
+import { pages } from '../../../locales'
+import { GlobalData } from '../../../context/globalData'
 import { LocaleContext } from '../../../context/localeContext'
 import { useQuery } from '../../../hooks'
 import BreadCrumb from '../../core/BreadCrumb'
@@ -11,47 +14,23 @@ import './style.scss'
 const Loans = () => {
   const selectedLoanId = useQuery('loan_id')
   const { locale } = useContext(LocaleContext)
+  const { globalData } = useContext(GlobalData)
+
   const [selected, setSelected] = useState(undefined)
-  const loans = [
-    {
-      title_am: 'Հիփոթեքային վարկեր',
-      title_ru: 'Հիփոթեքային վարկեր',
-      title_en: 'Հիփոթեքային վարկեր',
-    },
-    {
-      title_am: 'Հիփոթեքային վարկեր',
-      title_ru: 'Հիփոթեքային վարկեր',
-      title_en: 'Հիփոթեքային վարկեր',
-    },
-    {
-      title_am: 'Հիփոթեքային վարկեր',
-      title_ru: 'Հիփոթեքային վարկեր',
-      title_en: 'Հիփոթեքային վարկեր',
-    },
-    {
-      title_am: 'Հիփոթեքային վարկեր',
-      title_ru: 'Հիփոթեքային վարկեր',
-      title_en: 'Հիփոթեքային վարկեր',
-    },
-    {
-      title_am: 'Հիփոթեքային վարկեր',
-      title_ru: 'Հիփոթեքային վարկեր',
-      title_en: 'Հիփոթեքային վարկեր',
-    },
-    {
-      title_am: 'Հիփոթեքային վարկեր',
-      title_ru: 'Հիփոթեքային վարկեր',
-      title_en: 'Հիփոթեքային վարկեր',
-    },
-    {
-      title_am: 'Հիփոթեքային վարկեր',
-      title_ru: 'Հիփոթեքային վարկեր',
-      title_en: 'Հիփոթեքային վարկեր',
-    },
-  ]
+
+  const dinamicPages = globalData ? globalData.Page : {}
+  const loans = dinamicPages.loans || []
 
   useEffect(() => {
-    setSelected(selectedLoanId)
+    if (selectedLoanId) {
+      axios.get(requests.currentPageData(selectedLoanId)).then(({ data }) => {
+        if (data) {
+          setSelected(data)
+        }
+      })
+    } else {
+      setSelected(undefined)
+    }
   }, [selectedLoanId])
 
   return (
@@ -63,7 +42,7 @@ const Loans = () => {
             ? [
                 { title: pages.titles[`home_${locale}`], url: '/' },
                 { title: pages.titles[`loan_${locale}`], url: '/loans' },
-                { title: pages.titles[`loan_${locale}`], url: '/loans' },
+                { title: selected[`title_${locale}`] },
               ]
             : [
                 { title: pages.titles[`home_${locale}`], url: '/' },

@@ -10,12 +10,13 @@ import React, {
 import { LoanCalculatorInput, LoanCheckBoxinput } from '../core/Input'
 import Container from './Container'
 // import LoanTypes from './loanTypes'
-import { pages } from '../../constants'
+import { pages } from '../../locales'
 import { LocaleContext } from '../../context/localeContext'
 import './style.scss'
 import LoanModal from '../core/Modal'
 import { GlobalData } from '../../context/globalData'
 import { seprateByCount } from '../../utils'
+import { useNavigate } from 'react-router-dom'
 
 const LoanCalculator = () => {
   const { globalData } = useContext(GlobalData)
@@ -55,6 +56,7 @@ const LoanCalculator = () => {
   const swipePower = (offset, velocity) => {
     return Math.abs(offset) * velocity
   }
+  const navigate = useNavigate()
 
   return (
     <div className="loan_calculator_container">
@@ -82,14 +84,20 @@ const LoanCalculator = () => {
             </AnimatePresence>
           </div>
           <div className="loan_type_selector_container_mobile">
-            {[...LoanTypes.flat()].map(({ title, img }, index) => {
+            {[...LoanTypes.flat()].map(({ id, icon, ...otherProps }, index) => {
               return (
-                <div className="mobile_container" key={index}>
+                <div
+                  className="mobile_container"
+                  key={index}
+                  onClick={() => {
+                    navigate('/loans?atcile=' + id)
+                  }}
+                >
                   <div className="img_wrapper">
-                    <img src={img} alt="" />
+                    <img src={icon} alt="" />
                   </div>
                   <div className="text_wrapper">
-                    <span>{title}</span>
+                    <span>{otherProps[`title_${locale}`]}</span>
                   </div>
                 </div>
               )

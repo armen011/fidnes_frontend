@@ -1,6 +1,12 @@
 import env from './env'
 
-export default {
+const requests = {
   global: () => env.BASE_URL + '/global',
-  getImgUrl: (url) => env.BASE_URL + url,
+  slides: () => env.BASE_URL + '/slider/',
+  news: () => env.BASE_URL + '/news',
+  currentNews: (id) => env.BASE_URL + '/news/' + id,
+  legalActs: () => env.BASE_URL + '/legalact/',
+  currentPageData: (id) => env.BASE_URL + '/page/' + id,
 }
+
+export default requests

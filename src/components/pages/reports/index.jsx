@@ -4,40 +4,48 @@ import ReportsContainer from './reportsContainer'
 import SideBar from '../../core/SideBar'
 import LoanCalculator from '../../loanCalculator'
 import reportImg from '../../../assets/img/report_img.png'
-import { pages } from '../../../constants'
+import { pages } from '../../../locales'
 import { useQuery } from '../../../hooks'
 import { LocaleContext } from '../../../context/localeContext'
 import './style.scss'
-
-const reports = pages.extra_header[1].drop_down
+import { GlobalData } from '../../../context/globalData'
+import requests from '../../../const/requests'
+import axios from 'axios'
 
 const Reports = () => {
   const selectedReportTypeId = useQuery('report_type_id')
-  const branches = pages.extra_header[1].drop_down
   const { locale } = useContext(LocaleContext)
-  const selectedReportType = useMemo(
-    () => reports.filter(({ id }) => id === selectedReportTypeId)[0],
-    [selectedReportTypeId]
-  )
+  const { globalData } = useContext(GlobalData)
+
+  const dinamicPages = globalData ? globalData.Page : {}
+  const reporTypes = dinamicPages.reports || []
 
   const [selected, setSelected] = useState(undefined)
 
   useEffect(() => {
-    selectedReportTypeId
-      ? setSelected(selectedReportType)
-      : setSelected(undefined)
-  }, [selectedReportTypeId, selectedReportType])
+    if (selectedReportTypeId) {
+      axios
+        .get(requests.currentPageData(selectedReportTypeId))
+        .then(({ data }) => {
+          if (data) {
+            setSelected(data)
+          }
+        })
+    } else {
+      setSelected(undefined)
+    }
+  }, [selectedReportTypeId])
 
   return (
     <div className="reports_wrapper">
       <BreadCrumb
         title={pages.titles[`reports_${locale}`]}
         path={
-          selectedReportType
+          selected
             ? [
                 { title: pages.titles[`home_${locale}`], url: '/' },
                 { title: pages.titles[`reports_${locale}`], url: '/reports' },
-                { title: selectedReportType[`title_${locale}`] },
+                { title: selected[`title_${locale}`] },
               ]
             : [
                 { title: pages.titles[`home_${locale}`], url: '/' },
@@ -57,19 +65,11 @@ const Reports = () => {
                   ? selected[`title_${locale}`]
                   : pages.small_texts[`category_${locale}`]}
               </span>
-              <ReportsContainer {...{ branches, selected, setSelected }} />
+              <ReportsContainer {...{ reporTypes, selected, setSelected }} />
             </div>
           </div>
-          <span>
-            «Ֆիդես հիփոթեքային ընկերություն» ունիվերսալ վարկային
-            կազմակերպություն փակ բաժնետիրական ընկերությունը (այսուհետ`
-            Կազմակերպություն) ունի մեկ մասնաճյուղ:
-          </span>
-          <span>
-            Կազմակերպության իրավաբանական հասցեն է` ՀՀ, ք. Երևան, Նաիրի Զարյան
-            17ա: Կազմակերպության գործունեության հասցեն է` ԱՀ, ք. Ստեփանակերտ, Մ.
-            Գոշ 2/33:
-          </span>
+          <span>{pages.small_texts[`static_test_first_${locale}`]}</span>
+          <span>{pages.small_texts[`static_test_second_${locale}`]}</span>
         </div>
         <SideBar />
       </div>

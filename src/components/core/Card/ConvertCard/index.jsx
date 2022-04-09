@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import Icon from '../../Icon'
 import euro from '../../../../assets/img/euro.png'
 import './style.scss'
-import { pages } from '../../../../constants'
+import { pages } from '../../../../locales'
 import { LocaleContext } from '../../../../context/localeContext'
 
 export const FirstConvertCard = () => {

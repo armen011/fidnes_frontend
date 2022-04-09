@@ -1,7 +1,7 @@
 import React, { useContext, useMemo, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import Icon from '../core/Icon'
-import { pages } from '../../constants'
+import { pages } from '../../locales'
 import { useNavigate } from 'react-router'
 import { useLocation } from 'react-router-dom'
 import { LocaleContext } from '../../context/localeContext'

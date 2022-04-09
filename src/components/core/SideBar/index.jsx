@@ -1,31 +1,31 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import {
   FirstConvertCardForSideBar,
   NewsCard,
   SecondConvertCardForSideBar,
 } from '../Card'
-import newsImg from '../../../assets/img/newsImg.png'
 import { LocaleContext } from '../../../context/localeContext'
-import { pages } from '../../../constants'
+import { pages } from '../../../locales'
 import './style.scss'
+import axios from 'axios'
+import requests from '../../../const/requests'
 
 const SideBar = () => {
   const { locale } = useContext(LocaleContext)
+  const [latestNews, setLatestNews] = useState({})
+  useEffect(() => {
+    axios.get(requests.news()).then(({ data: { results } }) => {
+      if (results) {
+        setLatestNews(results[0])
+      }
+    })
+  }, [])
   return (
     <div className="side_bar_info_wrapper">
       <FirstConvertCardForSideBar />
       <div className="news_wrapper">
         <span>{pages.small_texts[`latest_news_${locale}`]}</span>
-        <NewsCard
-          className="news_card_custom"
-          {...{
-            img: newsImg,
-            title: 'Բաժնետերերի տարեկան ընդհանուր ժողով․․․',
-            content:
-              'Հարգելի  հաճախորդներ և գործընկերներ:«Ֆիդես հիփոթեքային ընկերություն» ՈՒՎԿ ՓԲԸ-ն սիրով ... ',
-            date: '12 Դեկտեմբեր 2022',
-          }}
-        />
+        <NewsCard className="news_card_custom" {...latestNews} />
       </div>
       <SecondConvertCardForSideBar />
     </div>

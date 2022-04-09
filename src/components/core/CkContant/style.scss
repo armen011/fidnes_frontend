@@ -1,0 +1,17 @@
+.ck_content_wrapper {
+  width: 100%;
+  height: fit-content;
+  overflow: hidden;
+  position: relative;
+  > .ck-content {
+    max-width: 100%;
+      table {
+      max-width: 100%;
+    }
+  }
+
+  .dropdowns_conatiner {
+    width: 100%;
+    padding: 32px 0;
+  }
+}
