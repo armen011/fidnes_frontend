@@ -23,8 +23,6 @@ const Reports = () => {
   )
   const [selected, setSelected] = useState(undefined)
 
-  console.log('first', selectedReportYear)
-
   useEffect(() => {
     if (selectedReportTypeId) {
       setSelected(reports[`${selectedReportTypeId}`])

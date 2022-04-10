@@ -31,9 +31,6 @@ const SearchBar = ({ results }) => {
     setInputValue('')
     navigate(`/results?search=${inputValue}`)
   }
-
-  console.log('results', results)
-
   return (
     <div className="action_bar_wrapper">
       <div className="input_button_wrapper">
