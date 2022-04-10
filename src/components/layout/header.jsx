@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router'
 import { useLocation } from 'react-router-dom'
 import { LocaleContext } from '../../context/localeContext'
 import { GlobalData } from '../../context/globalData'
+import { setLocaleOnLocaleStorage } from '../../utils/localeStorage'
 
 const Header = ({ setIsSearchOpened }) => {
   const navigate = useNavigate()
@@ -15,11 +16,15 @@ const Header = ({ setIsSearchOpened }) => {
   const { locale, setLocale } = useContext(LocaleContext)
   const handleLocaleSelect = (locale) => () => {
     setLocale(locale)
+    setLocaleOnLocaleStorage(locale)
     setIsLocalesDropDownOpened(false)
   }
 
   const { globalData } = useContext(GlobalData)
   const page = globalData ? globalData.Page : {}
+
+  const social = globalData ? globalData.Social : {}
+  const number = social.Mobile ? social.Mobile[0].value : ''
 
   return (
     <div className="layout_header">
@@ -64,9 +69,9 @@ const Header = ({ setIsSearchOpened }) => {
             setIsLocalesDropDownOpened(false)
           }}
         />
-        <a href="tel:+37410592323" className="phone_number_wrapper">
+        <a href={`tel:${number}`} className="phone_number_wrapper">
           <Icon iconName="phone_24" width={24} height={24} />
-          <span>+ 374 10 59 23 23</span>
+          <span>{number}</span>
         </a>
         <div className="locales_wrapper">
           <ButtonWithTextAndIcon

@@ -36,48 +36,7 @@
       "title_en": "Reports",
       "url": "/reports",
       "drop_down_key": "reports",
-      "query_name": "/reports?report_type_id=",
-      "drop_down": [
-        {
-          "id": "1",
-          "title_hy": "Միջանկյալ",
-          "title_ru": "Միջանկյալ",
-          "title_en": "Միջանկյալ",
-          "url": "/reports?report_type_id=1",
-          "drop_down": []
-        },
-        {
-          "id": "2",
-          "title_hy": "Տարեկան",
-          "title_ru": "Տարեկան",
-          "title_en": "Տարեկան",
-          "url": "/reports?report_type_id=2",
-          "drop_down": []
-        },
-        {
-          "id": "3",
-          "title_hy": "Անկախ աուդիտորական եզրակացություն",
-          "title_ru": "Անկախ աուդիտորական եզրակացություն",
-          "title_en": "Անկախ աուդիտորական եզրակացություն",
-          "url": "/reports?report_type_id=3",
-          "drop_down": []
-        },
-        {
-          "id": "4",
-          "title_hy": "Հիմնական տնտեսական նորմատիվներ",
-          "title_ru": "Հիմնական տնտեսական նորմատիվներ",
-          "title_en": "Հիմնական տնտեսական նորմատիվներ",
-          "url": "/reports?report_type_id=4"
-        },
-        {
-          "id": "5",
-          "title_hy": "Գործունեության տարեկան հաշվետվություն",
-          "title_ru": "Գործունեության տարեկան հաշվետվություն",
-          "title_en": "Գործունեության տարեկան հաշվետվություն",
-          "url": "/reports?report_type_id=5",
-          "drop_down": []
-        }
-      ]
+      "query_name": "/reports?report_type_id="
     },
     {
       "title_hy": "Սպառողի իրավունքներ",
@@ -312,6 +271,18 @@
     "contact_page_address_en": "Address: AH, Q Stepanakert, M ․ Gosh 2/33",
     "constact_page_phone_hy": "Հեռ․",
     "constact_page_phone_ru": "Тел.",
-    "constact_page_phone_en": "Tel."
+    "constact_page_phone_en": "Tel.",
+    "footer_first_text_hy": "Ունիվերսալ վարկային կազմակերպություն ՓԲԸ",
+    "footer_first_text_ru": "ЗАО «Универсальная кредитная организация»",
+    "footer_first_text_en": "Universal Credit Organization CJSC",
+    "footer_second_text_hy": "ՖԻՆԱՆՍԱԿԱՆ ԿԱԶՄԱԿԵՐՊՈՒԹՅՈՒՆԸ ՎԵՐԱՀՍԿՎՈՒՄ Է ՀՀ ԿԵՆՏՐՈՆԱԿԱՆ ԲԱՆԿԻ ԿՈՂՄԻՑ:",
+    "footer_second_text_ru": "ФИНАНСОВАЯ ОРГАНИЗАЦИЯ ПОД КОНТРОЛЕМ ЦЕНТРАЛЬНОГО БАНКА АРМЕНИИ.",
+    "footer_second_text_en": "FINANCIAL ORGANIZATION IS OVERVIEWED BY THE CENTRAL BANK OF ARMENIA",
+    "footer_copyright_text_hy": "Հեղինակային իրավունքները պաշտպանված են։",
+    "footer_copyright_text_ru": "Авторское право защищено.",
+    "footer_copyright_text_en": "Copyright is protected.",
+    "footer_info_text_hy": "Կազմակերպությունը պատասխանատվություն չի կրում իր կայքում հղում պարունակող այլ ընկերությունների կայքերի բովանդակության ստույգության և արժանահավատության, այնտեղ տեղադրված գովազդների համար, և Կազմակերպությունը պատասխանատվություն չի կրում այդ կայքերում տեղադրված տեղեկատվության օգտագործման հնարավոր հետևանքների համար",
+    "footer_info_text_ru": "Организация не несет ответственности за себя точность բովանդակ содержания сайтов других компаний, ссылающихся на Сайт համար подлинность размещенной там рекламы; և Компания не несет ответственности за любые возможные последствия использования информации, размещенной на этих сайтах.",
+    "footer_info_text_en": "The organization is not responsible for itself the accuracy բովանդակ of the content of the websites of other companies linking to the Website համար the authenticity of the advertisements placed there; և The Company is not responsible for any possible consequences of the use of the information posted on those websites."
   }
 }

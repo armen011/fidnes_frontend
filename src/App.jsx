@@ -5,9 +5,10 @@ import './App.scss'
 import { GlobalData } from './context/globalData'
 import axios from 'axios'
 import requests from './const/requests'
+import { getLocaleFromLocaleStoreage } from './utils/localeStorage'
 
 const App = () => {
-  const [locale, setLocale] = useState('hy')
+  const [locale, setLocale] = useState(getLocaleFromLocaleStoreage() || 'hy')
   const [globalData, setGlobalData] = useState(null)
   useEffect(() => {
     axios.get(requests.global()).then((res) => {

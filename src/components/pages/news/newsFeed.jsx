@@ -5,7 +5,7 @@ import { LocaleContext } from '../../../context/localeContext'
 import { DesktopNewsCard } from '../../core/Card/NewsCard'
 import Status from '../../core/Status'
 
-const NewsFeed = ({ news, selected, setSelected }) => {
+const NewsFeed = ({ news, selected }) => {
   const { locale } = useContext(LocaleContext)
   const variantList = useMemo(
     () => ({
@@ -20,8 +20,6 @@ const NewsFeed = ({ news, selected, setSelected }) => {
     []
   )
   const navigate = useNavigate()
-
-  console.log('selected', selected)
 
   return (
     <div

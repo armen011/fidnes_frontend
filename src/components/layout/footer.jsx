@@ -194,22 +194,16 @@ const Footer = () => {
             height={80}
             onClick={() => navigate('/')}
           />
-          <span>Ունիվերսալ վարկային կազմակերպություն ՓԲԸ</span>
-          <span>
-            ՖԻՆԱՆՍԱԿԱՆ ԿԱԶՄԱԿԵՐՊՈՒԹՅՈՒՆԸ ՎԵՐԱՀՍԿՎՈՒՄ Է ՀՀ ԿԵՆՏՐՈՆԱԿԱՆ ԲԱՆԿԻ
-            ԿՈՂՄԻՑ:
-          </span>
+          <span>{pages.small_texts[`footer_first_text_${locale}`]}</span>
+          <span>{pages.small_texts[`footer_second_text_${locale}`]}</span>
           <button onClick={() => navigate('/contact_us')}>
             {pages.button_texts[`contact_${locale}`]}
           </button>
-          <span>© 2022 Հեղինակային իրավունքները պաշտպանված են։</span>
           <span>
-            Կազմակերպությունը պատասխանատվություն չի կրում իր <br />
-            կայքում հղում պարունակող այլ ընկերությունների կայքերի բովանդակության
-            ստույգության և արժանահավատության, այնտեղ տեղադրված գովազդների համար,
-            և Կազմակերպությունը պատասխանատվություն չի կրում այդ կայքերում
-            տեղադրված տեղեկատվության օգտագործման հնարավոր հետևանքների համար
+            © {new Date().getFullYear()}{' '}
+            {pages.small_texts[`footer_copyright_text_${locale}`]}
           </span>
+          <span>{pages.small_texts[`footer_info_text_${locale}`]}</span>
         </div>
         <div className="page_href_wrapper">
           <div className="colum_wrapper">

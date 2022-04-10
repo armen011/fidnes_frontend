@@ -27,5 +27,6 @@
   "close_modal": "<path d='M18 6L6 18' stroke='#1C1D1F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/><path d='M6 6L18 18' stroke='#1C1D1F' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/>",
   "clock": "<path fill-rule='evenodd' clip-rule='evenodd' d='M21.25 12.001C21.25 17.11 17.109 21.251 12 21.251C6.891 21.251 2.75 17.11 2.75 12.001C2.75 6.89198 6.891 2.75098 12 2.75098C17.109 2.75098 21.25 6.89198 21.25 12.001Z' stroke='#16131E' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M15.4302 14.9437L11.6602 12.6947V7.84766' stroke='#16131E' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/>",
   "page_drop_down_close": "<path d='M20 12H4' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/>",
-  "page_drop_down_open": "<path d='M12 4V20' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M20 12H4' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/>"
+  "page_drop_down_open": "<path d='M12 4V20' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/><path d='M20 12H4' stroke='white' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/>",
+  "dropdown_point": "<circle cx='4' cy='4' r='3' fill='#DFB43C' stroke='#FEF4D6' stroke-width='2'/>"
 }
