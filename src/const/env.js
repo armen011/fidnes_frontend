@@ -1,5 +1,5 @@
 const env = {
-  BASE_URL: process.env.REACT_APP_PUBLIC_URL,
+  BASE_URL: process.env.REACT_APP_BACKEND_URL,
 }
 
 export default env
