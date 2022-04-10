@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import BreadCrumb from '../../core/BreadCrumb'
 import Icon from '../../core/Icon'
 import { TextArea, TextInput } from '../../core/Input'
@@ -6,11 +6,32 @@ import { pages } from '../../../locales'
 import { LocaleContext } from '../../../context/localeContext'
 import './style.scss'
 import { GlobalData } from '../../../context/globalData'
+import axios from 'axios'
+import requests from '../../../const/requests'
+
+const initialValues = {
+  first_name: '',
+  last_name: '',
+  email: '',
+  phone: '',
+  address: '',
+  note: '',
+}
 
 const ContactUs = () => {
   const { locale } = useContext(LocaleContext)
   const { globalData } = useContext(GlobalData)
   const contacts = globalData ? globalData.Social : {}
+  const [formData, setFormData] = useState(initialValues)
+
+  const onChange = (field) => (value) => {
+    setFormData((prev) => ({ ...prev, [field]: value }))
+  }
+  const submit = () => {
+    axios.post(requests.sendContactForm(), formData).then((data) => {
+      setFormData(initialValues)
+    })
+  }
 
   return (
     <div className="contact_us_wrapper">
@@ -84,30 +105,44 @@ const ContactUs = () => {
           <span>{pages.small_texts[`contact_form_text_${locale}`]}</span>
           <div className="form_wrapper">
             <TextInput
+              value={formData.first_name}
+              setValue={onChange('first_name')}
               className="small_input"
               placeholder={pages.placeholders[`name_${locale}`]}
             />
             <TextInput
+              value={formData.last_name}
+              setValue={onChange('last_name')}
               className="small_input"
               placeholder={pages.placeholders[`surname_${locale}`]}
             />
             <TextInput
+              value={formData.email}
+              setValue={onChange('email')}
               className="small_input"
               placeholder={pages.placeholders[`email_${locale}`]}
             />
             <TextInput
+              value={formData.phone}
+              setValue={onChange('phone')}
               className="small_input"
               placeholder={pages.placeholders[`phone_number_${locale}`]}
             />
             <TextInput
+              value={formData.address}
+              setValue={onChange('address')}
               className="big_input"
               placeholder={pages.placeholders[`address_${locale}`]}
             />
             <TextArea
+              value={formData.note}
+              setValue={onChange('note')}
               className="big_input"
               placeholder={pages.placeholders[`notes_${locale}`]}
             />
-            <button>{pages.button_texts[`send_${locale}`]}</button>
+            <button onClick={submit}>
+              {pages.button_texts[`send_${locale}`]}
+            </button>
           </div>
         </div>
       </div>

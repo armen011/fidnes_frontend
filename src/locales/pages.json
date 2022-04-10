@@ -36,7 +36,40 @@
       "title_en": "Reports",
       "url": "/reports",
       "drop_down_key": "reports",
-      "query_name": "/reports?report_type_id="
+      "query_name": "/reports?report_type=",
+      "drop_down": [
+        {
+          "id": "intermediate",
+          "title_hy": "Միջանկյալ",
+          "title_ru": "Промежуточные",
+          "title_en": "Interim",
+          "query_name": "/reports?report_type=intermediate&year="
+        },
+        {
+          "id": "annual",
+          "title_hy": "Տարեկան",
+          "title_ru": "Ежегодные",
+          "title_en": "Annual"
+        },
+        {
+          "id": "independent",
+          "title_hy": "Անկախ աուդիտորական եզրակացություն",
+          "title_ru": "Независимый аудиторский отчет",
+          "title_en": "Independent audit report"
+        },
+        {
+          "id": "basic",
+          "title_hy": "Հիմնական տնտեսական նորմատիվներ",
+          "title_ru": "Основные экономические стандарты",
+          "title_en": "Basic economic standards"
+        },
+        {
+          "id": "yearly",
+          "title_hy": "Գործունեության տարեկան հաշվետվություն",
+          "title_ru": "Годовой отчет о деятельности",
+          "title_en": "Annual activity report"
+        }
+      ]
     },
     {
       "title_hy": "Սպառողի իրավունքներ",

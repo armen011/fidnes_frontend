@@ -7,10 +7,12 @@ import './style.scss'
 const CkContant = ({ children, instants, ...otherProps }) => {
   const { locale } = useContext(LocaleContext)
 
-  const text = otherProps[`text_${locale}`].replace(
-    '<img src="',
-    `<img src="${env.BASE_URL}`
-  )
+  const text = otherProps[`text_${locale}`]
+    ? otherProps[`text_${locale}`].replace(
+        '<img src="',
+        `<img src="${env.BASE_URL}`
+      )
+    : ''
   return (
     <div className="ck_content_wrapper">
       {children}

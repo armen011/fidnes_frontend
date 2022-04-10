@@ -41,7 +41,12 @@ const LegalActs = () => {
             </div>
             <ul className="content_container">
               {lawFirst.files.map((pdf, index) => (
-                <a href={pdf[`file_${locale}`]} target="_blank" key={index}>
+                <a
+                  href={pdf[`file_${locale}`]}
+                  target="_blank"
+                  key={index}
+                  rel="noreferrer"
+                >
                   <li>
                     <Icon iconName="pdf_file" width={24} height={24} />
                     <span>{pdf[`title_${locale}`]}</span>
@@ -59,7 +64,12 @@ const LegalActs = () => {
               </div>
               <ul className="content_container">
                 {lawSecondFirst.files.map((pdf, index) => (
-                  <a href={pdf[`file_${locale}`]} target="_blank" key={index}>
+                  <a
+                    href={pdf[`file_${locale}`]}
+                    target="_blank"
+                    key={index}
+                    rel="noreferrer"
+                  >
                     <li>
                       <Icon iconName="pdf_file" width={24} height={24} />
                       <span>{pdf[`title_${locale}`]}</span>
@@ -76,7 +86,12 @@ const LegalActs = () => {
               </div>
               <ul className="content_container">
                 {lawSecondSecond.files.map((pdf, index) => (
-                  <a href={pdf[`file_${locale}`]} target="_blank" key={index}>
+                  <a
+                    href={pdf[`file_${locale}`]}
+                    target="_blank"
+                    key={index}
+                    rel="noreferrer"
+                  >
                     <li>
                       <Icon iconName="pdf_file" width={24} height={24} />
                       <span>{pdf[`title_${locale}`]}</span>

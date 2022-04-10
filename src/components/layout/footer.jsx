@@ -58,7 +58,13 @@ const Container = React.memo(
         {typeArray &&
           typeArray.map(({ image, url }, index) => {
             return (
-              <a className="container" key={index} href={url} target="_blank">
+              <a
+                className="container"
+                key={index}
+                href={url}
+                target="_blank"
+                rel="noreferrer"
+              >
                 <div className="img_wraperr">
                   <img src={image} alt="" />
                 </div>
@@ -118,19 +124,31 @@ const Footer = () => {
                 className="href"
                 href="https://www.abcfinance.am/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <img src={abcfin} alt="abc finance" />
               </a>
-              <a className="href" href="https://www.fsm.am/" target="_blank">
+              <a
+                className="href"
+                href="https://www.fsm.am/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img src={hashtarar} alt="finansakan hashtarar" />
               </a>
-              <a className="href" href="http://www.reso.am/" target="_blank">
+              <a
+                className="href"
+                href="http://www.reso.am/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <img src={reso} alt="reso app" />
               </a>
               <a
                 className="href"
                 href="https://www.fininfo.am/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <img src={fininfo} alt="fininfo" />
               </a>
@@ -252,7 +270,12 @@ const Footer = () => {
             </ul>
           </div>
 
-          <a href="https://hsrocket.com/hy/" className="designed_by">
+          <a
+            href="https://hsrocket.com/hy/"
+            className="designed_by"
+            target="_blank"
+            rel="noreferrer"
+          >
             By HS Rocket
           </a>
         </div>

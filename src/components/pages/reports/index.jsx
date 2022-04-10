@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect, useMemo, useState } from 'react'
 import BreadCrumb from '../../core/BreadCrumb'
 import ReportsContainer from './reportsContainer'
 import SideBar from '../../core/SideBar'
@@ -9,44 +9,58 @@ import { useQuery } from '../../../hooks'
 import { LocaleContext } from '../../../context/localeContext'
 import './style.scss'
 import { GlobalData } from '../../../context/globalData'
-import requests from '../../../const/requests'
-import axios from 'axios'
 
 const Reports = () => {
-  const selectedReportTypeId = useQuery('report_type_id')
+  const selectedReportTypeId = useQuery('report_type')
+  const selectedReportYear = useQuery('year')
   const { locale } = useContext(LocaleContext)
   const { globalData } = useContext(GlobalData)
 
-  const dinamicPages = globalData ? globalData.Page : {}
-  const reporTypes = dinamicPages.reports || []
-
+  const reportTypes = pages.extra_header[1].drop_down
+  const reports = useMemo(
+    () => (globalData ? globalData.Report : {}),
+    [globalData]
+  )
   const [selected, setSelected] = useState(undefined)
+
+  console.log('first', selectedReportYear)
 
   useEffect(() => {
     if (selectedReportTypeId) {
-      axios
-        .get(requests.currentPageData(selectedReportTypeId))
-        .then(({ data }) => {
-          if (data) {
-            setSelected(data)
-          }
-        })
+      setSelected(reports[`${selectedReportTypeId}`])
     } else {
       setSelected(undefined)
     }
-  }, [selectedReportTypeId])
+  }, [selectedReportTypeId, reports])
 
   return (
     <div className="reports_wrapper">
       <BreadCrumb
         title={pages.titles[`reports_${locale}`]}
         path={
-          selected
-            ? [
-                { title: pages.titles[`home_${locale}`], url: '/' },
-                { title: pages.titles[`reports_${locale}`], url: '/reports' },
-                { title: selected[`title_${locale}`] },
-              ]
+          selectedReportTypeId
+            ? selectedReportYear
+              ? [
+                  { title: pages.titles[`home_${locale}`], url: '/' },
+                  { title: pages.titles[`reports_${locale}`], url: '/reports' },
+                  {
+                    title: reportTypes.filter(
+                      (elm) => elm.id === selectedReportTypeId
+                    )[0][`title_${locale}`],
+                    url: `/reports?report_type=${selectedReportTypeId}`,
+                  },
+                  { title: selectedReportYear },
+                ]
+              : [
+                  { title: pages.titles[`home_${locale}`], url: '/' },
+                  { title: pages.titles[`reports_${locale}`], url: '/reports' },
+                  {
+                    title: reportTypes.filter(
+                      (elm) => elm.id === selectedReportTypeId
+                    )[0][`title_${locale}`],
+                    url: `/reports?report_type=${selectedReportTypeId}`,
+                  },
+                ]
             : [
                 { title: pages.titles[`home_${locale}`], url: '/' },
                 { title: pages.titles[`reports_${locale}`], url: '/reports' },
@@ -61,11 +75,20 @@ const Reports = () => {
             </div>
             <div className="report_content_wrapper">
               <span>
-                {selected
-                  ? selected[`title_${locale}`]
+                {selectedReportTypeId
+                  ? reportTypes.filter(
+                      (elm) => elm.id === selectedReportTypeId
+                    )[0][`title_${locale}`]
                   : pages.small_texts[`category_${locale}`]}
               </span>
-              <ReportsContainer {...{ reporTypes, selected, setSelected }} />
+              <ReportsContainer
+                {...{
+                  reportTypes,
+                  selected,
+                  isIntermediate: selectedReportTypeId === 'intermediate',
+                  selectedReportYear,
+                }}
+              />
             </div>
           </div>
           <span>{pages.small_texts[`static_test_first_${locale}`]}</span>

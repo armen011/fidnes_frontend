@@ -7,6 +7,8 @@ const requests = {
   currentNews: (id) => env.BASE_URL + '/news/' + id,
   legalActs: () => env.BASE_URL + '/legalact/',
   currentPageData: (id) => env.BASE_URL + '/page/' + id,
+  doSearch: (text) => env.BASE_URL + '/search/?s=' + text,
+  sendContactForm: () => env.BASE_URL + '/contact/',
 }
 
 export default requests

@@ -24,7 +24,7 @@ const ExtraMenu = ({ setIsMenuBarOpened, isMenuBarOpened }) => {
       />
       <ul>
         {pages.extra_header.map(
-          ({ drop_down_key, query_name, url, ...titles }, index) => (
+          ({ drop_down_key, query_name, url, drop_down, ...titles }, index) => (
             <li
               key={index}
               onClick={() => {
@@ -42,9 +42,9 @@ const ExtraMenu = ({ setIsMenuBarOpened, isMenuBarOpened }) => {
                   className="icon_wrapper"
                 />
               )}
-              {page[drop_down_key] && (
+              {(page[drop_down_key] || drop_down) && (
                 <DropDown
-                  content={page[drop_down_key]}
+                  content={drop_down || page[drop_down_key]}
                   isSelected={location.pathname === url}
                   queryName={query_name}
                 />

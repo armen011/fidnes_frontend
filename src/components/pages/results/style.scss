@@ -57,6 +57,26 @@
             margin-top: 16px;
           }
         }
+
+        .result_item_wrapper {
+          width: 100%;
+          min-height: 96px;
+          margin-bottom: 32px;
+          > h4 {
+            font-weight: 500;
+            font-size: 24px;
+            line-height: 32px;
+            color: #16131e;
+            margin-bottom: 16px;
+          }
+          > p {
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 24px;
+            color: #16131e;
+            white-space: pre-wrap;
+          }
+        }
       }
     }
   }
