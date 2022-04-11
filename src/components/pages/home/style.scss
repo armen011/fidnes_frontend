@@ -636,7 +636,7 @@
   .news_feed_container {
     padding: 64px 16px;
     .news_feed_body {
-      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(290px, 340px));
     }
   }
 }

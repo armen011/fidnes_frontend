@@ -114,6 +114,7 @@ const Header = ({ setIsSearchOpened }) => {
           height={24}
           className="addres_job_icon_button"
           onClick={() => {
+            navigate('/address')
             setIsLocalesDropDownOpened(false)
             setIsSearchOpened(false)
           }}

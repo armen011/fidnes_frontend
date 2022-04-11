@@ -2,6 +2,7 @@ import React, { useContext } from 'react'
 import { useNavigate } from 'react-router'
 import { LocaleContext } from '../../../context/localeContext'
 import Icon from '../../core/Icon'
+import externalLink from '../../../assets/img/externalLint.svg'
 
 const Item = ({ title, url, download }) => {
   const navigate = useNavigate()
@@ -14,7 +15,7 @@ const Item = ({ title, url, download }) => {
     >
       <Icon iconName="pdf_file" width={24} height={24} />
       <span>{title}</span>
-      <Icon iconName="about_item_arrow_right" width={24} height={24} />
+      <img src={externalLink} alt="" />
     </a>
   ) : (
     <div

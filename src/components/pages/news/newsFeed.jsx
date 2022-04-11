@@ -3,9 +3,10 @@ import React, { useContext, useMemo } from 'react'
 import { useNavigate } from 'react-router'
 import { LocaleContext } from '../../../context/localeContext'
 import { DesktopNewsCard } from '../../core/Card/NewsCard'
+import Icon from '../../core/Icon'
 import Status from '../../core/Status'
 
-const NewsFeed = ({ news, selected }) => {
+const NewsFeed = ({ news, selected, page, pages }) => {
   const { locale } = useContext(LocaleContext)
   const variantList = useMemo(
     () => ({
@@ -20,6 +21,18 @@ const NewsFeed = ({ news, selected }) => {
     []
   )
   const navigate = useNavigate()
+
+  const getPages = () => {
+    if (page > 3) {
+      if (pages.length - 1 >= +page + 2) {
+        return [...pages].slice(page - 3, +page + 2) || []
+      } else {
+        return [...pages].slice(pages.length - 5, pages.length) || []
+      }
+    } else {
+      return [...pages].splice(0, 5) || []
+    }
+  }
 
   return (
     <div
@@ -71,6 +84,48 @@ const NewsFeed = ({ news, selected }) => {
           </motion.ul>
         )}
       </AnimatePresence>
+      {pages.length > 1 && !selected && (
+        <div className="pagination_container">
+          <Icon
+            iconName="arrow_left_24"
+            width={24}
+            height={24}
+            className="arrow_wrapper"
+            onClick={() => {
+              if (page !== '1') {
+                navigate('/news?page=' + (page - 1))
+              }
+            }}
+          />
+          {getPages().map((value, index) => {
+            return (
+              <div
+                key={index}
+                className="page_identifyer"
+                style={{
+                  border: +page === value ? '1px solid #482003' : 'none',
+                }}
+                onClick={() => {
+                  navigate('/news?page=' + value)
+                }}
+              >
+                {value}
+              </div>
+            )
+          })}
+          <Icon
+            iconName="arrow_left_24"
+            width={24}
+            height={24}
+            className="arrow_wrapper"
+            onClick={() => {
+              if (page < pages.length) {
+                navigate('/news?page=' + (1 + +page))
+              }
+            }}
+          />
+        </div>
+      )}
     </div>
   )
 }

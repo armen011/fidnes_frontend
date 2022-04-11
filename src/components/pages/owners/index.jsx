@@ -1,13 +1,37 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { pages } from '../../../locales'
 import { LocaleContext } from '../../../context/localeContext'
 import BreadCrumb from '../../core/BreadCrumb'
 import SideBar from '../../core/SideBar'
 import LoanCalculator from '../../loanCalculator'
 import './style.scss'
+import { GlobalData } from '../../../context/globalData'
+import axios from 'axios'
+import requests from '../../../const/requests'
+import CkContant from '../../core/CkContant'
 
 const Owners = () => {
   const { locale } = useContext(LocaleContext)
+  const { globalData } = useContext(GlobalData)
+  const dinamicPages = globalData ? globalData.Page : {}
+  const [data, setData] = useState({})
+
+  const ownersProps = dinamicPages.menu
+    ? dinamicPages.menu.length > 0
+      ? dinamicPages.menu[0]
+      : {}
+    : {}
+
+  useEffect(() => {
+    if (ownersProps.id) {
+      axios.get(requests.currentPageData(ownersProps.id)).then(({ data }) => {
+        if (data) {
+          setData(data)
+        }
+      })
+    }
+  }, [ownersProps.id])
+
   return (
     <div className="owners_wrapper">
       <BreadCrumb
@@ -20,12 +44,8 @@ const Owners = () => {
       <div className="owners_container">
         <div className="owners_wrapper">
           <div className="owners_main_container">
-            <h3>Սեփականատերեր</h3>
-            <span>
-              {
-                '«Ֆիդես հիփոթեքային ընկերություն» ՈՒՎԿ ՓԲԸ  միակ բաժնետերն է հանդիսանում Արցախի ներդրումային հիմնադրամը: Մասնակցության չափը՝ 100%:Հաշվի առնելով այն հանգամանքը, որ «Ֆիդես հիփոթեքային ընկերություն» ՈՒՎԿ ՓԲՆ-ն չի իրականացնում իր կողմից թողարկված արժեթղթերի հրապարակային տեղաբաշխում և չունի փոքր մասնակցություն ունեցող բաժնետերեր՝ Ընկերությունը չի հրապարակում ՀՀ Կենտրոնական բանկի Խորհրդի 2009 թվականի հունիսի 2-ի թիվ 166-Ն որոշմամբ հաստատված  <<Ֆինանսական կազմակերպությունների և ֆինանսական խմբերի կողմից տեղեկությունների հրապարակումը>> Կանոնակարգ 8/03-ի 15-րդ կետի 3-րդ ենթակետում նշված տեղեկատվությունը համաձայն նույն կանոնակարգի 15-րդ կետի 4-րդ ենթակետի:'
-              }
-            </span>
+            <h3>{ownersProps[`title_${locale}`]}</h3>
+            <CkContant {...data} />
           </div>
           <span>{pages.small_texts[`static_test_first_${locale}`]}</span>
           <span>{pages.small_texts[`static_test_second_${locale}`]}</span>

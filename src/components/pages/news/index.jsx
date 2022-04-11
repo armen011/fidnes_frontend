@@ -11,9 +11,12 @@ import './style.scss'
 
 const News = () => {
   const selectedNewsId = useQuery('news_id')
+  const page = useQuery('page') || '1'
   const { locale } = useContext(LocaleContext)
   const [selected, setSelected] = useState(undefined)
   const [news, setNews] = useState([])
+  const [pageArray, setPageArray] = useState([])
+
   useEffect(() => {
     if (selectedNewsId) {
       axios.get(requests.currentNews(selectedNewsId)).then(({ data }) => {
@@ -22,14 +25,28 @@ const News = () => {
         }
       })
     } else {
-      axios.get(requests.news()).then(({ data: { results } }) => {
-        if (results) {
-          setNews(results)
-        }
-      })
+      if (page !== '1') {
+        axios
+          .get(requests.newsPage(page))
+          .then(({ data: { results, pages: array } }) => {
+            if (results) {
+              setNews(results)
+              setPageArray(array)
+            }
+          })
+      } else {
+        axios
+          .get(requests.news())
+          .then(({ data: { results, pages: array } }) => {
+            if (results) {
+              setNews(results)
+              setPageArray(array)
+            }
+          })
+      }
       setSelected(undefined)
     }
-  }, [selectedNewsId])
+  }, [selectedNewsId, page])
   return (
     <div className="news_page_wrapper">
       <BreadCrumb
@@ -41,7 +58,15 @@ const News = () => {
       />
       <div className="main_news_page_container">
         <div className="main_news_wrapper">
-          <NewsFeed {...{ selected, setSelected, news }} />
+          <NewsFeed
+            {...{
+              selected,
+              setSelected,
+              news,
+              page,
+              pages: pageArray,
+            }}
+          />
           <span>{pages.small_texts[`static_test_first_${locale}`]}</span>
           <span>{pages.small_texts[`static_test_second_${locale}`]}</span>
         </div>

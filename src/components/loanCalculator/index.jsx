@@ -9,7 +9,6 @@ import React, {
 } from 'react'
 import { LoanCalculatorInput, LoanCheckBoxinput } from '../core/Input'
 import Container from './Container'
-// import LoanTypes from './loanTypes'
 import { pages } from '../../locales'
 import { LocaleContext } from '../../context/localeContext'
 import './style.scss'
@@ -90,7 +89,7 @@ const LoanCalculator = () => {
                   className="mobile_container"
                   key={index}
                   onClick={() => {
-                    navigate('/loans?atcile=' + id)
+                    navigate('/loans?loan_id=' + id)
                   }}
                 >
                   <div className="img_wrapper">
@@ -104,18 +103,13 @@ const LoanCalculator = () => {
             })}
           </div>
           <div className="loadn_type_selector_controller">
-            <button onClick={() => paginate(0)}>
-              <div style={page === 0 ? { width: '100%', opacity: 1 } : {}} />
-            </button>
-            <button onClick={() => paginate(1)}>
-              <div style={page === 1 ? { width: '100%', opacity: 1 } : {}} />
-            </button>
-            <button onClick={() => paginate(2)}>
-              <div style={page === 2 ? { width: '100%', opacity: 1 } : {}} />
-            </button>
-            <button onClick={() => paginate(3)}>
-              <div style={page === 3 ? { width: '100%', opacity: 1 } : {}} />
-            </button>
+            {LoanTypes.map((elm, index) => (
+              <button onClick={() => paginate(index)} key={index}>
+                <div
+                  style={page === index ? { width: '100%', opacity: 1 } : {}}
+                />
+              </button>
+            ))}
           </div>
         </div>
         <div className="loadn_caluclator_input_wrapper">

@@ -4,6 +4,7 @@ const requests = {
   global: () => env.BASE_URL + '/global',
   slides: () => env.BASE_URL + '/slider/',
   news: () => env.BASE_URL + '/news',
+  newsPage: (page) => env.BASE_URL + '/news?page=' + page,
   currentNews: (id) => env.BASE_URL + '/news/' + id,
   legalActs: () => env.BASE_URL + '/legalact/',
   currentPageData: (id) => env.BASE_URL + '/page/' + id,

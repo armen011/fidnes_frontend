@@ -20,6 +20,7 @@ const searchUrls = {
   loans: (id) => `/loans?loan_id=${id}`,
   about: (id) => `/about?article=${id}`,
   consumer_rights: (id) => `/consumer_rights?consumer_right_id=${id}`,
+  menu: () => '/owners',
 }
 
 const SearchBar = ({ results }) => {

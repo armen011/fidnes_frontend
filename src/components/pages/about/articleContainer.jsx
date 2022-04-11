@@ -34,7 +34,6 @@ const ArticleItem = ({ id, setSelected, ...otherProps }) => {
   )
 }
 const ArticleContainer = ({ articles, selected, setSelected }) => {
-  const { locale } = useContext(LocaleContext)
   const variantList = useMemo(
     () => ({
       show: {
@@ -51,11 +50,7 @@ const ArticleContainer = ({ articles, selected, setSelected }) => {
     <div className="article_wrapper">
       <AnimatePresence exitBeforeEnter>
         {selected ? (
-          <CkContant {...selected}>
-            <div className="selected_wrapper">
-              <span>{selected[`title_${locale}`]}</span>
-            </div>
-          </CkContant>
+          <CkContant {...selected} />
         ) : (
           <motion.ul
             variants={variantList}

@@ -19,6 +19,8 @@
         border-radius: 8px;
         margin-bottom: 40px;
         overflow: hidden;
+        position: relative;
+        padding-bottom: 128px;
         .current_news_wrapper {
           width: 100%;
           .news_img_wrapper {
@@ -67,6 +69,39 @@
                 line-height: 20px;
                 color: #5c5a62;
               }
+            }
+          }
+        }
+        .pagination_container {
+          width: 320px;
+          height: 32px;
+          position: absolute;
+          bottom: 8px;
+          left: 0;
+          right: 0;
+          margin: auto;
+          display: flex;
+          justify-content: space-between;
+          .arrow_wrapper {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #ffffff;
+            cursor: pointer;
+          }
+          .page_identifyer {
+            width: 32px;
+            height: 32px;
+            cursor: pointer;
+            box-sizing: border-box;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+          div:nth-last-child(1) {
+            svg {
+              transform: rotate(180deg);
             }
           }
         }

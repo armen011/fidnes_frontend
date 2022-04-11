@@ -220,18 +220,13 @@ const Carousel = () => {
           onClick={() => paginate(page - 1)}
         />
         <div className="content_selector_controller">
-          <button onClick={() => paginate(0)}>
-            <div style={page === 0 ? { width: '100%', opacity: 1 } : {}} />
-          </button>
-          <button onClick={() => paginate(1)}>
-            <div style={page === 1 ? { width: '100%', opacity: 1 } : {}} />
-          </button>
-          <button onClick={() => paginate(2)}>
-            <div style={page === 2 ? { width: '100%', opacity: 1 } : {}} />
-          </button>
-          <button onClick={() => paginate(3)}>
-            <div style={page === 3 ? { width: '100%', opacity: 1 } : {}} />
-          </button>
+          {slider.map((elm, index) => (
+            <button onClick={() => paginate(index)} key={index}>
+              <div
+                style={page === index ? { width: '100%', opacity: 1 } : {}}
+              />
+            </button>
+          ))}
         </div>
         <ButtonWithIcon
           iconName="arrow_right_24"
