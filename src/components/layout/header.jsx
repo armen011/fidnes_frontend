@@ -89,8 +89,9 @@ const Header = ({ setIsSearchOpened }) => {
             style={
               isLocalesDropDownOpened
                 ? { height: '152px', padding: '16px 0' }
-                : {}
+                : { height: '0', padding: '0' }
             }
+            onMouseLeave={() => setIsLocalesDropDownOpened(false)}
           >
             <li onClick={handleLocaleSelect('hy')}>ՀԱՅ</li>
             <li onClick={handleLocaleSelect('en')}>ENG</li>

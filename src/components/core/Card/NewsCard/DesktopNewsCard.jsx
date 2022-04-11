@@ -25,9 +25,9 @@ const DesktopNewsCard = ({
   const selectedDate = new Date(date)
   const res =
     selectedDate.getDate() +
-    '-' +
+    '.' +
     selectedDate.getMonth() +
-    '-' +
+    '.' +
     selectedDate.getFullYear()
   return (
     <motion.li

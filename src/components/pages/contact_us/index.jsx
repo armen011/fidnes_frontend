@@ -63,7 +63,13 @@ const ContactUs = () => {
                 className="icon_wrapper"
               />
               <span>
-                {contacts.Mail && contacts.Mail.map(({ value }) => ` ${value}`)}
+                {contacts.Mail &&
+                  contacts.Mail.map(({ value }, index, arr) => (
+                    <a href={`mailto:${value}`} key={index}>
+                      {value}
+                      {arr.length - 1 === index ? '' : ' , '}
+                    </a>
+                  ))}
               </span>
             </div>
             <div className="icon_text_wrapper">
@@ -76,23 +82,46 @@ const ContactUs = () => {
               <span>
                 {pages.small_texts[`constact_page_phone_${locale}`]}{' '}
                 {contacts.Mobile &&
-                  contacts.Mobile.map(({ value }) => ` ${value}`)}
+                  contacts.Mobile.map(({ value }, index, arr) => (
+                    <a href={`tel:${value}`} key={index}>
+                      {value}
+                      {arr.length - 1 === index ? '' : ','}
+                    </a>
+                  ))}
               </span>
             </div>
             <span>{pages.small_texts[`other_methodes_${locale}`]}</span>
             <div className="icon_text_wrapper">
-              <Icon
-                iconName="contact_watsapp"
-                width={24}
-                height={24}
-                className="icon_wrapper"
-              />
-              <Icon
-                iconName="contact_viber"
-                width={24}
-                height={24}
-                className="icon_wrapper"
-              />
+              <a
+                href={`https://api.whatsapp.com/send?phone=${
+                  contacts &&
+                  contacts.WhatsApp &&
+                  contacts.WhatsApp.lenght > 0 &&
+                  contacts.WhatsApp[0].value
+                }`}
+              >
+                <Icon
+                  iconName="contact_watsapp"
+                  width={24}
+                  height={24}
+                  className="icon_wrapper"
+                />
+              </a>
+              <a
+                href={`viber://add?number=${
+                  contacts &&
+                  contacts.Viber &&
+                  contacts.Viber.lenght > 0 &&
+                  contacts.Viber[0].value
+                }`}
+              >
+                <Icon
+                  iconName="contact_viber"
+                  width={24}
+                  height={24}
+                  className="icon_wrapper"
+                />
+              </a>
               <span>
                 {contacts.WhatsApp &&
                   contacts.WhatsApp.map(({ value }) => ` ${value}`)}

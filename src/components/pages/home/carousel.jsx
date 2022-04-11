@@ -6,6 +6,7 @@ import { LocaleContext } from '../../../context/localeContext'
 import { pages } from '../../../locales'
 import './style.scss'
 import { GlobalData } from '../../../context/globalData'
+import { useNavigate } from 'react-router-dom'
 
 const variants = {
   enter: {
@@ -58,6 +59,7 @@ const Carousel = () => {
   const swipePower = (offset, velocity) => {
     return Math.abs(offset) * velocity
   }
+
   const swipeConfidenceThreshold = 10000
 
   const paginate = useCallback(
@@ -80,6 +82,7 @@ const Carousel = () => {
   }, [paginate, page])
 
   const imageIndex = wrap(0, slider.length, page)
+  const navigate = useNavigate()
 
   return (
     <div className="carousel_wrapper">
@@ -139,7 +142,13 @@ const Carousel = () => {
                       : ''}
                   </span>
                 </div>
-                <button>{pages.button_texts[`learn_more_${locale}`]}</button>
+                <button
+                  onClick={() =>
+                    navigate('/news?news_id=' + slider[imageIndex].id)
+                  }
+                >
+                  {pages.button_texts[`learn_more_${locale}`]}
+                </button>
               </motion.div>
             </AnimatePresence>
           </div>
@@ -193,7 +202,11 @@ const Carousel = () => {
                   : ''}
               </span>
             </div>
-            <button>{pages.button_texts[`learn_more_${locale}`]}</button>
+            <button
+              onClick={() => navigate('/news?news_id=' + slider[imageIndex].id)}
+            >
+              {pages.button_texts[`learn_more_${locale}`]}
+            </button>
           </motion.div>
         </div>
       </div>

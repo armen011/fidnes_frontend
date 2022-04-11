@@ -132,6 +132,10 @@
           font-size: 14px;
           line-height: 20px;
           color: #4f4f4f;
+          &:hover {
+            font-weight: 600;
+            color: #482003;
+          }
         }
       }
     }
@@ -446,6 +450,9 @@
                 color: #ffffff;
                 margin-bottom: 20px;
                 cursor: pointer;
+                &:hover {
+                  color: rgb(114, 112, 112);
+                }
               }
             }
           }
@@ -454,9 +461,9 @@
             bottom: 32px;
             right: 32px;
             font-weight: 500;
-            font-size: 12px;
+            font-size: 16px;
             line-height: 16px;
-            color: #ffffff;
+            color: #fde79f;
           }
         }
       }
@@ -921,7 +928,7 @@
         }
         .footer_second_part {
           .page_href_wrapper {
-            padding: 32px 24px 28px 16px;
+            padding: 32px 24px 64px 16px;
           }
           .main_info_wrapper {
             padding: 32px 24px 28px 16px;

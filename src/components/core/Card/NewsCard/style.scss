@@ -1,6 +1,5 @@
 .news_card_wrapper {
-  // width: 464px;
-  height: 352px;
+  min-height: 352px;
   overflow: hidden;
   border-radius: 16px;
   cursor: pointer;
@@ -47,6 +46,7 @@
       height: 24px;
       display: flex;
       justify-content: space-between;
+      margin-top: 16px;
       > p {
         width: 157px;
         height: 100%;
@@ -65,7 +65,7 @@
 
 @media (max-width: 666px) {
   .news_card_wrapper {
-    height: 364px;
+    min-height: 364px;
     margin: 16px;
   }
 }

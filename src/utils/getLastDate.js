@@ -7,6 +7,6 @@ export const getLatestDate = (array) => {
   })
   const date = new Date(lastDate)
 
-  const res = date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear()
+  const res = date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear()
   return res
 }

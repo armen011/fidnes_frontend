@@ -36,9 +36,15 @@ const ItemWrapper = ({
       variants={variantItem}
       onClick={() => {
         if (!drop_down_key) {
-          navigate(query_name ? query_name + id : url)
-          setSelectedMenu(undefined)
+          if (query_name) {
+            navigate(query_name ? query_name + id : url)
+          } else {
+            if (url) {
+              navigate(`${url}`)
+            }
+          }
           setIsMenuBarOpened(false)
+          setSelectedMenu(undefined)
         } else {
           setSelectedMenu({ url, drop_down_key, query_name, ...titles })
         }
@@ -169,23 +175,41 @@ const BurgerMenu = ({ isMenuBarOpened, setIsMenuBarOpened }) => {
               </li>
             )}
 
-            {selectedMenu &&
-              dinamicPages[selectedMenu.drop_down_key].map((elm, index) => (
-                <ItemWrapper
-                  key={`selected_menu_${index}`}
-                  isSabMenu={true}
-                  isSelected={
-                    location.pathname === selectedMenu.url &&
-                    parseInt(location.search.split('=')[1]) === elm.id
-                  }
-                  {...{
-                    setSelectedMenu,
-                    ...elm,
-                    setIsMenuBarOpened,
-                    query_name: selectedMenu.query_name,
-                  }}
-                />
-              ))}
+            {selectedMenu
+              ? selectedMenu.drop_down
+                ? selectedMenu.drop_down.map((elm, index) => (
+                    <ItemWrapper
+                      key={`selected_menu_${index}`}
+                      isSabMenu={true}
+                      isSelected={
+                        location.pathname === selectedMenu.url &&
+                        parseInt(location.search.split('=')[1]) === elm.id
+                      }
+                      {...{
+                        setSelectedMenu,
+                        ...elm,
+                        setIsMenuBarOpened,
+                        query_name: selectedMenu.query_name,
+                      }}
+                    />
+                  ))
+                : dinamicPages[selectedMenu.drop_down_key].map((elm, index) => (
+                    <ItemWrapper
+                      key={`selected_menu_${index}`}
+                      isSabMenu={true}
+                      isSelected={
+                        location.pathname === selectedMenu.url &&
+                        parseInt(location.search.split('=')[1]) === elm.id
+                      }
+                      {...{
+                        setSelectedMenu,
+                        ...elm,
+                        setIsMenuBarOpened,
+                        query_name: selectedMenu.query_name,
+                      }}
+                    />
+                  ))
+              : null}
           </motion.ul>
         </motion.div>
       )}
