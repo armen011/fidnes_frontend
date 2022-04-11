@@ -24,7 +24,9 @@ const NewsFeed = () => {
           <NewsCard key={index} {...elm} />
         ))}
       </div>
-      <button>{pages.button_texts[`see_all_${locale}`]}</button>
+      <button onClick={() => navigate('/news')}>
+        {pages.button_texts[`see_all_${locale}`]}
+      </button>
     </div>
   )
 }

@@ -51,7 +51,7 @@ const Container = ({ typeArray, direction, page, ...otherProps }) => {
               className="container"
               key={index}
               onClick={() => {
-                navigate('/loans?atcile=' + id)
+                navigate('/loans?loan_id=' + id)
               }}
             >
               <div className="img_wraperr">

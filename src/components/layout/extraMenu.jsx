@@ -34,7 +34,7 @@ const ExtraMenu = ({ setIsMenuBarOpened, isMenuBarOpened }) => {
               <span style={{ color: location.pathname === url && '#482003' }}>
                 {titles[`title_${locale}`]}
               </span>
-              {page[drop_down_key] && (
+              {(page[drop_down_key] || drop_down) && (
                 <Icon
                   iconName="arrow_left"
                   width={16}

@@ -17,6 +17,15 @@ export const NewsCard = ({
 }) => {
   const { locale } = useContext(LocaleContext)
   const navigate = useNavigate()
+
+  const selectedDate = new Date(date)
+  const res =
+    selectedDate.getDate() +
+    '-' +
+    selectedDate.getMonth() +
+    '-' +
+    selectedDate.getFullYear()
+
   return (
     <div
       className={`news_card_wrapper ${className ? className : ''}`}
@@ -30,8 +39,8 @@ export const NewsCard = ({
       <div className="news_content_wrapper">
         <span>{otherProps[`title_${locale}`]}</span>
         <span>{otherProps[`description_${locale}`]}</span>
-        <div >
-          <p>{date}</p>
+        <div>
+          <p>{res}</p>
           <Status status={status} />
         </div>
       </div>

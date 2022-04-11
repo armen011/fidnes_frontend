@@ -5,5 +5,8 @@ export const getLatestDate = (array) => {
       lastDate = updated_at
     }
   })
-  return lastDate
+  const date = new Date(lastDate)
+
+  const res = date.getDate() + '-' + date.getMonth() + '-' + date.getFullYear()
+  return res
 }
