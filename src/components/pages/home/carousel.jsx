@@ -1,5 +1,5 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react'
-import { AnimatePresence, motion } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { wrap } from 'popmotion'
 import { ButtonWithIcon } from '../../core/Button'
 import { LocaleContext } from '../../../context/localeContext'
@@ -88,78 +88,19 @@ const Carousel = () => {
     <div className="carousel_wrapper">
       <div className="carousel_area">
         <div className="item_img_wrapper">
-          <AnimatePresence>
-            <motion.img
-              key={page}
-              src={slider[imageIndex] ? slider[imageIndex].image : ''}
-              variants={variants}
-              initial="enter"
-              animate="center"
-              exit="exit"
-            />
-          </AnimatePresence>
+          <motion.img
+            key={page}
+            src={slider[imageIndex] ? slider[imageIndex].image : ''}
+            variants={variants}
+            enter="enter"
+            animate="center"
+            exit="exit"
+          />
         </div>
         <div className="info_carousel_wrapper">
           <div className="info_carousel">
-            <AnimatePresence custom={direction} exitBeforeEnter>
-              <motion.div
-                key={page}
-                custom={direction}
-                variants={infoVariant}
-                className="info_wrapper"
-                initial="enter"
-                animate="center"
-                exit="exit"
-                transition={{
-                  opacity: { duration: 0.3 },
-                }}
-                style={{
-                  height: '100%',
-                  width: 708,
-                }}
-                drag="x"
-                dragConstraints={{ left: 0, right: 0 }}
-                dragElastic={1}
-                onDragEnd={(e, { offset, velocity }) => {
-                  const swipe = swipePower(offset.x, velocity.x)
-
-                  if (swipe < -swipeConfidenceThreshold) {
-                    paginate(page + 1)
-                  } else if (swipe > swipeConfidenceThreshold) {
-                    paginate(page - 1)
-                  }
-                }}
-              >
-                <div className="texts_wrapper">
-                  <span>
-                    {slider[imageIndex]
-                      ? slider[imageIndex][`title_${locale}`]
-                      : ''}
-                  </span>
-                  <span>
-                    {slider[imageIndex]
-                      ? slider[imageIndex][`description_${locale}`]
-                      : ''}
-                  </span>
-                </div>
-                <button
-                  onClick={() =>
-                    navigate('/news?news_id=' + slider[imageIndex].id)
-                  }
-                >
-                  {pages.button_texts[`learn_more_${locale}`]}
-                </button>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-        </div>
-      </div>
-      <div className="carousel_area_mobile">
-        <div className="img_wrapper_mobile">
-          <AnimatePresence custom={direction} exitBeforeEnter>
-            <motion.img
+            <motion.div
               key={page}
-              src={slider[imageIndex] ? slider[imageIndex].image : ''}
               custom={direction}
               variants={infoVariant}
               className="info_wrapper"
@@ -169,18 +110,71 @@ const Carousel = () => {
               transition={{
                 opacity: { duration: 0.3 },
               }}
+              style={{
+                height: '100%',
+                width: 708,
+              }}
               drag="x"
               dragConstraints={{ left: 0, right: 0 }}
+              dragElastic={1}
               onDragEnd={(e, { offset, velocity }) => {
                 const swipe = swipePower(offset.x, velocity.x)
+
                 if (swipe < -swipeConfidenceThreshold) {
                   paginate(page + 1)
                 } else if (swipe > swipeConfidenceThreshold) {
                   paginate(page - 1)
                 }
               }}
-            />
-          </AnimatePresence>
+            >
+              <div className="texts_wrapper">
+                <span>
+                  {slider[imageIndex]
+                    ? slider[imageIndex][`title_${locale}`]
+                    : ''}
+                </span>
+                <span>
+                  {slider[imageIndex]
+                    ? slider[imageIndex][`description_${locale}`]
+                    : ''}
+                </span>
+              </div>
+              <button
+                onClick={() =>
+                  navigate('/news?news_id=' + slider[imageIndex].id)
+                }
+              >
+                {pages.button_texts[`learn_more_${locale}`]}
+              </button>
+            </motion.div>
+          </div>
+        </div>
+      </div>
+      <div className="carousel_area_mobile">
+        <div className="img_wrapper_mobile">
+          <motion.img
+            key={page}
+            src={slider[imageIndex] ? slider[imageIndex].image : ''}
+            custom={direction}
+            variants={infoVariant}
+            className="info_wrapper"
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={{
+              opacity: { duration: 0.3 },
+            }}
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            onDragEnd={(e, { offset, velocity }) => {
+              const swipe = swipePower(offset.x, velocity.x)
+              if (swipe < -swipeConfidenceThreshold) {
+                paginate(page + 1)
+              } else if (swipe > swipeConfidenceThreshold) {
+                paginate(page - 1)
+              }
+            }}
+          />
         </div>
         <div className="info_wrapper_mobile">
           <motion.div

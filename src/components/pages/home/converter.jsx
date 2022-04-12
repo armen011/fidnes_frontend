@@ -136,7 +136,7 @@ const Converter = () => {
                 </ul>
               )}
             </div>
-            <span>{counted || '0'}</span>
+            <span>{counted ? counted.toFixed(2) : '0'}</span>
             <div className="input_footer">
               <span>{pages.small_texts[`i_get_${locale}`]}</span>
             </div>
