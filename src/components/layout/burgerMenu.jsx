@@ -59,7 +59,8 @@ const ItemWrapper = ({
       <span
         onClick={(event) => {
           event.stopPropagation()
-          navigate(!drop_down_key ? query_name + id : url)
+          const redirectUrl = query_name && id ? query_name + id : url
+          navigate(redirectUrl)
           setSelectedMenu(undefined)
           setIsMenuBarOpened(false)
         }}

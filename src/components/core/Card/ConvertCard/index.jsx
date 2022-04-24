@@ -38,11 +38,12 @@ export const FirstConvertCard = () => {
               <th>{pages.small_texts[`currency_${locale}`]}</th>
               <th>{pages.small_texts[`purchase_${locale}`]}</th>
               <th>{pages.small_texts[`sale_${locale}`]}</th>
+              <th>{pages.small_texts[`central_bank_${locale}`]}</th>
             </tr>
           </thead>
           <tbody>
             {filteredExchange.map(
-              ({ abbreviation, purchase, sales }, index) => (
+              ({ abbreviation, purchase, sales, cb }, index) => (
                 <tr key={index}>
                   <td>
                     <div className="name_td">
@@ -52,22 +53,17 @@ export const FirstConvertCard = () => {
                   </td>
                   <td>
                     <div className="td_wrapper">
-                      <Icon
-                        iconName="coverter_arrow_up"
-                        width={24}
-                        height={24}
-                      />
                       <span>{purchase}</span>
                     </div>
                   </td>
                   <td>
                     <div className="td_wrapper">
-                      <Icon
-                        iconName="coverter_arrow_up"
-                        width={24}
-                        height={24}
-                      />
                       <span>{sales}</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="td_wrapper">
+                      <span>{cb}</span>
                     </div>
                   </td>
                 </tr>
@@ -126,7 +122,6 @@ export const FirstConvertCardForSideBar = () => {
   const filteredExchange = exchange.filter(({ abbreviation }) => {
     return neededExchange.includes(abbreviation)
   })
-
   return (
     <div className="subbar_covert_card">
       <div className="subbar_card_header">
@@ -139,11 +134,12 @@ export const FirstConvertCardForSideBar = () => {
               <th>{pages.small_texts[`currency_${locale}`]}</th>
               <th>{pages.small_texts[`purchase_${locale}`]}</th>
               <th>{pages.small_texts[`sale_${locale}`]}</th>
+              <th>{pages.small_texts[`central_bank_${locale}`]}</th>
             </tr>
           </thead>
           <tbody>
             {filteredExchange.map(
-              ({ abbreviation, purchase, sales }, index) => (
+              ({ abbreviation, purchase, sales, cb }, index) => (
                 <tr key={index}>
                   <td>
                     <div className="name_td">
@@ -153,22 +149,17 @@ export const FirstConvertCardForSideBar = () => {
                   </td>
                   <td>
                     <div className="td_wrapper">
-                      <Icon
-                        iconName="coverter_arrow_up"
-                        width={24}
-                        height={24}
-                      />
                       <span>{purchase}</span>
                     </div>
                   </td>
                   <td>
                     <div className="td_wrapper">
-                      <Icon
-                        iconName="coverter_arrow_up"
-                        width={24}
-                        height={24}
-                      />
                       <span>{sales}</span>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="td_wrapper">
+                      <span>{cb}</span>
                     </div>
                   </td>
                 </tr>
