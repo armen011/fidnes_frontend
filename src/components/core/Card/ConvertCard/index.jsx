@@ -1,5 +1,4 @@
 import React, { useContext } from 'react'
-import Icon from '../../Icon'
 import euro from '../../../../assets/img/euro.png'
 import rub from '../../../../assets/img/rub.png'
 import usd from '../../../../assets/img/usd.png'
