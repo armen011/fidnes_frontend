@@ -13,6 +13,7 @@ import SiteMap from '../pages/site_map'
 import Address from '../pages/address'
 import ConsumerRights from '../pages/consumer_rights'
 import Results from '../pages/results'
+import Article from '../pages/article'
 
 const Router = () => {
   return (
@@ -26,6 +27,7 @@ const Router = () => {
           <Route path="/reports" element={<Reports />} />
           <Route path="/owners" element={<Owners />} />
           <Route path="/news" element={<News />} />
+          <Route path="/article" element={<Article />} />
           <Route path="/loans" element={<Loans />} />
           <Route path="/sitemap" element={<SiteMap />} />
           <Route path="/address" element={<Address />} />

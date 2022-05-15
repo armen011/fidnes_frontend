@@ -2,7 +2,7 @@ import env from './env'
 
 const requests = {
   global: () => env.BASE_URL + '/global',
-  slides: () => env.BASE_URL + '/slider/',
+  slides: (id) => env.BASE_URL + '/slider/' + id,
   news: () => env.BASE_URL + '/news',
   newsPage: (page) => env.BASE_URL + '/news?page=' + page,
   currentNews: (id) => env.BASE_URL + '/news/' + id,

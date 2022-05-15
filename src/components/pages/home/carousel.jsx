@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react'
+import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
 import { motion } from 'framer-motion'
 import { wrap } from 'popmotion'
 import { ButtonWithIcon } from '../../core/Button'
@@ -53,7 +53,7 @@ const Carousel = () => {
   const { locale } = useContext(LocaleContext)
   const { globalData } = useContext(GlobalData)
 
-  const slider = globalData ? globalData.Slider : []
+  const slider = useMemo(() => globalData ? globalData.Slider : [],[globalData]);
 
   const [[page, direction], setPage] = useState([0, 0])
   const swipePower = (offset, velocity) => {
@@ -65,11 +65,11 @@ const Carousel = () => {
   const paginate = useCallback(
     (newPage) => {
       if (newPage < 0) newPage = 3
-      if (newPage > 3) newPage = 0
+      if (newPage > slider.length) newPage = 0
       const newDirection = newPage > page ? 1 : -1
       setPage([newPage, newDirection])
     },
-    [page]
+    [page,slider]
   )
 
   useEffect(() => {
@@ -82,7 +82,9 @@ const Carousel = () => {
   }, [paginate, page])
 
   const imageIndex = wrap(0, slider.length, page)
+  console.log(imageIndex)
   const navigate = useNavigate()
+
 
   return (
     <div className="carousel_wrapper">
@@ -140,9 +142,13 @@ const Carousel = () => {
                 </span>
               </div>
               <button
-                onClick={() =>
-                  navigate('/news?news_id=' + slider[imageIndex].id)
-                }
+                onClick={() => {
+                  if (slider[imageIndex].type === 'article') {
+                    navigate('/article?article_id=' + slider[imageIndex].id)
+                  } else {
+                    window.location = slider[imageIndex].link
+                  }
+                }}
               >
                 {pages.button_texts[`learn_more_${locale}`]}
               </button>
@@ -197,7 +203,14 @@ const Carousel = () => {
               </span>
             </div>
             <button
-              onClick={() => navigate('/news?news_id=' + slider[imageIndex].id)}
+              onClick={() => {
+                if (slider[imageIndex].type === 'article') {
+                  navigate('/article?article_id=' + slider[imageIndex].id)
+                } else {
+                    window.location = slider[imageIndex].link
+                  
+                }
+              }}
             >
               {pages.button_texts[`learn_more_${locale}`]}
             </button>
