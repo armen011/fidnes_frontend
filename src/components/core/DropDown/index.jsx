@@ -22,7 +22,7 @@ const DropDown = ({ content, isSelected, queryName, ...otherProps }) => {
               e.preventDefault()
               e.stopPropagation()
               if(titles.types && titles.types === 'url'){
-                window.open(`${queryName + id}`, '_blank')
+                window.open(titles.link)
                 
               }
               else{
