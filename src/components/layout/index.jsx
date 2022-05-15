@@ -7,11 +7,13 @@ import './style.scss'
 import BurgerMenu from './burgerMenu'
 import { useLocation } from 'react-router'
 import Search from './search'
+import InfoBar from './infoBar'
 
 const Layout = ({ children }) => {
   const isHeaderOpened = useScrollTopAndDown()
   const [isMenuBarOpened, setIsMenuBarOpened] = useState(false)
   const [isSearchOpened, setIsSearchOpened] = useState(false)
+  const [isInfoBarOpened, setIsInfoBarOpened] = useState(true)
   const pathName = useLocation()
   useEffect(() => {
     window.scrollTo(0, 0)
@@ -29,6 +31,7 @@ const Layout = ({ children }) => {
         <Footer />
       </div>
       <Search {...{ isSearchOpened, setIsSearchOpened, isHeaderOpened }} />
+      {isInfoBarOpened && <InfoBar close={() => setIsInfoBarOpened(false)} />}
     </div>
   )
 }

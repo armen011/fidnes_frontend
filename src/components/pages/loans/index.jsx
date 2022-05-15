@@ -1,6 +1,5 @@
 import axios from 'axios'
 import React, { useContext, useEffect, useState } from 'react'
-import requests from '../../../const/requests'
 import { pages } from '../../../locales'
 import { GlobalData } from '../../../context/globalData'
 import { LocaleContext } from '../../../context/localeContext'
@@ -23,11 +22,13 @@ const Loans = () => {
 
   useEffect(() => {
     if (selectedLoanId) {
-      axios.get(requests.currentPageData(selectedLoanId)).then(({ data }) => {
-        if (data) {
-          setSelected(data)
-        }
-      })
+      axios
+        .get(`https://server.fides.am/loan/${selectedLoanId}`)
+        .then(({ data }) => {
+          if (data) {
+            setSelected(data)
+          }
+        })
     } else {
       setSelected(undefined)
     }

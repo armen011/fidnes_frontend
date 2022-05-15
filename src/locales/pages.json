@@ -209,7 +209,10 @@
     "search_en": "Search",
     "learn_more_hy": "Իմանալ ավելին",
     "learn_more_ru": "Узнать больше",
-    "learn_more_en": "Learn more"
+    "learn_more_en": "Learn more",
+    "here_hy": "այստեղ",
+    "here_ru": "здесь",
+    "here_en": "here"
   },
   "small_texts": {
     "connect_methodes_hy": "Կապ միջոցներ",
@@ -319,6 +322,9 @@
     "footer_copyright_text_en": "Copyright is protected.",
     "footer_info_text_hy": "Կազմակերպությունը պատասխանատվություն չի կրում իր կայքում հղում պարունակող այլ ընկերությունների կայքերի բովանդակության ստույգության և արժանահավատության, այնտեղ տեղադրված գովազդների համար, և Կազմակերպությունը պատասխանատվություն չի կրում այդ կայքերում տեղադրված տեղեկատվության օգտագործման հնարավոր հետևանքների համար",
     "footer_info_text_ru": "Организация не несет ответственности за себя точность  содержания сайтов других компаний, ссылающихся на Сайт  подлинность размещенной там рекламы;  Компания не несет ответственности за любые возможные последствия использования информации, размещенной на этих сайтах.",
-    "footer_info_text_en": "The organization is not responsible for itself the accuracy  of the content of the websites of other companies linking to the Website  the authenticity of the advertisements placed there;  The Company is not responsible for any possible consequences of the use of the information posted on those websites."
+    "footer_info_text_en": "The organization is not responsible for itself the accuracy  of the content of the websites of other companies linking to the Website  the authenticity of the advertisements placed there;  The Company is not responsible for any possible consequences of the use of the information posted on those websites.",
+    "info_bar_hy": "Նախորդ տարբերակին անցում կատարելու համար սեղմել  ",
+    "info_bar_ru": "Нажмите, чтобы переключиться на предыдущую версию  ",
+    "info_bar_en": "Click to switch to the previous version  "
   }
 }

@@ -510,6 +510,31 @@
       }
     }
   }
+  .info_bar_container {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    height: 54px;
+    background-color: #fdf5ec;
+    z-index: 99999;
+    display: flex;
+    align-items: center;
+    padding-left: 32px;
+    > p {
+      font-size: 16px;
+      margin-right: 8px;
+      > a {
+        color: #dfb43c;
+        font-size: 16px;
+      }
+    }
+
+    > div {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+    }
+  }
 }
 
 @media (max-width: 1880px) {
@@ -938,6 +963,18 @@
     }
     .search_wrapper {
       top: 44px;
+    }
+    .info_bar_container {
+      width: 100%;
+      min-height: 54px;
+      height: auto;
+      padding-left: 8px;
+      padding-right: 42px;
+
+      > div {
+        right: 8px;
+        top: 8px;
+      }
     }
   }
 }

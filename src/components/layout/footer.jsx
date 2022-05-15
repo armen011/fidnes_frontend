@@ -138,7 +138,7 @@ const Footer = () => {
               </a>
               <a
                 className="href"
-                href="http://www.reso.am/"
+                href="https://www.cba.am/am/SitePages/Default.aspx"
                 target="_blank"
                 rel="noreferrer"
               >
