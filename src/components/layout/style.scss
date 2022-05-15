@@ -248,13 +248,16 @@
     .children_wrapper {
       width: 100%;
       min-height: 500px;
+      @media screen and (max-width:480px){
+        min-height: 300px;
+      }
     }
     .layout_footer {
       width: 100%;
       min-height: 950px;
       .footer_first_part {
         width: 100%;
-        height: 552px;
+        // height: 552px;
         padding-top: 112px;
         background: white;
         .hrefs_collaborators {
@@ -379,6 +382,18 @@
             }
           }
         }
+                .footer-new-text-for-all-pages{
+                  display: flex;
+                  justify-content: center;
+                  margin: 72px 0;
+                  > p{
+                    max-width: 80%;
+                    font-size: 24px;
+                    line-height: 40px;
+                    color: #45424b;
+
+                  }
+                }
       }
       .footer_second_part {
         width: 100%;
@@ -768,7 +783,6 @@
         height: auto;
         .footer_first_part {
           height: auto;
-          margin-bottom: 128px;
           .hrefs_collaborators {
             height: auto;
             flex-direction: column;

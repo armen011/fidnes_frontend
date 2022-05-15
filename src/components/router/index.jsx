@@ -14,6 +14,8 @@ import Address from '../pages/address'
 import ConsumerRights from '../pages/consumer_rights'
 import Results from '../pages/results'
 import Article from '../pages/article'
+import NotFoundPage from '../pages/404/NotFoundPage'
+import ManagementPage from '../pages/management/ManagementPage'
 
 const Router = () => {
   return (
@@ -33,6 +35,8 @@ const Router = () => {
           <Route path="/address" element={<Address />} />
           <Route path="/consumer_rights" element={<ConsumerRights />} />
           <Route path="/results" element={<Results />} />
+          <Route path="/management" element={<ManagementPage />} />
+          <Route path="*" element={<NotFoundPage/>} />
         </Routes>
       </Layout>
     </BrowserRouter>

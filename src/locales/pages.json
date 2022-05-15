@@ -242,9 +242,9 @@
     "sale_hy": "Վաճառք",
     "sale_ru": "Распродажа",
     "sale_en": "Sale",
-    "central_bank_hy": "Կ.Բ.",
-    "central_bank_ru": "Ц.Б.",
-    "central_bank_en": "C.B.",
+    "central_bank_hy": "ԿԲ",
+    "central_bank_ru": "ЦБ",
+    "central_bank_en": "CB",
     "interest_rates_hy": "Տոկոսադրույքներ",
     "interest_rates_ru": "Процентные ставки",
     "interest_rates_en": "Interest rates",
@@ -325,6 +325,13 @@
     "footer_info_text_en": "The organization is not responsible for itself the accuracy  of the content of the websites of other companies linking to the Website  the authenticity of the advertisements placed there;  The Company is not responsible for any possible consequences of the use of the information posted on those websites.",
     "info_bar_hy": "Նախորդ տարբերակին անցում կատարելու համար սեղմել  ",
     "info_bar_ru": "Нажмите, чтобы переключиться на предыдущую версию  ",
-    "info_bar_en": "Click to switch to the previous version  "
+    "info_bar_en": "Click to switch to the previous version  ",
+    "footer_new_text_hy":"Կազմակերպության կողմից մատուցվող ծառայությունների վերաբերյալ սպառիչ տեղեկություններ կարող եք ստանալ զանգահարելով +374 47 97 01 97 կամ այցելելով Կազմակերպության գրասենյակ` ԼՂՀ, ք. Ստեփանակերտ, Մ. Գոշ 2/33:",
+    "footer_new_text_ru":"Получить исчерпывающую информацию об услугах, предоставляемых организацией, можно по телефону +374 47 97 01 97 или посетив офис Организации в НКР, г. Степанакерт, М. Гоша 2/33.",
+    "footer_new_text_en":"You can get comprehensive information about the services provided by the organization by calling +374 47 97 01 97 or visiting the Organization's office in NKR, c. Stepanakert, M. Gosh 2/33.",
+
+    "management_hy":"Ղեկավարություն",
+    "management_ru":"Управление",
+    "management_en":"Management"
   }
 }

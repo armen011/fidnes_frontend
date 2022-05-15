@@ -1,18 +1,11 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react'
-
 import { useNavigate } from 'react-router'
 import { AnimatePresence, motion } from 'framer-motion'
 import { wrap } from 'popmotion'
-
 import { LocaleContext } from '../../context/localeContext'
 import { ButtonWithIcon } from '../core/Button'
 import Icon from '../core/Icon'
 import { pages } from '../../locales'
-
-import abcfin from '../../assets/img/abcfin.png'
-import hashtarar from '../../assets/img/hashtarar.png'
-import reso from '../../assets/img/reso.png'
-import fininfo from '../../assets/img/fininfo.png'
 import { GlobalData } from '../../context/globalData'
 import { seprateByCount } from '../../utils'
 
@@ -120,38 +113,18 @@ const Footer = () => {
           <div className="hrefs_wrapper">
             <span>{pages.small_texts[`useful_links_${locale}`]}</span>
             <div className="hrefs_container">
-              <a
-                className="href"
-                href="https://www.abcfinance.am/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img src={abcfin} alt="abc finance" />
-              </a>
-              <a
-                className="href"
-                href="https://www.fsm.am/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img src={hashtarar} alt="finansakan hashtarar" />
-              </a>
-              <a
-                className="href"
-                href="https://www.cba.am/am/SitePages/Default.aspx"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img src={reso} alt="reso app" />
-              </a>
-              <a
-                className="href"
-                href="https://www.fininfo.am/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                <img src={fininfo} alt="fininfo" />
-              </a>
+              {globalData &&
+                globalData.UsefullLinks.map((item) => (
+                  <a
+                    className="href"
+                    href={item.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    key={item.id}
+                  >
+                    <img src={item.image} alt="abc finance" />
+                  </a>
+                ))}
             </div>
           </div>
           <div className="collaborators_wrapper">
@@ -202,6 +175,11 @@ const Footer = () => {
               ))}
             </div>
           </div>
+        </div>
+        <div className="footer-new-text-for-all-pages">
+          <p>
+            {pages.small_texts[`footer_new_text_${locale}`]}
+          </p>
         </div>
       </div>
       <div className="footer_second_part">

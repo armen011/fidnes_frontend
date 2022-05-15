@@ -26,7 +26,10 @@ const PageDropdown = ({ ...otherProps }) => {
         />
       </div>
       <div className="dropdown_content_wrapper">
-        {isOpened && <CkContant {...otherProps} />}
+        {isOpened && (<>
+          {otherProps.image && <img src={otherProps.image} alt="Img"/>}
+        <CkContant {...otherProps} />
+        </>)}
       </div>
     </div>
   )

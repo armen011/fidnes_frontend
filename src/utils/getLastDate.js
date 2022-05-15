@@ -5,8 +5,8 @@ export const getLatestDate = (array) => {
       lastDate = updated_at
     }
   })
-  const date = new Date(lastDate)
-
-  const res = date.getDate() + '.' + date.getMonth() + '.' + date.getFullYear()
+  const date = new Date(lastDate);
+  
+  const res = `${date.getDate()}.${date.getMonth() < 10 ? '0'+date.getMonth() : date.getMonth() }.${date.getFullYear()}  ${date.getHours()}:${date.getMinutes()}`
   return res
 }

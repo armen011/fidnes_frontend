@@ -89,8 +89,8 @@ const Reports = () => {
               />
             </div>
           </div>
-          <span>{pages.small_texts[`static_test_first_${locale}`]}</span>
-          <span>{pages.small_texts[`static_test_second_${locale}`]}</span>
+          {/* <span>{pages.small_texts[`static_test_first_${locale}`]}</span> */}
+          {/* <span>{pages.small_texts[`static_test_second_${locale}`]}</span> */}
         </div>
         <SideBar />
       </div>

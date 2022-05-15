@@ -1,15 +1,16 @@
 import React, { useContext } from 'react'
-import { useNavigate } from 'react-router'
 import { useLocation } from 'react-router-dom'
 import { LocaleContext } from '../../../context/localeContext'
+import { pages } from '../../../locales'
 import './style.scss'
+import { useNavigate } from 'react-router-dom'
 
 export { default as PageDropdown } from './PageDropdown'
 
-const DropDown = ({ content, isSelected, queryName }) => {
-  const navigate = useNavigate()
+const DropDown = ({ content, isSelected, queryName, ...otherProps }) => {
   const { locale } = useContext(LocaleContext)
   const location = useLocation()
+  const navigate = useNavigate()
 
   return (
     <ul className="drop_down_wrapper">
@@ -20,7 +21,13 @@ const DropDown = ({ content, isSelected, queryName }) => {
             onClick={(e) => {
               e.preventDefault()
               e.stopPropagation()
-              navigate(`${queryName + id}`)
+              if(titles.types && titles.types === 'url'){
+                window.open(`${queryName + id}`, '_blank')
+                
+              }
+              else{
+                navigate(`${queryName + id}`);
+              }
             }}
             key={index}
             style={{
@@ -37,6 +44,18 @@ const DropDown = ({ content, isSelected, queryName }) => {
             {titles[`title_${locale}`]}
           </li>
         ))}
+      {otherProps.aboutDropdown && (
+        <li
+          className="page_title_wrapper"
+          onClick={(e) => {
+            e.preventDefault()
+            e.stopPropagation()
+            window.open(`/management`, '_blank')
+          }}
+        >
+          {pages.small_texts[`management_${locale}`]}
+        </li>
+      )}
     </ul>
   )
 }

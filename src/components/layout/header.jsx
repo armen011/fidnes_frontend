@@ -53,6 +53,7 @@ const Header = ({ setIsSearchOpened }) => {
                 content={page[elm.drop_down_key]}
                 isSelected={location.pathname === elm.url}
                 queryName={elm.query_name}
+                aboutDropdown={elm.drop_down_key === 'about'}
               />
             )}
           </li>

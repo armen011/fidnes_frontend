@@ -10,6 +10,7 @@ const requests = {
   currentPageData: (id) => env.BASE_URL + '/page/' + id,
   doSearch: (text) => env.BASE_URL + '/search/?s=' + text,
   sendContactForm: () => env.BASE_URL + '/contact/',
+  management: () => env.BASE_URL + '/owner/'
 }
 
 export default requests

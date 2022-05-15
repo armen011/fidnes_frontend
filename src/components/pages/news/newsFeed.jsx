@@ -51,7 +51,7 @@ const NewsFeed = ({ news, selected, page, pages }) => {
                 <Status status={selected ? selected.status : []} />
               </div>
               <div className="news_text_wrapper">
-                <h3>{selected[`title_${locale}`]}</h3>
+                <h3 style={{marginBottom: '12px'}}>{selected[`title_${locale}`]}</h3>
                 <div
                   className="ck-content"
                   dangerouslySetInnerHTML={{
