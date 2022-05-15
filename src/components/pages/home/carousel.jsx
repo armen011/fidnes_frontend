@@ -1,4 +1,10 @@
-import React, { useCallback, useContext, useEffect, useMemo, useState } from 'react'
+import React, {
+  useCallback,
+  useContext,
+  useEffect,
+  useMemo,
+  useState,
+} from 'react'
 import { motion } from 'framer-motion'
 import { wrap } from 'popmotion'
 import { ButtonWithIcon } from '../../core/Button'
@@ -53,7 +59,10 @@ const Carousel = () => {
   const { locale } = useContext(LocaleContext)
   const { globalData } = useContext(GlobalData)
 
-  const slider = useMemo(() => globalData ? globalData.Slider : [],[globalData]);
+  const slider = useMemo(
+    () => (globalData ? globalData.Slider : []),
+    [globalData]
+  )
 
   const [[page, direction], setPage] = useState([0, 0])
   const swipePower = (offset, velocity) => {
@@ -69,7 +78,7 @@ const Carousel = () => {
       const newDirection = newPage > page ? 1 : -1
       setPage([newPage, newDirection])
     },
-    [page,slider]
+    [page, slider]
   )
 
   useEffect(() => {
@@ -84,7 +93,6 @@ const Carousel = () => {
   const imageIndex = wrap(0, slider.length, page)
   console.log(imageIndex)
   const navigate = useNavigate()
-
 
   return (
     <div className="carousel_wrapper">
@@ -146,7 +154,7 @@ const Carousel = () => {
                   if (slider[imageIndex].type === 'article') {
                     navigate('/article?article_id=' + slider[imageIndex].id)
                   } else {
-                    window.location = slider[imageIndex].link
+                    window.open(slider[imageIndex].link, '_blank')
                   }
                 }}
               >
@@ -207,8 +215,7 @@ const Carousel = () => {
                 if (slider[imageIndex].type === 'article') {
                   navigate('/article?article_id=' + slider[imageIndex].id)
                 } else {
-                    window.location = slider[imageIndex].link
-                  
+                  window.open(slider[imageIndex].link, '_blank')
                 }
               }}
             >
