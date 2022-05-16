@@ -73,7 +73,7 @@ const ReportsContainer = ({
       {selected ? (
         selectedReportYear ? (
           <div className="selected_report_type">
-            {typeOfItermediate.map((elm, index) => (
+            {typeOfItermediate.map((elm, index) => selected[selectedReportYear][elm.id].length > 0?(
               <Item
                 key={index}
                 {...{
@@ -87,11 +87,11 @@ const ReportsContainer = ({
                   download: true,
                 }}
               />
-            ))}
+            ):null)}
           </div>
         ) : (
           <div className="selected_report_type">
-            {selectedArray.map((key, index) => (
+            {selectedArray.map((key, index) => selected[key].length>0 || Object.keys(selected[key]).length>0?(
               <Item
                 key={index}
                 {...{
@@ -103,7 +103,7 @@ const ReportsContainer = ({
                   download: !isIntermediate,
                 }}
               />
-            ))}
+            ):null)}
           </div>
         )
       ) : (

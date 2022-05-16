@@ -18,6 +18,21 @@
         overflow: hidden;
         margin-bottom: 40px;
         padding: 24px;
+        .files-wrapper {
+          > a {
+            display: flex;
+            margin-top: 24px;
+            align-items: center;
+            color: #482003;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 500;
+
+            > svg {
+              margin-right: 16px;
+            }
+          }
+        }
         > h3 {
           font-weight: 700;
           font-size: 24px;

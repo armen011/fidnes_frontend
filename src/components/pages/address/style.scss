@@ -38,6 +38,9 @@
 
       .item_conatiner {
         width: 100%;
+        &:not(:first-child){
+          margin-top: 32px;
+        }
         li:nth-child(1) {
           font-weight: 600;
           font-size: 16px;
@@ -57,7 +60,7 @@
           display: flex;
           align-items: center;
           margin-bottom: 16px;
-          > span {
+          > a {
             font-weight: 400;
             font-size: 12px;
             line-height: 16px;
@@ -114,7 +117,7 @@
             display: flex;
             align-items: center;
             margin-bottom: 16px;
-            > span {
+            > a {
               font-weight: 400;
               font-size: 12px;
               line-height: 16px;

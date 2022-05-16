@@ -22,8 +22,14 @@ const DropDown = ({ content, isSelected, queryName, ...otherProps }) => {
               e.preventDefault()
               e.stopPropagation()
               if(titles.types && titles.types === 'url'){
+                if (
+                titles.link.includes('://fides.am') ||
+                titles.link.includes('://www.fides.am')
+              ) {
+                window.location.replace(titles.link)
+              } else {
                 window.open(titles.link)
-                
+              }
               }
               else{
                 navigate(`${queryName + id}`);

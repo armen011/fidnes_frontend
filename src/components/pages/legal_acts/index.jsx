@@ -6,6 +6,7 @@ import { LocaleContext } from '../../../context/localeContext'
 import BreadCrumb from '../../core/BreadCrumb'
 import Icon from '../../core/Icon'
 import LoanCalculator from '../../loanCalculator'
+import externalLink from '../../../assets/img/externalLint.svg'
 import './style.scss'
 
 const LegalActs = () => {
@@ -42,13 +43,14 @@ const LegalActs = () => {
             <ul className="content_container">
               {lawFirst.files.map((pdf, index) => (
                 <a
-                  href={pdf[`file_${locale}`]}
+                  href={pdf.file}
                   target="_blank"
                   key={index}
                   rel="noreferrer"
                 >
                   <li>
-                    <Icon iconName="pdf_file" width={24} height={24} />
+                    {pdf.types==="PDF"?<img src={externalLink} alt="" />:<Icon iconName="pdf_file" width={24} height={24} />
+                    }
                     <span>{pdf[`title_${locale}`]}</span>
                   </li>
                 </a>

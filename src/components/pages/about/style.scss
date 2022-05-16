@@ -17,6 +17,20 @@
         border-radius: 8px;
         padding: 32px;
         margin-bottom: 40px;
+        .files-wrapper {
+          > a {
+            display: flex;
+            margin-top: 24px;
+            align-items: center;
+            color: #482003;
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 500;
+            > svg{
+              margin-right: 16px;
+            }
+          }
+        }
         .article_item_wrapper {
           width: 100%;
           height: 72px;

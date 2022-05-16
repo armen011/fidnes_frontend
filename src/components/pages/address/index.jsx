@@ -1,34 +1,26 @@
-import React, { useContext } from 'react'
+import React, { useContext,useEffect, useState } from 'react'
 import { pages } from '../../../locales'
 import { LocaleContext } from '../../../context/localeContext'
 import BreadCrumb from '../../core/BreadCrumb'
 import { ButtonWithIcon } from '../../core/Button'
 import Icon from '../../core/Icon'
 import './style.scss'
+import axios from 'axios'
+import requests from '../../../const/requests'
 
-const mockData = [
-  {
-    title: 'Գլխամասային գրասենյակ',
-    working_houres: '09:30 - 17:00',
-    address: 'Գործ․հասցե՝ ԱՀ, ք․ Ստեփանակերտ, Մ․ Գոշ 2/33',
-    phone_number: 'Հեռ․՝ (+374) 47 970197, (+374) 47 960197',
-  },
-  {
-    title: 'Պարոնյան Մասնաճյուղ',
-    working_houres: '09:30 - 17:00',
-    address: 'Գործ․հասցե՝ ԱՀ, ք․ Ստեփանակերտ, Մ․ Գոշ 2/33',
-    phone_number: 'Հեռ․՝ (+374) 47 970197, (+374) 47 960197',
-  },
-  {
-    title: 'Գլխամասային գրասենյակ',
-    working_houres: '09:30 - 17:00',
-    address: 'Գործ․հասցե՝ ԱՀ, ք․ Ստեփանակերտ, Մ․ Գոշ 2/33',
-    phone_number: 'Հեռ․՝ (+374) 47 970197, (+374) 47 960197',
-  },
-]
+
 
 const Address = () => {
-  const { locale } = useContext(LocaleContext)
+  const { locale } = useContext(LocaleContext);
+  const [branch,setBranch] = useState([]);
+
+  useEffect(() => {
+    axios.get(requests.branch()).then(({data}) => {
+
+      setBranch(data)
+    })
+  },[])
+
   return (
     <div className="address_wrapper">
       <BreadCrumb
@@ -62,19 +54,20 @@ const Address = () => {
           />
         </div>
         <div className="sidebar_conatiner">
-          {mockData.map(
-            ({ title, working_houres, address, phone_number }, index) => {
+          {branch.map(
+            (item) => {
               return (
-                <ul className="item_conatiner" key={index}>
-                  <li>{title}</li>
-                  <li>{working_houres}</li>
+                <ul className="item_conatiner" key={item.id}>
+                  <li>{item[`name_${locale}`]}</li>
+                  <li>{item.worhing_hours}</li>
                   <li>
                     <Icon iconName="contact_location" width={24} height={24} />
-                    <span>{address}</span>
+                    <span>{item[`address_${locale}`]}</span>
                   </li>
                   <li>
                     <Icon iconName="contact_phone" width={24} height={24} />
-                    <span>{phone_number}</span>
+                    <a href={`tel:${item[`tel_1`]}`}>{item[`tel_1`]}</a>
+                    {item[`tel_2`] && <a href={`tel:${item[`tel_2`]}`}>{item[`tel_2`]}</a>}
                   </li>
                 </ul>
               )

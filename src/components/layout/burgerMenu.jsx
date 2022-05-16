@@ -37,9 +37,29 @@ const ItemWrapper = ({
       onClick={() => {
         if (!drop_down_key) {
           if (query_name) {
-            navigate(query_name ? query_name + id : url)
+            if (titles.types && titles.types === 'url') {
+              if (
+                titles.link.includes('://fides.am') ||
+                titles.link.includes('://www.fides.am')
+              ) {
+                window.location.replace(titles.link)
+              } else {
+                window.open(titles.link)
+              }
+            } else {
+              navigate(query_name ? query_name + id : url)
+            }
           } else {
-            if (url) {
+            if (titles.types && titles.types === 'url') {
+               if (
+                titles.link.includes('://fides.am') ||
+                titles.link.includes('://www.fides.am')
+              ) {
+                window.location.replace(titles.link)
+              } else {
+                window.open(titles.link)
+              }
+            } else {
               navigate(`${url}`)
             }
           }
@@ -60,7 +80,18 @@ const ItemWrapper = ({
         onClick={(event) => {
           event.stopPropagation()
           const redirectUrl = query_name && id ? query_name + id : url
-          navigate(redirectUrl)
+          if (titles.types && titles.types === 'url') {
+             if (
+                titles.link.includes('://fides.am') ||
+                titles.link.includes('://www.fides.am')
+              ) {
+                window.location.replace(titles.link)
+              } else {
+                window.open(titles.link)
+              }
+          } else {
+            navigate(redirectUrl)
+          }
           setSelectedMenu(undefined)
           setIsMenuBarOpened(false)
         }}
