@@ -46,9 +46,7 @@ const Owners = () => {
           <div className="owners_main_container">
             <h3>{ownersProps[`title_${locale}`]}</h3>
             <CkContant {...data} />
-            
             <div className="files-wrapper">
-              {console.log(data)}
               {data.files &&
                 data.files.length !== 0 &&
                 data.files.map((item) => (

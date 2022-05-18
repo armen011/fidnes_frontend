@@ -23,12 +23,12 @@ const DesktopNewsCard = ({
   )
 
   const selectedDate = new Date(date)
-  const res =
-    selectedDate.getDate() +
-    '.' +
-    selectedDate.getMonth() +
-    '.' +
-    selectedDate.getFullYear()
+  const res = `${selectedDate.getDate()}.${
+    selectedDate.getMonth() < 10
+      ? '0' + selectedDate.getMonth()
+      : selectedDate.getMonth()
+  }.${selectedDate.getFullYear()}  ${selectedDate.getHours()}:${selectedDate.getMinutes()}`
+
   return (
     <motion.li
       className="desktop_news_card_wrapper"
@@ -42,9 +42,11 @@ const DesktopNewsCard = ({
         <h5>{title}</h5>
         <p>{description}</p>
         <div className="content_footer">
-          <div className="date_wrapper">
-            <span>{res}</span>
-          </div>
+          {date && (
+            <div className="date_wrapper">
+              <span>{res}</span>
+            </div>
+          )}
           <Status status={status} />
         </div>
       </div>

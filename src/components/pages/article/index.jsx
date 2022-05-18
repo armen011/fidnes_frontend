@@ -7,7 +7,7 @@ import { useQuery } from '../../../hooks'
 import BreadCrumb from '../../core/BreadCrumb'
 import SideBar from '../../core/SideBar'
 // import NewsFeed from './newsFeed'
-import '../news/style.scss';
+import '../news/style.scss'
 import ArticleFeed from './articleFeed'
 
 const Article = () => {
@@ -22,11 +22,9 @@ const Article = () => {
           setSelected(data)
         }
       })
-    } 
-    
+    }
   }, [selectedArticleId])
 
-  console.log(selected,">>>>>>>>>>")
   return (
     <div className="news_page_wrapper">
       {selected && (
@@ -34,14 +32,17 @@ const Article = () => {
           title={selected[`title_${locale}`]}
           path={[
             { title: pages.titles[`home_${locale}`], url: '/' },
-            { title: selected[`title_${locale}`], url: `/article?article_id=${selected?.id}` },
+            {
+              title: selected[`title_${locale}`],
+              url: `/article?article_id=${selected?.id}`,
+            },
           ]}
         />
       )}
-      
+
       <div className="main_news_page_container">
         <div className="main_news_wrapper">
-          <ArticleFeed  selected={selected}/>
+          <ArticleFeed selected={selected} />
           {/* <span>{pages.small_texts[`static_test_first_${locale}`]}</span> */}
           {/* <span>{pages.small_texts[`static_test_second_${locale}`]}</span> */}
         </div>

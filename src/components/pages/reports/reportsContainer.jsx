@@ -73,37 +73,39 @@ const ReportsContainer = ({
       {selected ? (
         selectedReportYear ? (
           <div className="selected_report_type">
-            {typeOfItermediate.map((elm, index) => selected[selectedReportYear][elm.id].length > 0?(
-              <Item
-                key={index}
-                {...{
-                  title: elm[`title_${locale}`],
-                  url:
-                    selected[selectedReportYear][elm.id].length > 0
+            {typeOfItermediate.map((elm, index) =>
+              selected[selectedReportYear][elm.id] ? (
+                <Item
+                  key={index}
+                  {...{
+                    title: elm[`title_${locale}`],
+                    url: selected[selectedReportYear][elm.id]
                       ? selected[selectedReportYear][elm.id][0][
                           `file_${locale}`
                         ]
                       : '',
-                  download: true,
-                }}
-              />
-            ):null)}
+                    download: true,
+                  }}
+                />
+              ) : null
+            )}
           </div>
         ) : (
           <div className="selected_report_type">
-            {selectedArray.map((key, index) => selected[key].length>0 || Object.keys(selected[key]).length>0?(
-              <Item
-                key={index}
-                {...{
-                  title: key,
-                  url:
-                    selected[key].length > 0
+            {selectedArray.map((key, index) =>
+              selected[key] ? (
+                <Item
+                  key={index}
+                  {...{
+                    title: key,
+                    url: selected[key]
                       ? selected[key][0][`file_${locale}`]
                       : '',
-                  download: !isIntermediate,
-                }}
-              />
-            ):null)}
+                    download: !isIntermediate,
+                  }}
+                />
+              ) : null
+            )}
           </div>
         )
       ) : (

@@ -97,7 +97,7 @@ const Footer = () => {
   const { globalData } = useContext(GlobalData)
   const dinamicPages = globalData ? globalData.Page : {}
   const partner = globalData ? globalData.Partner : []
-
+  const footerTexts = globalData ? globalData.footer_text : {}
   const collaborators = seprateByCount(partner, 3)
 
   const containerIndex = wrap(0, collaborators.length, page)
@@ -168,18 +168,22 @@ const Footer = () => {
               </AnimatePresence>
             </div>
             <div className="collaborators_container_mobile">
-              {partner.map(({ image, title_hy }, index) => (
-                <div className="mobile_img_wrapper" key={index}>
+              {partner.map(({ image, title_hy, url }, index) => (
+                <a
+                  className="mobile_img_wrapper"
+                  key={index}
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   <img src={image} alt={title_hy} />
-                </div>
+                </a>
               ))}
             </div>
           </div>
         </div>
         <div className="footer-new-text-for-all-pages">
-          <p>
-            {pages.small_texts[`footer_new_text_${locale}`]}
-          </p>
+          <p>{pages.small_texts[`footer_new_text_${locale}`]}</p>
         </div>
       </div>
       <div className="footer_second_part">
@@ -190,16 +194,20 @@ const Footer = () => {
             height={80}
             onClick={() => navigate('/')}
           />
-          <span>{pages.small_texts[`footer_first_text_${locale}`]}</span>
-          <span>{pages.small_texts[`footer_second_text_${locale}`]}</span>
+          <span>{footerTexts ? footerTexts.name[`text_${locale}`] : ''}</span>
+          <span>
+            {footerTexts ? footerTexts.cb_control[`text_${locale}`] : ''}
+          </span>
           <button onClick={() => navigate('/contact_us')}>
             {pages.button_texts[`contact_${locale}`]}
           </button>
           <span>
             © {new Date().getFullYear()}{' '}
-            {pages.small_texts[`footer_copyright_text_${locale}`]}
+            {footerTexts ? footerTexts.copyright[`text_${locale}`] : ''}
           </span>
-          <span>{pages.small_texts[`footer_info_text_${locale}`]}</span>
+          <span>
+            {footerTexts ? footerTexts.responsibility[`text_${locale}`] : ''}
+          </span>
         </div>
         <div className="page_href_wrapper">
           <div className="colum_wrapper">

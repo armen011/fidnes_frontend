@@ -19,12 +19,11 @@ export const NewsCard = ({
   const navigate = useNavigate()
 
   const selectedDate = new Date(date)
-  const res =
-    selectedDate.getDate() +
-    '.' +
-    selectedDate.getMonth() +
-    '.' +
-    selectedDate.getFullYear()
+  const res = `${selectedDate.getDate()}.${
+    selectedDate.getMonth() < 10
+      ? '0' + selectedDate.getMonth()
+      : selectedDate.getMonth()
+  }.${selectedDate.getFullYear()}  ${selectedDate.getHours()}:${selectedDate.getMinutes()}`
 
   return (
     <div
@@ -40,7 +39,7 @@ export const NewsCard = ({
         <span>{otherProps[`title_${locale}`]}</span>
         <span>{otherProps[`description_${locale}`]}</span>
         <div>
-          <p>{res}</p>
+          {date && <p>{res}</p>}
           <Status status={status} />
         </div>
       </div>

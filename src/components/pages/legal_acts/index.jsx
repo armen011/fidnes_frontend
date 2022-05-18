@@ -42,15 +42,13 @@ const LegalActs = () => {
             </div>
             <ul className="content_container">
               {lawFirst.files.map((pdf, index) => (
-                <a
-                  href={pdf.file}
-                  target="_blank"
-                  key={index}
-                  rel="noreferrer"
-                >
+                <a href={pdf.file} target="_blank" key={index} rel="noreferrer">
                   <li>
-                    {pdf.types==="PDF"?<img src={externalLink} alt="" />:<Icon iconName="pdf_file" width={24} height={24} />
-                    }
+                    {pdf.types === 'PDF' ? (
+                      <Icon iconName="pdf_file" width={24} height={24} />
+                    ) : (
+                      <img src={externalLink} alt="" />
+                    )}
                     <span>{pdf[`title_${locale}`]}</span>
                   </li>
                 </a>
@@ -67,13 +65,17 @@ const LegalActs = () => {
               <ul className="content_container">
                 {lawSecondFirst.files.map((pdf, index) => (
                   <a
-                    href={pdf[`file_${locale}`]}
+                    href={pdf.file}
                     target="_blank"
                     key={index}
                     rel="noreferrer"
                   >
                     <li>
-                      <Icon iconName="pdf_file" width={24} height={24} />
+                      {pdf.types === 'PDF' ? (
+                        <Icon iconName="pdf_file" width={24} height={24} />
+                      ) : (
+                        <img src={externalLink} alt="" />
+                      )}
                       <span>{pdf[`title_${locale}`]}</span>
                     </li>
                   </a>
@@ -89,13 +91,17 @@ const LegalActs = () => {
               <ul className="content_container">
                 {lawSecondSecond.files.map((pdf, index) => (
                   <a
-                    href={pdf[`file_${locale}`]}
+                    href={pdf.file}
                     target="_blank"
                     key={index}
                     rel="noreferrer"
                   >
                     <li>
-                      <Icon iconName="pdf_file" width={24} height={24} />
+                      {pdf.types === 'PDF' ? (
+                        <Icon iconName="pdf_file" width={24} height={24} />
+                      ) : (
+                        <img src={externalLink} alt="" />
+                      )}
                       <span>{pdf[`title_${locale}`]}</span>
                     </li>
                   </a>

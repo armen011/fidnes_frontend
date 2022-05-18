@@ -91,7 +91,6 @@ const Carousel = () => {
   }, [paginate, page])
 
   const imageIndex = wrap(0, slider.length, page)
-  console.log(imageIndex)
   const navigate = useNavigate()
 
   return (

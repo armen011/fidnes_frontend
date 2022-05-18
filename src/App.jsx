@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import TawkTo from 'tawkto-react'
 import Router from './components/router'
 import { LocaleContext } from './context/localeContext'
 import './App.scss'
@@ -19,6 +20,7 @@ const App = () => {
         setIsLoading(false)
       }
     })
+    new TawkTo('123', 123)
   }, [])
   if (isLoading) {
     return (
