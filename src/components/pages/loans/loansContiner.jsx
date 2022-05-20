@@ -2,6 +2,7 @@ import React, { useContext, memo } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { LocaleContext } from '../../../context/localeContext'
 import CkContant from '../../core/CkContant'
+import DateContainer from '../../core/UpdatedAt/index'
 
 const LoansContainer = ({ loans, selected, setSelected }) => {
   const { locale } = useContext(LocaleContext)
@@ -9,12 +10,15 @@ const LoansContainer = ({ loans, selected, setSelected }) => {
   return (
     <div className="loans_conatiner">
       {selected ? (
-        <CkContant {...selected}>
-          <div className="selected_loan_header">
-            <img src={selected.icon} alt="" />
-            <p>{selected[`title_${locale}`]}</p>
-          </div>
-        </CkContant>
+        <>
+          <CkContant {...selected}>
+            <div className="selected_loan_header">
+              <img src={selected.icon} alt="" />
+              <p>{selected[`title_${locale}`]}</p>
+            </div>
+          </CkContant>
+          <DateContainer date={selected.updated_at} />
+        </>
       ) : (
         <div className="loans_type_wrapper">
           {loans.map((loan, index) => (

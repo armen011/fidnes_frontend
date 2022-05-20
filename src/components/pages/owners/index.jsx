@@ -9,6 +9,7 @@ import { GlobalData } from '../../../context/globalData'
 import axios from 'axios'
 import requests from '../../../const/requests'
 import CkContant from '../../core/CkContant'
+import DateContainer from '../../core/UpdatedAt'
 
 const Owners = () => {
   const { locale } = useContext(LocaleContext)
@@ -96,9 +97,8 @@ const Owners = () => {
                   </a>
                 ))}
             </div>
+            <DateContainer date={data.updated_at} />
           </div>
-          {/* <span>{pages.small_texts[`static_test_first_${locale}`]}</span> */}
-          {/* <span>{pages.small_texts[`static_test_second_${locale}`]}</span> */}
         </div>
         <SideBar />
       </div>

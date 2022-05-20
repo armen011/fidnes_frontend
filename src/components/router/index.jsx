@@ -37,7 +37,7 @@ const Router = () => {
           <Route path="/consumer_rights" element={<ConsumerRights />} />
           <Route path="/results" element={<Results />} />
           <Route path="/management" element={<ManagementPage />} />
-          <Route path="/page" element={<CustomPage />} />
+          <Route path="/pages/:id" element={<CustomPage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>

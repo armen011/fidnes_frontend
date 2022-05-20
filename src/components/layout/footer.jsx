@@ -253,6 +253,12 @@ const Footer = () => {
               <li onClick={() => navigate('/sitemap')}>
                 {pages.titles[`sitemap_${locale}`]}
               </li>
+              {dinamicPages.footer &&
+                dinamicPages.footer.map((elm, index) => (
+                  <li key={index} onClick={() => navigate(`/pages/${elm.id}`)}>
+                    {elm[`title_${locale}`]}
+                  </li>
+                ))}
             </ul>
           </div>
 

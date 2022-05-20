@@ -4,6 +4,7 @@ import Icon from '../../core/Icon'
 import { AnimatePresence, motion } from 'framer-motion'
 import { LocaleContext } from '../../../context/localeContext'
 import CkContant from '../../core/CkContant'
+import DateContainer from '../../core/UpdatedAt'
 
 const ArticleItem = ({ id, setSelected, ...otherProps }) => {
   const navigate = useNavigate()
@@ -114,6 +115,8 @@ const ArticleContainer = ({ articles, selected, setSelected }) => {
                   </a>
                 ))}
             </div>
+
+            <DateContainer date={selected.updated_at} />
           </>
         ) : (
           <motion.ul

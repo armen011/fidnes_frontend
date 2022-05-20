@@ -33,6 +33,15 @@ const NewsFeed = ({ news, selected, page, pages }) => {
       return [...pages].splice(0, 5) || []
     }
   }
+  const switchDate = (date) => {
+    const selectedDate = new Date(date)
+    const res = `${selectedDate.getDate()}.${
+      selectedDate.getMonth() < 10
+        ? '0' + selectedDate.getMonth()
+        : selectedDate.getMonth()
+    }.${selectedDate.getFullYear()}  ${selectedDate.getHours()}:${selectedDate.getMinutes()}`
+    return res
+  }
 
   return (
     <div
@@ -47,11 +56,15 @@ const NewsFeed = ({ news, selected, page, pages }) => {
             </div>
             <div className="news_content_wrapper">
               <div className="news_info_bar">
-                <div className="news_date_info_wrapper">{selected.date}</div>
+                <div className="news_date_info_wrapper">
+                  {switchDate(selected.date)}
+                </div>
                 <Status status={selected ? selected.status : []} />
               </div>
               <div className="news_text_wrapper">
-                <h3 style={{marginBottom: '12px'}}>{selected[`title_${locale}`]}</h3>
+                <h3 style={{ marginBottom: '12px' }}>
+                  {selected[`title_${locale}`]}
+                </h3>
                 <div
                   className="ck-content"
                   dangerouslySetInnerHTML={{

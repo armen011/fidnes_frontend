@@ -4,6 +4,7 @@ import { LocaleContext } from '../../../context/localeContext'
 import Icon from '../../core/Icon'
 import { useNavigate } from 'react-router-dom'
 import CkContant from '../../core/CkContant'
+import DateContainer from '../../core/UpdatedAt'
 
 const ConsumerItem = ({ id, setSelected, ...otherProps }) => {
   const navigate = useNavigate()
@@ -118,6 +119,7 @@ const ConsumerMenu = ({ selected, consumers, setSelected }) => {
                   </a>
                 ))}
             </div>
+            <DateContainer date={selected.updated_at} />
           </>
         ) : (
           <motion.ul

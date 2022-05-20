@@ -3,23 +3,82 @@
   background-color: white;
   .reports_container {
     width: 100%;
-    height: auto;
     padding-top: 32px;
     display: flex;
     justify-content: center;
     .reports_main_wrapper {
       width: 952px;
       display: flex;
-      background-color: aqua;
+      padding: 24px;
+      height: fit-content;
+      background: #f5f5f5;
+      border-radius: 8px;
       .report_types_container {
-        width: 300px;
-        height: 400px;
-        background-color: red;
+        margin-right: 16px;
+        .type_container {
+          width: 350px;
+          border: 1px solid #d0d0d2;
+          border-radius: 8px;
+          font-weight: 400;
+          font-size: 20px;
+          line-height: 30px;
+          padding: 12px;
+          color: #16131e;
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 24px;
+          cursor: pointer;
+        }
+        .selected_type_conatiner {
+          font-weight: 600;
+          color: #482003;
+        }
       }
       .selected_report_content_container {
-        width: calc(400px);
-        height: 400px;
-        color: green;
+        width: calc(100% - 366px);
+        .intermediate_container {
+          width: 100%;
+          padding-left: 8px;
+          margin-bottom: 8px;
+          .selected_intermediant {
+            padding: 0 8px;
+            > a {
+              padding: 8px 16px;
+              background: #f5f5f5;
+              border: 1px solid #d0d0d2;
+              border-radius: 8px;
+              margin-bottom: 8px;
+              display: flex;
+              align-items: center;
+              font-size: 12px;
+              line-height: 14px;
+              color: #16131e;
+              > div {
+                margin-right: 4px;
+              }
+            }
+          }
+        }
+        .container {
+          padding: 0 8px;
+          margin-bottom: 16px;
+
+          > a {
+            padding: 8px 16px;
+            background: #f5f5f5;
+            border: 1px solid #d0d0d2;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            font-size: 12px;
+            line-height: 14px;
+            color: #16131e;
+            > div {
+              margin-right: 4px;
+            }
+          }
+        }
       }
     }
   }
@@ -41,7 +100,6 @@
       .reports_main_wrapper {
         padding: 16px;
         width: 100%;
-        align-items: center;
       }
     }
   }
@@ -51,7 +109,73 @@
   .reports_wrapper {
     .reports_container {
       .reports_main_wrapper {
-        height: auto;
+        flex-direction: column;
+        align-items: center;
+        .report_types_container {
+          margin: 0;
+          .type_container {
+            width: 100%;
+            max-width: 422px;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 18px;
+            padding: 8px;
+            margin-bottom: 12px;
+            align-items: center;
+          }
+          .selected_type_conatiner {
+            font-weight: 600;
+            color: #482003;
+          }
+        }
+        .selected_report_content_container {
+          width: 100%;
+          max-width: 422px;
+
+          .intermediate_container {
+            width: 100%;
+            padding-left: 8px;
+            margin-bottom: 8px;
+            .selected_intermediant {
+              padding: 0 8px;
+              > a {
+                padding: 8px 16px;
+                background: #f5f5f5;
+                border: 1px solid #d0d0d2;
+                border-radius: 8px;
+                margin-bottom: 8px;
+                display: flex;
+                align-items: center;
+                font-size: 12px;
+                line-height: 14px;
+                color: #16131e;
+                > div {
+                  margin-right: 4px;
+                }
+              }
+            }
+          }
+          .container {
+            padding: 0 8px;
+            margin-bottom: 16px;
+
+            > a {
+              padding: 8px 16px;
+              background: #f5f5f5;
+              border: 1px solid #d0d0d2;
+              border-radius: 8px;
+              margin-bottom: 8px;
+              display: flex;
+              align-items: center;
+              font-size: 12px;
+              line-height: 14px;
+              color: #16131e;
+              > div {
+                margin-right: 4px;
+              }
+            }
+          }
+        }
       }
     }
   }

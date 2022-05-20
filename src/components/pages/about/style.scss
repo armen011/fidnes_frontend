@@ -17,6 +17,7 @@
         border-radius: 8px;
         padding: 32px;
         margin-bottom: 40px;
+        position: relative;
         .files-wrapper {
           > a {
             display: flex;
@@ -26,7 +27,7 @@
             font-size: 16px;
             line-height: 24px;
             font-weight: 500;
-            > svg{
+            > svg {
               margin-right: 16px;
             }
           }
