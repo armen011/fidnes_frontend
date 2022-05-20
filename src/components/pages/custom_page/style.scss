@@ -7,20 +7,10 @@
     padding-top: 32px;
     display: flex;
     justify-content: center;
-    .reports_main_wrapper {
+    .reports_wrapper {
       width: 952px;
       display: flex;
-      background-color: aqua;
-      .report_types_container {
-        width: 300px;
-        height: 400px;
-        background-color: red;
-      }
-      .selected_report_content_container {
-        width: calc(400px);
-        height: 400px;
-        color: green;
-      }
+      flex-direction: column;
     }
   }
 }
@@ -38,7 +28,7 @@
   .reports_wrapper {
     .reports_container {
       padding: 0;
-      .reports_main_wrapper {
+      .reports_wrapper {
         padding: 16px;
         width: 100%;
         align-items: center;
@@ -50,7 +40,7 @@
 @media (max-width: 700px) {
   .reports_wrapper {
     .reports_container {
-      .reports_main_wrapper {
+      .reports_wrapper {
         height: auto;
       }
     }

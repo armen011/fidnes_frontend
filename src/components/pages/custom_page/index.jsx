@@ -6,9 +6,8 @@ import { useQuery } from '../../../hooks'
 import { LocaleContext } from '../../../context/localeContext'
 import { GlobalData } from '../../../context/globalData'
 import './style.scss'
-import SideBar from '../../core/SideBar'
 
-const Reports = () => {
+const CustomPage = () => {
   const selectedReportTypeId = useQuery('report_type')
   const { locale } = useContext(LocaleContext)
   const { globalData } = useContext(GlobalData)
@@ -18,13 +17,14 @@ const Reports = () => {
     () => (globalData ? globalData.Report : {}),
     [globalData]
   )
-  const [selected, setSelected] = useState(reports[reportTypes])
-  console.log('selected', selected)
-  console.log('reportTypes', reportTypes)
+  const [selected, setSelected] = useState(undefined)
 
-  console.log('reports', reports)
   useEffect(() => {
-    if (selectedReportTypeId) setSelected(reports[selectedReportTypeId])
+    if (selectedReportTypeId) {
+      setSelected(reports[`${selectedReportTypeId}`])
+    } else {
+      setSelected(undefined)
+    }
   }, [selectedReportTypeId, reports])
 
   return (
@@ -50,15 +50,13 @@ const Reports = () => {
         }
       />
       <div className="reports_container">
-        <div className="reports_main_wrapper">
-          <div className="report_types_container"></div>
-          <div className="selected_report_content_container"></div>
+        <div className="reports_wrapper">
+          <div className="report_main_container"></div>
         </div>
-        <SideBar />
       </div>
       <LoanCalculator />
     </div>
   )
 }
 
-export default React.memo(Reports)
+export default React.memo(CustomPage)

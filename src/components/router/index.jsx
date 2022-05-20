@@ -16,6 +16,7 @@ import Results from '../pages/results'
 import Article from '../pages/article'
 import NotFoundPage from '../pages/404/NotFoundPage'
 import ManagementPage from '../pages/management/ManagementPage'
+import CustomPage from '../pages/custom_page'
 
 const Router = () => {
   return (
@@ -36,7 +37,8 @@ const Router = () => {
           <Route path="/consumer_rights" element={<ConsumerRights />} />
           <Route path="/results" element={<Results />} />
           <Route path="/management" element={<ManagementPage />} />
-          <Route path="*" element={<NotFoundPage/>} />
+          <Route path="/page" element={<CustomPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>
