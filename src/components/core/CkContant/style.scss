@@ -4,8 +4,9 @@
   overflow: hidden;
   position: relative;
   > .ck-content {
+    overflow-x: auto;
     max-width: 100%;
-      table {
+    table {
       max-width: 100%;
     }
   }

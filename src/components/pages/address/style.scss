@@ -29,7 +29,7 @@
       }
     }
     .sidebar_conatiner {
-      width: 342px;
+      width: 362px;
       height: fit-content;
       background: #f5f5f5;
       border-radius: 8px;
@@ -38,7 +38,7 @@
 
       .item_conatiner {
         width: 100%;
-        &:not(:first-child){
+        &:not(:first-child) {
           margin-top: 32px;
         }
         li:nth-child(1) {
@@ -60,6 +60,9 @@
           display: flex;
           align-items: center;
           margin-bottom: 16px;
+          svg {
+            margin-right: 6px;
+          }
           > a {
             font-weight: 400;
             font-size: 12px;
