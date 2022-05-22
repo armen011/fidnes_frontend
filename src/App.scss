@@ -7,7 +7,11 @@
   }
 }
 a {
+  color: #dfb43c;
   text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }
 ul {
   list-style: none;

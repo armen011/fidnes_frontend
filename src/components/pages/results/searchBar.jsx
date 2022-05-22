@@ -7,11 +7,20 @@ import { SearchInput } from '../../core/Input'
 
 const ResultItem = ({ title, description, url }) => {
   const navigate = useNavigate()
+  const regex = /&nbsp;/gi
 
   return (
-    <div className="result_item_wrapper" onClick={() => navigate(url)}>
+    <div
+      className="result_item_wrapper"
+      onClick={() => {
+        console.log('url', url)
+        navigate(url)
+      }}
+    >
       <h4>{title}</h4>
-      <p>{description}</p>
+      <p className="ck-content">
+        {description && description.replace(regex, ' ')}
+      </p>
     </div>
   )
 }
@@ -21,6 +30,7 @@ const searchUrls = {
   about: (id) => `/about?article=${id}`,
   consumer_rights: (id) => `/consumer_rights?consumer_right_id=${id}`,
   menu: () => '/owners',
+  footer: (id) => `/pages/${id}`,
 }
 
 const SearchBar = ({ results }) => {
@@ -50,7 +60,7 @@ const SearchBar = ({ results }) => {
               url={
                 elm.installation
                   ? searchUrls[elm.installation](elm.id)
-                  : `/news?news_id=${elm.id}`
+                  : `/pages${elm.id}`
               }
               title={elm[`title_${locale}`]}
               description={elm[`description_${locale}`]}

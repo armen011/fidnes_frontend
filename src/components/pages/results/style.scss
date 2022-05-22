@@ -62,6 +62,12 @@
           width: 100%;
           min-height: 96px;
           margin-bottom: 32px;
+          &:hover {
+            cursor: pointer;
+            h4 {
+              color: #dfb43c;
+            }
+          }
           > h4 {
             font-weight: 500;
             font-size: 24px;

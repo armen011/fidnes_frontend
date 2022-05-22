@@ -17,7 +17,7 @@ const Results = () => {
   useEffect(() => {
     axios.get(requests.doSearch(searchText)).then(({ data }) => {
       if (data) {
-        setResults([...data.Page, ...data.News])
+        setResults([...data.Page, ...data.News, ...data.Loan])
       }
     })
   }, [searchText])
