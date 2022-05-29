@@ -1,10 +1,10 @@
-* ,:not(.ck-content){
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  &:focus {
-    outline: none;
-  }
+* {
+ margin: 0;
+ padding: 0;
+ box-sizing: border-box;
+ &:focus {
+   outline: none;
+ }
 }
 a {
   color: #dfb43c;
@@ -13,7 +13,7 @@ a {
     text-decoration: underline;
   }
 }
-ul,:not(.ck-content) {
+ul {
   list-style: none;
 }
 li {
@@ -114,6 +114,19 @@ button {
   --ck-highlight-pen-red: hsl(0, 85%, 49%);
   --ck-image-style-spacing: 1.5em;
   --ck-todo-list-checkmark-size: 16px;
+}
+
+.ck-content{
+  *{
+    all: revert
+  }
+  a {
+    color: #dfb43c;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
 /* ckeditor5-highlight/theme/highlight.css */
