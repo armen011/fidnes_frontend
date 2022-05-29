@@ -58,6 +58,7 @@ const infoVariant = {
 const Carousel = () => {
   const { locale } = useContext(LocaleContext)
   const { globalData } = useContext(GlobalData)
+  const [isHovered,setIsHovered]=useState(false)
 
   const slider = useMemo(
     () => (globalData ? globalData.Slider : []),
@@ -69,12 +70,13 @@ const Carousel = () => {
     return Math.abs(offset) * velocity
   }
 
+
   const swipeConfidenceThreshold = 10000
 
   const paginate = useCallback(
     (newPage) => {
-      if (newPage < 0) newPage = 3
-      if (newPage > slider.length) newPage = 0
+      if (newPage < 0) newPage =slider.length-1
+      if (newPage > slider.length-1) newPage = 0
       const newDirection = newPage > page ? 1 : -1
       setPage([newPage, newDirection])
     },
@@ -84,11 +86,13 @@ const Carousel = () => {
   useEffect(() => {
     let timeOut
     timeOut = setTimeout(() => {
-      paginate(page + 1)
+      if(!isHovered){
+        paginate(page + 1)
+      }
     }, 3500)
 
     return () => clearTimeout(timeOut)
-  }, [paginate, page])
+  }, [paginate, page,isHovered])
 
   const imageIndex = wrap(0, slider.length, page)
   const navigate = useNavigate()
@@ -104,7 +108,10 @@ const Carousel = () => {
             enter="enter"
             animate="center"
             exit="exit"
-          />
+            onHoverStart={()=>setIsHovered(true)}
+            onHoverEnd={()=>setIsHovered(false)}
+
+/>
         </div>
         <div className="info_carousel_wrapper">
           <div className="info_carousel">
@@ -135,6 +142,8 @@ const Carousel = () => {
                   paginate(page - 1)
                 }
               }}
+              onHoverStart={()=>setIsHovered(true)}
+              onHoverEnd={()=>setIsHovered(false)}
             >
               <div className="texts_wrapper">
                 <span>
@@ -187,6 +196,8 @@ const Carousel = () => {
                 paginate(page - 1)
               }
             }}
+            onHoverStart={()=>setIsHovered(true)}
+            onHoverEnd={()=>setIsHovered(false)}
           />
         </div>
         <div className="info_wrapper_mobile">
@@ -196,6 +207,8 @@ const Carousel = () => {
             initial="enter"
             animate="center"
             exit="exit"
+            onHoverStart={()=>setIsHovered(true)}
+            onHoverEnd={()=>setIsHovered(false)}
           >
             <div className="texts_wrapper">
               <span>
@@ -217,6 +230,7 @@ const Carousel = () => {
                   window.open(slider[imageIndex].link, '_blank')
                 }
               }}
+             
             >
               {pages.button_texts[`learn_more_${locale}`]}
             </button>

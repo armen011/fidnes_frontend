@@ -13,7 +13,6 @@ const ResultItem = ({ title, description, url }) => {
     <div
       className="result_item_wrapper"
       onClick={() => {
-        console.log('url', url)
         navigate(url)
       }}
     >
