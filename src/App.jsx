@@ -20,7 +20,7 @@ const App = () => {
         setIsLoading(false)
       }
     })
-    new TawkTo('123', 123)
+    new TawkTo('6288ed76b0d10b6f3e735bbf', '1g3jdv6gd')
   }, [])
   if (isLoading) {
     return (
