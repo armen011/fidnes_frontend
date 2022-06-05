@@ -10,6 +10,20 @@
       max-width: 100%;
     }
   }
+  > a {
+    display: flex;
+    align-items: center;
+    color: #333;
+    > img {
+      margin: 4px;
+    }
+    svg {
+      margin: 4px;
+    }
+    &:hover {
+      color: #dfb43c;
+    }
+  }
 
   .dropdowns_conatiner {
     width: 100%;

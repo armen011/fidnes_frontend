@@ -12,9 +12,7 @@ const PageDropdown = ({ ...otherProps }) => {
         className="dropdoen_title_button_container"
         onClick={() => setIsOpened(!isOpened)}
       >
-        <p style={{ fontWeight: isOpened ? '700' : '400' }}>
-          {otherProps[`title_${locale}`]}
-        </p>
+        <p>{otherProps[`title_${locale}`]}</p>
         <Icon
           iconName={`page_drop_down_${isOpened ? 'close' : 'open'}`}
           className="icon_wrapper"
@@ -26,10 +24,22 @@ const PageDropdown = ({ ...otherProps }) => {
         />
       </div>
       <div className="dropdown_content_wrapper">
-        {isOpened && (<>
-          {otherProps.image && <img src={otherProps.image} alt="Img"/>}
-        <CkContant {...otherProps} />
-        </>)}
+        {isOpened && (
+          <>
+            {otherProps.image && (
+              <img
+                src={otherProps.image}
+                alt="Img"
+                style={{
+                  maxWidth: '500px',
+                  borderRadius: '35px',
+                  width: '100%',
+                }}
+              />
+            )}
+            <CkContant {...otherProps} />
+          </>
+        )}
       </div>
     </div>
   )

@@ -62,6 +62,12 @@
             color: #45424b;
             margin-left: 8px;
           }
+          &:hover {
+            text-decoration: none;
+            span {
+              color: #dfb43c;
+            }
+          }
         }
         a:last-child li {
           border-bottom: 0;
@@ -273,7 +279,6 @@
     }
   }
 }
-
 @media (max-width: 754px) {
   .legal_acts_wrapper {
     .legal_acts_container {
@@ -384,5 +389,11 @@
         }
       }
     }
+  }
+}
+a:hover {
+  text-decoration: none !important;
+  span {
+    color: #dfb43c !important;
   }
 }

@@ -1,10 +1,10 @@
 * {
- margin: 0;
- padding: 0;
- box-sizing: border-box;
- &:focus {
-   outline: none;
- }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  &:focus {
+    outline: none;
+  }
 }
 a {
   color: #dfb43c;
@@ -116,9 +116,9 @@ button {
   --ck-todo-list-checkmark-size: 16px;
 }
 
-.ck-content{
-  *{
-    all: revert
+.ck-content {
+  * {
+    all: revert;
   }
   a {
     color: #dfb43c;
@@ -293,6 +293,12 @@ button {
 .ck-content .table {
   margin: 1em auto;
   display: table;
+  border-radius: 32px;
+  overflow: hidden;
+  border: 1px solid;
+  > tbody {
+    border-style: hidden;
+  }
 }
 /* ckeditor5-table/theme/table.css */
 .ck-content .table table {

@@ -326,12 +326,15 @@
     "info_bar_hy": "Նախորդ տարբերակին անցում կատարելու համար սեղմել  ",
     "info_bar_ru": "Нажмите, чтобы переключиться на предыдущую версию  ",
     "info_bar_en": "Click to switch to the previous version  ",
-    "footer_new_text_hy":"Կազմակերպության կողմից մատուցվող ծառայությունների վերաբերյալ սպառիչ տեղեկություններ կարող եք ստանալ զանգահարելով +374 47 97 01 97 կամ այցելելով Կազմակերպության գրասենյակ` ԼՂՀ, ք. Ստեփանակերտ, Մ. Գոշ 2/33:",
-    "footer_new_text_ru":"Получить исчерпывающую информацию об услугах, предоставляемых организацией, можно по телефону +374 47 97 01 97 или посетив офис Организации в НКР, г. Степанакерт, М. Гоша 2/33.",
-    "footer_new_text_en":"You can get comprehensive information about the services provided by the organization by calling +374 47 97 01 97 or visiting the Organization's office in NKR, c. Stepanakert, M. Gosh 2/33.",
+    "footer_new_text_hy": "Կազմակերպության կողմից մատուցվող ծառայությունների վերաբերյալ սպառիչ տեղեկություններ կարող եք ստանալ զանգահարելով +374 47 97 01 97 կամ այցելելով Կազմակերպության գրասենյակ` ԼՂՀ, ք. Ստեփանակերտ, Մ. Գոշ 2/33:",
+    "footer_new_text_ru": "Получить исчерпывающую информацию об услугах, предоставляемых организацией, можно по телефону +374 47 97 01 97 или посетив офис Организации в НКР, г. Степанакерт, М. Гоша 2/33.",
+    "footer_new_text_en": "You can get comprehensive information about the services provided by the organization by calling +374 47 97 01 97 or visiting the Organization's office in NKR, c. Stepanakert, M. Gosh 2/33.",
 
-    "management_hy":"Ղեկավարություն",
-    "management_ru":"Управление",
-    "management_en":"Management"
+    "management_hy": "Ղեկավարություն",
+    "management_ru": "Управление",
+    "management_en": "Management",
+    "attached_file_hy": "կցված ֆայլ",
+    "attached_file_ru": "Прикрепленный файл",
+    "attached_file_en": "Attached file"
   }
 }

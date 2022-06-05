@@ -183,7 +183,7 @@ const Footer = () => {
           </div>
         </div>
         <div className="footer-new-text-for-all-pages">
-          <p>{pages.small_texts[`footer_new_text_${locale}`]}</p>
+          <p>{footerTexts.info_section[`text_${locale}`]}</p>
         </div>
       </div>
       <div className="footer_second_part">

@@ -15,9 +15,9 @@ const DateContainer = ({ date }) => {
     return res
   }
   return (
-    <date className="updated_at_wrapper">
+    <div className="updated_at_wrapper">
       {pages.small_texts[`updated_at_${locale}`] + ' ' + switchDate(date)}
-    </date>
+    </div>
   )
 }
 
