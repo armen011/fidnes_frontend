@@ -44,7 +44,7 @@ const CkContant = ({ children, instants, ...otherProps }) => {
           __html: text,
         }}
       ></div>
-      {otherProps.file_type !== null && (
+      {otherProps.file_type && (
         <a href={otherProps.file} target="_blank" rel="noreferrer">
           {otherProps.file_type === 'PDF' ? (
             <Icon iconName="pdf_file" width={24} height={24} />
