@@ -5,7 +5,6 @@ import { PageDropdown } from '../DropDown'
 import Icon from '../Icon'
 import externalLink from '../../../assets/img/externalLint.svg'
 import './style.scss'
-import { pages } from '../../../locales'
 
 const CkContant = ({ children, instants, ...otherProps }) => {
   const { locale } = useContext(LocaleContext)
@@ -22,7 +21,6 @@ const CkContant = ({ children, instants, ...otherProps }) => {
           td.innerHTML = res
           td.style.cssText = `
                 padding: 10px !important;
-                word-break: break-word;
             `
         })
       })
@@ -51,7 +49,7 @@ const CkContant = ({ children, instants, ...otherProps }) => {
           ) : (
             <img src={externalLink} alt="" />
           )}
-          {pages.small_texts[`attached_file_${locale}`]}
+          {otherProps[`file_title_${locale}`]}
         </a>
       )}
       {instants && (

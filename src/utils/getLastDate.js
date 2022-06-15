@@ -6,7 +6,8 @@ export const getLatestDate = (array) => {
     }
   })
   const date = new Date(lastDate);
+  const month = date.getMonth() + 1;
   
-  const res = `${date.getDate() < 10 ? '0'+date.getDate() : date.getDate()}.${date.getMonth() < 10 ? '0'+date.getMonth() : date.getMonth() }.${date.getFullYear()}  ${date.getHours() < 10 ? '0'+date.getHours() : date.getHours()}:${date.getMinutes() < 10 ? '0'+date.getMinutes() : date.getMinutes()}`
+  const res = `${date.getDate() < 10 ? '0'+date.getDate() : date.getDate()}.${month < 10 ? '0'+month : month }.${date.getFullYear()}  ${date.getHours() < 10 ? '0'+date.getHours() : date.getHours()}:${date.getMinutes() < 10 ? '0'+date.getMinutes() : date.getMinutes()}`
   return res
 }

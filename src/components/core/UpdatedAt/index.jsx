@@ -7,10 +7,10 @@ const DateContainer = ({ date }) => {
   const { locale } = useContext(LocaleContext)
   const switchDate = (date) => {
     const selectedDate = new Date(date)
-    const res = `${selectedDate.getDate()}.${
-      selectedDate.getMonth() < 10
-        ? '0' + selectedDate.getMonth()
-        : selectedDate.getMonth()
+    const res = `${selectedDate.getDate() < 10 ? '0' + selectedDate.getDate() : selectedDate.getDate()}.${
+      (selectedDate.getMonth() + 1) < 10
+        ? '0' + (selectedDate.getMonth() + 1)
+        : (selectedDate.getMonth() + 1)
     }.${selectedDate.getFullYear()}  ${selectedDate.getHours()}:${selectedDate.getMinutes()}`
     return res
   }
