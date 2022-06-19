@@ -5,6 +5,7 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { LocaleContext } from '../../../context/localeContext'
 import CkContant from '../../core/CkContant'
 import DateContainer from '../../core/UpdatedAt'
+import { pages } from '../../../locales'
 
 const ArticleItem = ({ id, setSelected, ...otherProps }) => {
   const navigate = useNavigate()
@@ -56,6 +57,17 @@ const ArticleContainer = ({ articles, selected, setSelected }) => {
           ease: 'easeInOut',
         },
       },
+    }),
+    []
+  )
+  const variantItem = useMemo(
+    () => ({
+      hidden: { y: -40, opacity: 0 },
+      show: {
+        y: 0,
+        opacity: 1,
+      },
+      exit: { opacity: 0 },
     }),
     []
   )
@@ -127,7 +139,31 @@ const ArticleContainer = ({ articles, selected, setSelected }) => {
           >
             {articles.map((elm, index) => (
               <ArticleItem key={index} {...{ setSelected, ...elm }} />
+
             ))}
+            {/* <li
+              className="page_title_wrapper"
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                window.open(`/management`, '_blank')
+              }}
+            >
+              {pages.small_texts[`management_${locale}`]}
+            </li> */}
+
+            <motion.li
+              className="article_item_wrapper"
+              variants={variantItem}
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                window.open(`/management`, '_blank')
+              }}
+            >
+              <span>{pages.small_texts[`management_${locale}`]}</span>
+              <Icon iconName="about_item_arrow_right" width={24} height={24} />
+            </motion.li>
           </motion.ul>
         )}
       </AnimatePresence>
