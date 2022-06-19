@@ -95,7 +95,7 @@ const Reports = () => {
           </div>
           <div className="selected_report_content_container">
             {selected &&
-              Object.keys(selected).map((key, index) => (
+              Object.keys(selected).reverse().map((key, index) => (
                 <ReportDropDown title={key} key={selectedReportTypeId + index}>
                   {selectedReportTypeId === 'intermediate' ? (
                     <div className="intermediate_container">

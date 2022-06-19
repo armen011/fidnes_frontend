@@ -141,16 +141,6 @@ const ArticleContainer = ({ articles, selected, setSelected }) => {
               <ArticleItem key={index} {...{ setSelected, ...elm }} />
 
             ))}
-            {/* <li
-              className="page_title_wrapper"
-              onClick={(e) => {
-                e.preventDefault()
-                e.stopPropagation()
-                window.open(`/management`, '_blank')
-              }}
-            >
-              {pages.small_texts[`management_${locale}`]}
-            </li> */}
 
             <motion.li
               className="article_item_wrapper"
