@@ -11,6 +11,12 @@ const CkContant = ({ children, instants, ...otherProps }) => {
   useEffect(() => {
     const tables = document.querySelectorAll('.ck_content_wrapper table')
     tables.forEach((item) => {
+      const fgr = item.parentNode
+      fgr.style.border = item.style.border ? item.style.border : null
+      fgr.style.backgroundColor = item.style.backgroundColor
+        ? item.style.backgroundColor
+        : null
+      item.style.border = null
       const tbody = item.querySelectorAll('tbody')
       tbody.forEach((tbody) => {
         const td = tbody.querySelectorAll('tr td')
