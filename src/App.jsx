@@ -29,7 +29,8 @@ const App = () => {
       </div>
     )
   }
-
+  document.querySelector('iframe[src="about:blank"]').style.cssText +=
+    'bottom: 80px !important'
   return (
     <div>
       <LocaleContext.Provider value={{ locale, setLocale }}>
