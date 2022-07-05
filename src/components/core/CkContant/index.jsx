@@ -25,9 +25,8 @@ const CkContant = ({ children, instants, ...otherProps }) => {
           const res = val.replaceAll('&nbsp;', ' ')
 
           td.innerHTML = res
-          td.style.cssText = `
-                padding: 10px !important;
-            `
+          td.style.padding = '10px !important'
+          td.style.wordBreak = 'break-word !important'
         })
       })
     })

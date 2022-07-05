@@ -28,9 +28,13 @@ const App = () => {
         <BallTriangle color="#dfb43c" width={200} height={200} />
       </div>
     )
+  } else {
+    try {
+      let tawkToIframe = document.querySelector('iframe[src="about:blank"]')
+      if (tawkToIframe.style.bottom === '20px')
+        tawkToIframe.style.bottom = '80px'
+    } catch {}
   }
-  document.querySelector('iframe[src="about:blank"]').style.cssText +=
-    'bottom: 80px !important'
   return (
     <div>
       <LocaleContext.Provider value={{ locale, setLocale }}>

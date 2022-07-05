@@ -109,7 +109,8 @@
       background: white;
     }
     .content_selector_controller {
-      width: 200px;
+      min-width: 200px;
+      max-width: 80%;
       height: 10px;
       display: flex;
       justify-content: space-between;
