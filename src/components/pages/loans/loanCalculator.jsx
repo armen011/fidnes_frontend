@@ -85,7 +85,7 @@ const LoanCalculator = () => {
         <LoanModal
           closeModal={() => {
             setIsModalOpened(false)
-            setFormValues(initialValue)
+            // setFormValues(initialValue)
           }}
           formValues={formValues}
         />

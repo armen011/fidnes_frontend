@@ -1,4 +1,10 @@
-import React, { useContext, useState } from 'react'
+import React, {
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+  useMemo,
+} from 'react'
 import { pages } from '../../../locales'
 import { LocaleContext } from '../../../context/localeContext'
 import { FirstConvertCard, SecondConvertCard } from '../../core/Card'
@@ -22,22 +28,28 @@ const Converter = () => {
     return neededExchange.includes(abbreviation)
   })
 
-  const allExchanges = [
-    ...filteredExchange,
-    { abbreviation: 'AMD', purchase: 1, sales: 1 },
-  ]
-  const handleCountOnChange = (value) => {
-    const { sales: fromSales } = allExchanges.filter((elm) => {
-      return elm.abbreviation === from
-    })[0]
-    const { purchase: toPurchase } = allExchanges.filter(
-      (elm) => elm.abbreviation === to
-    )[0]
+  const allExchanges = useMemo(() => {
+    return [...filteredExchange, { abbreviation: 'AMD', purchase: 1, sales: 1 }]
+  }, [filteredExchange])
+  const handleCountOnChange = useCallback(
+    (value) => {
+      const { sales: fromSales } = allExchanges.filter((elm) => {
+        return elm.abbreviation === from
+      })[0]
+      const { purchase: toPurchase } = allExchanges.filter(
+        (elm) => elm.abbreviation === to
+      )[0]
 
-    setCounted(
-      (parseFloat(value) * parseFloat(fromSales)) / parseFloat(toPurchase)
-    )
-  }
+      setCounted(
+        (parseFloat(value) * parseFloat(fromSales)) / parseFloat(toPurchase)
+      )
+    },
+    [from, to, allExchanges]
+  )
+
+  useEffect(() => {
+    handleCountOnChange(value)
+  }, [handleCountOnChange, value])
 
   return (
     <div className="coverter_container">
@@ -98,6 +110,13 @@ const Converter = () => {
             iconName="coverter_caluclator_exchange"
             width={32}
             height={32}
+            style={{cursor: "pointer"}}
+            onClick={() => {
+              setFromTo((prev) => ({
+                to: prev.from,
+                from: prev.to
+              }))
+            }}
           />
           <div className="input_core">
             <div className="dropdown_wrapper">

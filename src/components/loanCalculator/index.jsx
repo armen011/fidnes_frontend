@@ -34,11 +34,12 @@ const LoanCalculator = () => {
   const paginate = useCallback(
     (newPage) => {
       if (newPage < 0) newPage = 3
-      if (newPage > 3) newPage = 0
+      // if (newPage > 3) newPage = 0
+      if (newPage > (LoanTypes.length)-1) newPage = 0
       const newDirection = newPage > page ? 1 : -1
       setPage([newPage, newDirection])
     },
-    [page]
+    [page, LoanTypes]
   )
 
   useEffect(() => {
@@ -188,7 +189,7 @@ const LoanCalculator = () => {
         <LoanModal
           closeModal={() => {
             setIsModalOpened(false)
-            setFormValues(initialValue)
+            // setFormValues(initialValue)
           }}
           formValues={formValues}
         />
