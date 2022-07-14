@@ -17,7 +17,7 @@ export const LoanCalculatorInput = React.memo(
           placeholder="0"
           value={value}
           onChange={({ target: { value } }) => {
-            onChange(parseInt(value))
+            onChange(value)
           }}
         />
         <span>{typeName}</span>

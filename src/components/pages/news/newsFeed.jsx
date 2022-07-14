@@ -35,10 +35,23 @@ const NewsFeed = ({ news, selected, page, pages }) => {
   }
   const switchDate = (date) => {
     const selectedDate = new Date(date)
-    const res = `${selectedDate.getDate() < 10 ? '0' + selectedDate.getDate() : selectedDate.getDate()}.${(selectedDate.getMonth() + 1) < 10
+    const res = `${
+      selectedDate.getDate() < 10
+        ? '0' + selectedDate.getDate()
+        : selectedDate.getDate()
+    }.${
+      selectedDate.getMonth() + 1 < 10
         ? '0' + (selectedDate.getMonth() + 1)
-        : (selectedDate.getMonth() + 1)
-      }.${selectedDate.getFullYear()}  ${selectedDate.getHours()}:${selectedDate.getMinutes()}`
+        : selectedDate.getMonth() + 1
+    }.${selectedDate.getFullYear()}  ${
+      selectedDate.getHours() < 10
+        ? '0' + selectedDate.getHours()
+        : selectedDate.getHours()
+    }:${
+      selectedDate.getMinutes() < 10
+        ? '0' + selectedDate.getMinutes()
+        : selectedDate.getMinutes()
+    }`
     return res
   }
 

@@ -11,7 +11,7 @@ import { FirstConvertCard, SecondConvertCard } from '../../core/Card'
 import { GlobalData } from '../../../context/globalData'
 import Icon from '../../core/Icon'
 
-const neededExchange = ['EUR', 'RUB', 'USD']
+const neededExchange = ['USD', 'EUR', 'RUB']
 
 const Converter = () => {
   const { locale } = useContext(LocaleContext)

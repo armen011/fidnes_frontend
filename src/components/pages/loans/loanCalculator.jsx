@@ -68,6 +68,12 @@ const LoanCalculator = () => {
           </div>
           <button
             onClick={() => {
+              setFormValues((prev) => ({
+                ...prev,
+                sum: parseFloat(prev.sum),
+                period: parseFloat(prev.period),
+                percentage: parseFloat(prev.percentage),
+              }))
               if (
                 formValues.sum > 0 &&
                 formValues.period > 0 &&

@@ -24,6 +24,9 @@ export const FirstConvertCard = () => {
   const filteredExchange = exchange.filter(({ abbreviation }) => {
     return neededExchange.includes(abbreviation)
   })
+  try {
+    filteredExchange.splice(0, 0, filteredExchange.pop())
+  } catch {}
 
   return (
     <div className="covert_card">
@@ -121,6 +124,9 @@ export const FirstConvertCardForSideBar = () => {
   const filteredExchange = exchange.filter(({ abbreviation }) => {
     return neededExchange.includes(abbreviation)
   })
+  try {
+    filteredExchange.splice(0, 0, filteredExchange.pop())
+  } catch {}
   return (
     <div className="subbar_covert_card">
       <div className="subbar_card_header">

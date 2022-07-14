@@ -30,6 +30,12 @@ const CkContant = ({ children, instants, ...otherProps }) => {
         })
       })
     })
+    const links = document.querySelectorAll('.ck-content a')
+    links.forEach((item) => {
+      if (!item.href.includes('fides.am')){
+        item.setAttribute('target', '_blank')
+      }
+    })
   })
 
   const text = otherProps[`text_${locale}`]
